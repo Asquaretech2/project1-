@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business | web create label</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	{% load widget_tweaks %}
+	<body>
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12">
+					<div class="landing-content">
+						<h1>Create the Label You would Like </h1>
+						
+					</div>
+				</div>
+				<hr style="width:1px; border-left: 2px solid white;padding:unset; height: 500px"/>
+				<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+					<div class="ui-block">
+						<div class="ui-block-content">
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Webseries_name">Webseries Name</label>
+											<input type="text" class="form-control" id="Webseries_name" name="Webseries_name" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Language">Language</label>
+											<input type="text" class="form-control" id="Language" name="Language" Required>
+										</div>
+									</div>
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Genre">Genre</label>
+											<input type="text" class="form-control" id="Genre" name="Genre" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Production_house">Production house</label>
+											<input type="text" class="form-control" id="Production_house" name="Production_house" Required>
+										</div>
+									</div>
+									<a href="{% url 'web_createlabel1' %}" class="btn btn-primary d-grid gap-2 col-6 mx-auto" type="submit" value="submit">
+										Next
+									</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="16" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

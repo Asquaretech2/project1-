@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+{% load static %}
+    <head>
+        <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+        {% for x in mydata  %}
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta property="og:title" content="{{ x.Movie_name }}" />
+        <meta property="og:genre" content="{{ x.genre }}" />
+        <meta property="og:image" content="{{ x.Poster.url }}" />
+        <meta property="og:description" content="{{ x.synopsis }}" />
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="{{ x.Movie_name }}" name="description">
+        <meta content="{{ x.synopsis }}" name="keywords">
+        <title>{{ x.Movie_name|capfirst }} </title>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'labelassets/font-awesome/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/tether/tether.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap-reboot.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/dropdown/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/formstyler/jquery.formstyler.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/formstyler/jquery.formstyler.theme.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/socicon/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/theme/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/recaptcha.css' %}">
+        <link rel="preload" as="style" href="{% static 'labelassets/mobirise/css/mbr-additional.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/mobirise/css/mbr-additional.css' %}" type="text/css">
+        {% endfor %}
+    </head>
+    <body>
+    {% for x in publiclabel %}
+    {% if forloop.counter <= 1 %}
+        <header id="header" class="fixed-top    header-transparent">
+            <div class="container-fluid"></div>
+        </header>
+        <section class="carousel slide testimonials-slider cid-rUNQmNln04" data-interval="false" id="header1-n" data-sortbtn="btn-primary">
+        {% for x in mydata %}
+
+        <!--Main Banner Start-->
+            <div class="carousel slide " role="listbox" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
+                <div class="carousel-inner ">
+                    <div class="carousel-item wrap">
+                        <div class="media-container-row">
+                            <div class="col-lg-12 image-element align-self-stretch">
+                                <div class="img-wrap">
+                                    <div class="card-box"></div>
+                                    <img src="{{ x.Banner.url }}" alt="Banner">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-element">
+                                <div class="container text-content">
+                                    <div class="col-lg-12 block-wrap">
+                                        <!--<h2 class="mbr-title mbr-section-title mbr-fonts-style align-left display-1" >{{ x.Movie_name }}</h2> -->
+                                        <div class="mbr-section-text">
+                                            <p class="mbr-text mbr-light mbr-fonts-style align-left display-7" >
+                                                A Film by {{ x.Director|capfirst }}
+                                            </p>
+                                        </div>
+                                        <div class="mbr-section-btn align-left">
+                                           <a class="btn btn-primary-outline display-4" href="">Releasing On <span>{{ x.Release_date }}</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item wrap">
+                        <div class="media-container-row">
+                            <div class="col-lg-12 image-element align-self-stretch">
+                                <div class="img-wrap">
+                                    <div class="card-box"></div>
+					<a href="https://www.youtube.com/watch?v={{ x.trailer }}">
+						<img src="{{ x.Banner.url }}" alt="Banner">
+					</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-element text-element-3">
+                                <div class="container text-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Main Banner End-->
+            <!--Photo Gallery Start-->
+
+            <div class="carousel-controls">
+                <a class="carousel-control-prev" role="button" data-slide="prev">
+                    <span aria-hidden="true" class="sign fa fa-chevron-left mbr-iconfont icon-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" role="button" data-slide="next">
+                    <span aria-hidden="true" class="fa fa-chevron-right mbr-iconfont sign icon-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!--Photo Gallery End-->
+            {% endfor %}
+        </section>
+        <section class="header3 cid-rUNVs9PTfh" id="content6-z" data-sortbtn="btn-primary">
+        <!--Top Synopsis mydata start-->
+        {% for x in mydata %}
+            <div class="container">
+                <div class="row content-row">
+                    <div class="col-md-12 col-lg-8 text-block">
+                        <div class="media-content">
+                            <h3 class="mbr-section-subtitle mbr-semibold align-left  mbr-bold mbr-fonts-style mbr-primary display-7">About the Movie</h3><hr>
+                            <div class="mbr-section-text">
+                                <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                    <span class="sliced">{{ x.synopsis|slice:":200" }}</span>
+                                    <span class="full" style="display:none;">{{ x.synopsis }}</span>
+                                    <button onclick="toggleContent(this)" class="readmore">Read more</button>
+                                </p>
+                            </div>
+                        </div>
+				        <div class="media-content">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 team-card col-lg-4">
+                                    <div class="card-wrap align-center">
+                                        <div class="image-wrap">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Top Synopsis mydata end-->
+		                    <div class="row justify-content-center">
+                                <div class="col-12 main-heading">
+                                    <br><h3 class="mbr-section-subtitle mbr-primary align-left mbr-fonts-style display-7">Recent Post</h3><hr>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                        {% for x in PostTextView %}
+                        <div class="mbr-section-text">
+                            <div class="post-date"> Posted On <span>{{ x.timestamp_field }}</span></div>
+                            <div class="mbr-section-text">
+                                <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                    <span class="sliced">{{ x.text|slice:":200" }}</span>
+                                    <span class="full" style="display:none;">{{ x.text }}</span>
+                                    <button onclick="toggleContent(this)" class="readmore">Read more</button>
+                                </p>
+                            </div>
+                            <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                <a href="{{ x.video|safe }}" target="_blank" ></a>
+                            </p>
+                        </div>
+                        <div class="Banner">
+                            <img src="{{ x.Image.url }}" alt="post image">
+                            <div class="social_sites">
+                              <div class="likes" >
+                                <a href="{% url 'socialuserlogin' %}" class="likes">Like:
+                                    <span>{{ x.like_count }}</span>
+                                </a>
+                            </div>
+                            <button class="comments" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+                                <a href="{% url 'socialuserlogin' %}" class="comments">Comments</a>
+                            </button>
+                            <div class="follow">
+                                    <a href="{% url 'socialuserlogin' %}" class="follow">Follow:
+                                        <span>{{ x.follow_count }}</span>
+                                    </a>
+                                </div>
+                            <div class="share" >
+                                <a href="{% url 'socialuserlogin' %}" class="share">Share</a>
+                            </div>
+                            </div><br><hr>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+        {% for x in mydata  %}
+        <div class="sticky">
+          <div class="col-lg-12" style="background: white;padding: 15px 15px;border: 1px solid #888;border-radius: 8px;">
+            <div class="img-wrap">
+							<h3 class="mbr-section-subtitle mbr-primary align-left mbr-fonts-style display-7" style="color: black;">Details</h3><hr>
+              <div class="card-box">
+
+								<table class="center">
+
+								  <tr style="height: 40px;">
+									<td><p>Directed by </p></td>
+									<td><span>{{ x.Director|capfirst }}</span></td>
+
+								  </tr>
+								  <tr style="height: 40px;">
+									<td><p>Produced by </p></td>
+									<td><span>{{ x.Producer|capfirst }}</span></td>
+
+								  </tr>
+								  <tr style="height: 40px;">
+									<td style="width: 116px;"><p>Production House </p></td>
+									<td><span>{{ x.Production_house|capfirst }}</span></td>
+
+								  </tr>
+								  <tr style="height: 40px;">
+									<td><p>Music  </p></td>
+									<td><span>{{ x.Music_director|capfirst }}</span></td>
+
+								  </tr>
+								  <tr style="height: 40px;">
+									<td><p>Genre </p></td>
+									<td><span>{{ x.Genre|capfirst }}</span></td>
+
+								  </tr>
+								  <tr style="height: 40px;">
+									<td><p>Language </p></td>
+									<td><span>{{ x.Language|capfirst }}</span></td>
+
+								  </tr>
+                  <tr style="height: 40px;">
+                    <td><p>Running Time </p></td>
+                    <td><span>{{ x.Running_Time }}</span></td>
+
+                  </tr>
+                    <tr style="height: 40px;">
+                      <td><p>Maturity </p></td>
+                      <td><span>{{ x.Maturity|capfirst }}</span></td>
+
+                  </tr>
+                  <tr style="height: 40px;">
+                  <td><p>Budget </p></td>
+                  <td><span>{{ x.Budget|capfirst }}</span></td>
+
+                </tr>
+                  <tr style="height: 40px;">
+                    <td><p>Cast </p></td>
+                    <td><span>{{ x.cast|capfirst }}</span></td>
+
+                    </tr>
+								</table>
+
+              </div>
+							<br>
+              <div class="" style="background: #ed6626;color: white;overflow: hidden;width: fit-content;padding: 6px 14px;border-radius: 15px;font-size: 12px;font-family: sans-serif;">
+                  Releasing On <span>{{ x.Release_date }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+					<br>
+          <div class="carousel slide testimonials-slider cid-rUT9dfQERH" data-interval="false" id="slider3-12" data-sortbtn="btn-primary">
+            <h3 class="mbr-section-subtitle mbr-primary align-left mbr-fonts-style display-7" style="color:black;">Photo Gallery</h3><hr>
+
+            <div class="container text-center">
+
+              <div class="carousel slide" role="listbox" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
+                <div class="carousel-inner">
+
+                  <div class="carousel-item">
+                    <div class="media-container-row">
+                      <div class="col-lg-12 image-element align-self-stretch">
+                        <div class="img-wrap">
+                          <div class="card-box"></div>
+                          <img src="{{ x.Image.url }}" alt="post image">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-controls">
+                  <a class="carousel-control-prev" role="button" data-slide="prev">
+                    <span aria-hidden="true" class="icon-left fa fa-chevron-left mbr-iconfont sign"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" role="button" data-slide="next">
+                    <span aria-hidden="true" class="icon-right fa fa-chevron-right mbr-iconfont sign"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleContent(button) {
+    var slicedContent = button.previousElementSibling.previousElementSibling;
+    var fullContent = button.previousElementSibling;
+
+    if (slicedContent.style.display === "none" || slicedContent.style.display === "") {
+      slicedContent.style.display = "inline";
+      fullContent.style.display = "none";
+      button.innerHTML = "Read more";
+    } else {
+      slicedContent.style.display = "none";
+      fullContent.style.display = "inline";
+      button.innerHTML = "Read less";
+    }
+  }
+  </script>
+  <script src="{% static 'labelassets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'labelassets/popper/popper.min.js' %}"></script>
+  <script src="{% static 'labelassets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'labelassets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'labelassets/smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'labelassets/dropdown/js/nav-dropdown.js' %}"></script>
+  <script src="{% static 'labelassets/dropdown/js/navbar-dropdown.js' %}"></script>
+  <script src="{% static 'labelassets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'labelassets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+  <script src="{% static 'labelassets/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+  <script src="{% static 'labelassets/playervimeo/vimeo_player.js' %}"></script>
+  <script src="{% static 'labelassets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'labelassets/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+  <script src="{% static 'labelassets/formstyler/jquery.formstyler.js' %}"></script>
+  <script src="{% static 'labelassets/formstyler/jquery.formstyler.min.js' %}"></script>
+  <script src="{% static 'labelassets/theme/js/script.js' %}"></script>
+  <script src="{% static 'labelassets/formoid.min.js' %}"></script>
+  {% endif %}
+  {% endfor %}
+</body>
+</html>

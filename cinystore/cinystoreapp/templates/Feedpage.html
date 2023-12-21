@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Feedpage</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	<body>
+		{% block header %}	
+		<div class="container">
+			<div class="page-description">
+				<div class="icon">
+					<svg class="olymp-star-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="FAV PAGE"><use xlink:href="#olymp-star-icon"></use></svg>
+				</div>
+				<span>Trending Movie Name or Movie Breaking News </span>
+			</div>
+			<div class="row">
+				<div class="col col-xl-8 order-xl-2 col-lg-12 order-lg-1 col-sm-12 col-12">
+				{% for x in combined_data %}
+				{% if x.model_type == 'mydata' %}
+				<div id="newsfeed-items-grid">
+					<article class="hentry post has-post-thumbnail">
+						<div class="post__author author vcard inline-items">
+							<img loading="lazy" src="{{ x.Poster.url }}" width="36" height="36" alt="poster">
+							
+							<div class="author-date">
+								<a class="h6 post__movie-name fn" href="{% url 'labelof' x.Movie_name %}" target="_blank">{{ x.Movie_name}}</a>
+							<div class="h6">
+								<span>{{ x.Language }} | {{ x.Genre }}</span>
+															
+								</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+								<span class="sliced">{{ x.synopsis|slice:":200" }}</span>
+                                <span class="full" style="display:none;">{{ x.synopsis|linebreaksbr }}</span>
+                                <button onclick="toggleContent(this)" class="readmore" class="btn-bg-primary">Read more</button>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+								<div class="post-thumb-publicfeed">
+
+									<!------------------------------------------------- GIF player ------------------------------------------------>
+									<img loading="lazy" data-mode="video" data-mp4="videos/post_video.mp4" src="{{ x.Poster.url }}" alt="video" width="618" height="348">
+
+									<!-- JS library for GIF player -->
+									<script defer src="{% static 'js/libs/jquery.gifplayer.min.js' %}"></script>
+									<!-- ...end JS library for GIF player -->
+
+									<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+
+									<!------------------------------------------- ... end GIF player ---------------------------------------------->
+
+								</div>
+							</div>
+						</div>
+						<a href="#" class=""> 
+							<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like:<span>{{ x.like_count }}</span>
+						</a>
+				
+						<a href="#" class=""> 
+							<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+						</a>
+				
+						<a href="{% url 'promo' x.Url_name %}" class=""> 
+							<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+						</a>
+
+						<a href="#" class=""> 
+							<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow:<span>{{ x.follow_count }}</span>
+						</a>
+					</article>
+					<!-- ... end Post -->
+				</div>
+				{% elif x.model_type == 'movies' %}		
+				<article class="hentry post has-post-thumbnail">
+					<div class="post__author author vcard inline-items">
+						<img loading="lazy" src="https://cinystorepage.s3.amazonaws.com/{{ x.logo }}" width="36" height="36" alt="logo">
+						<div class="author-date">
+							<p class="h6 post__movie-name fn" style="margin-bottom:0px; color: aqua; font-family: montserrat;">{{ x.source}}</p>
+
+							<a class="h6 post__movie-name fn" href="{% url 'Label2' x.movie_title %}" target="_blank">{{ x.movie_title }}</a>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									<span>Release Date {{ x.release_date }}		
+									</span>
+								</time>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+							<p>{{ x.overview }}</p>
+						</div>
+						<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+							<div class="post-thumb-publicfeed">
+								<!------------------------------------------------- GIF player ------------------------------------------------>
+								<img loading="lazy" data-mode="video" data-mp4="videos/post_video.mp4" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="video" width="618" height="348">
+
+								<!-- JS library for GIF player -->
+								<script defer src="{% static 'js/libs/jquery.gifplayer.min.js' %}"></script>
+								<!-- ...end JS library for GIF player -->
+
+								<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+
+								<!------------------------------------------- ... end GIF player ---------------------------------------------->
+							</div>
+						</div>
+					</div>
+					<a href="#" class=""> 
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+				
+					<a href="{% url 'tmdb_promo' x.slug %}" class=""> 
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+
+					<a href="#" class=""> 
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow
+					</a>
+				</article>
+				<!-- ... end Post -->
+				{% elif x.model_type == 'mydata1' %}
+					<!-- Post -->
+				<article class="hentry post has-post-thumbnail">
+					<div class="post__author author vcard inline-items">
+						<div class="author-date">
+							<div class="post-title">
+								<a href="{% url 'review_label' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+							</div>
+							<div class="h6">
+								Reviewed on{{ x.review_date }}
+							</div>
+							<div>
+							<span class="sliced">{{ x.comment|slice:":200" }}</span>
+                                <span class="full" style="display:none;">{{ x.comment|linebreaksbr }}</span>
+                                <button onclick="toggleContent(this)" class="readmore" class="btn-bg-primary">Read more</button>
+							</div>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									by {{ x.author }}
+								</time>
+							</div>
+						</div>
+					</div>
+					<a href="#" class="">
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like
+					</a>
+
+					<a href="#" class="">
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+
+					<a href="{% url 'review_promo' x.slug %}" class="">
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+
+					<a href="#" class="">
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow
+					</a>
+
+				</article>
+				{% elif x.model_type == 'recent_movies' %}		
+				<article class="hentry post has-post-thumbnail">
+					<span>Recent Movies</span>
+					<div class="post__author author vcard inline-items">
+						<img loading="lazy" src="https://cinystorepage.s3.amazonaws.com/{{ x.logo }}" width="36" height="36" alt="logo">
+						<div class="author-date">
+							
+							<br/>
+							<p class="h6 post__movie-name fn" style="margin-bottom:0px; color: aqua; font-family: montserrat;">{{ x.source}}</p>
+
+							<a class="h6 post__movie-name fn" href="{% url 'Labeltmdb' x.movie_title %}" target="_blank">{{ x.movie_title }}</a>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									<span>Release Date {{ x.release_date }}		
+									</span>
+								</time>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+							<p>{{ x.overview }}</p>
+						</div>
+						<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+							<div class="post-thumb-publicfeed">
+								<!------------------------------------------------- GIF player ------------------------------------------------>
+								<img loading="lazy" data-mode="video" data-mp4="videos/post_video.mp4" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="video" width="618" height="348">
+
+								<!-- JS library for GIF player -->
+								<script defer src="{% static 'js/libs/jquery.gifplayer.min.js' %}"></script>
+								<!-- ...end JS library for GIF player -->
+
+								<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+
+								<!------------------------------------------- ... end GIF player ---------------------------------------------->
+							</div>
+						</div>
+					</div>
+					<a href="#" class=""> 
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+
+					<a href="#" class=""> 
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow
+					</a>
+				</article>
+				<!-- ... end Post -->
+				{% elif x.model_type == 'top_rated_movies' %}	
+				<article class="hentry post has-post-thumbnail">
+					<span>Top Rated Movies</span>
+					<div class="post__author author vcard inline-items">
+						<img loading="lazy" src="https://cinystorepage.s3.amazonaws.com/{{ x.logo }}" width="36" height="36" alt="logo">
+						<div class="author-date">
+							<p class="h6 post__movie-name fn" style="margin-bottom:0px; color: aqua; font-family: montserrat;">{{ x.source}}</p>
+							<a class="h6 post__movie-name fn" href="{% url 'Labeltmdb' x.movie_title %}" target="_blank">{{ x.movie_title }}</a>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									<span>Release Date {{ x.release_date }}		
+									</span>
+								</time>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+							<p>{{ x.overview }}</p>
+						</div>
+						<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+							<div class="post-thumb-publicfeed">
+								<!------------------------------------------------- GIF player ------------------------------------------------>
+								<img loading="lazy" data-mode="video" data-mp4="videos/post_video.mp4" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="video" width="618" height="348">
+
+								<!-- JS library for GIF player -->
+								<script defer src="{% static 'js/libs/jquery.gifplayer.min.js' %}"></script>
+								<!-- ...end JS library for GIF player -->
+
+								<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+
+								<!------------------------------------------- ... end GIF player ---------------------------------------------->
+							</div>
+						</div>
+					</div>
+					<a href="#" class=""> 
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+
+					<a href="#" class=""> 
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow
+					</a>
+				</article>
+
+				{% elif x.model_type == 'mydata3' %}
+				<article class="hentry post has-post-thumbnail">
+					<div class="post__author author vcard inline-items">
+						<img loading="lazy" src="https://cinystorepage.s3.amazonaws.com/{{ x.logo }}" width="36" height="36" alt="logo">
+						<div class="author-date">
+							<p class="h6 post__movie-name fn" style="margin-bottom:0px; color: aqua; font-family: montserrat;">{{ x.source}}</p>
+
+							<a class="h6 post__movie-name fn" href="{% url 'labelof' x.Movie_name %}" target="_blank">{{ x.Movie_name}}</a>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									Posted on {{ x.timestamp_field }}
+								</time>
+							</div>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+							<span class="sliced">{{ x.text|slice:":200" }}</span>
+                            <span class="full" style="display:none;">{{ x.text|linebreaksbr }}</span>
+                            <button onclick="toggleContent(this)" class="readmore">Read more</button>			
+						</div>
+						<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+							<div class="post-thumb-publicfeed">
+				
+								<!------------------------------------------------- GIF player ------------------------------------------------>
+								<img loading="lazy" data-mode="video" data-mp4="videos/post_video.mp4" src="{{ x.Image.url }}" alt="video" width="618" height="348">
+				
+								<!-- JS library for GIF player -->
+								<script defer src="{% static 'js/libs/jquery.gifplayer.min.js' %}"></script>
+								<!-- ...end JS library for GIF player -->
+				
+								<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+				
+								<!------------------------------------------- ... end GIF player ---------------------------------------------->
+				
+							</div>
+						</div>
+					</div>
+					<a href="#" class=""> 
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like<span>{{ x.like_count }}</span>
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+				
+					<a href="" class=""> 
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+				
+					<a href="#" class=""> 
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow<span>{{ x.follow_count }}</span>
+					</a>
+				</article>
+				{% endif %}	
+				{% endfor %}
+			</div>
+		<!--Rightbar-->
+
+			<div class="col col-xl-4 order-xl-3 col-lg-4 order-lg-3 col-md-4 col-sm-4 col-12">
+				<div class="crumina-sticky-sidebar">
+					<div class="sidebar__inner">
+						<div class="widget w-create-fav-page">
+							<div class="icons-block">
+							</div>
+							<div class="content">
+								<span>Producer</span>
+								<h3 class="title">Create your Movie Label</h3>	
+								<a href="{% url 'Business' %}" target="_blank" class="btn btn-bg-secondary btn-sm">Start Now!</a>
+							</div>
+						</div>
+						<div class="widget w-create-fav-page">
+							<div class="icons-block">
+							</div>
+							<div class="content">
+								<span>Users</span>
+								<h3 class="title">Create your own Favourite Club or Join!</h3>
+								<a href="{% url 'Groups' %}" class="btn btn-bg-secondary btn-sm">Start Now!</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- ... end W-Faved-Page -->	
+	</div>	
+	{% endblock %}
+	</body>
+	
+</html>
+

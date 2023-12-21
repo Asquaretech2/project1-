@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+{% extends "businessBase.html" %}
+<html lang="en">
+{% load static %}
+<body>
+   {% block header %}
+   <div class="container">
+      <div class="row d-none d-md-block">
+				<div class="col-12 mt-5">
+					<div class="connecting-bg-container mt-5">
+					  <div class="connecting-container">
+						  <div class="connecting-each-num-bg-container">
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B30">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">1</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Welcome
+									   </div>
+								   </div>
+							   </div>
+
+                              <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B3D">
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card" >
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">2</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   OTP
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B3D">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">3</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										  Label
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B30">
+											  <span class="numbers">4</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Forms
+									   </div>
+								   </div>
+							   </div>
+						  </div>
+					  </div>
+			        </div>
+				</div>
+			</div>
+      <div class="row">
+         <div class="col-12 col-md-12">
+            <div class="individual-page-main-bg-container">
+               <div class="individual-page-bg-container">
+               <h1 class="individual-page-heading">Register as Corporate</h1>
+               <hr class="individual-page-line"/>
+               <div class="container">
+                  <form class="individual-page-form-container" method="post" action="{% url 'corporate_page' %}">
+                      {% csrf_token %}
+                     <div class="row">
+                        <div class="col-12 col-md-6 mb-4">
+                           <div class="individual-page-input-container">
+                              <label for="first_name" class="individual-page-input-text">First Name</label>
+                              <input type="text" id="first_name" name="first_name" class="individual-page-input-fields" placeholder="Enter first name"/>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                           <div class="individual-page-input-container">
+                              <label for="last_name" class="individual-page-input-text">Last Name</label>
+                              <input type="text" id="last_name" name="last_name" class="individual-page-input-fields" placeholder="Enter last name"/>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-md-6 mb-4">
+                           <div class="individual-page-input-container">
+                              <label for="production_house" class="individual-page-input-text">Production House Name</label>
+                              <input type="text" id="production_house" name="production_house" class="individual-page-input-fields" placeholder="Enter production name"/>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                           <div class="individual-page-input-container">
+                              <label for="website" class="individual-page-input-text">Website</label>
+                              <input type="text" id="website" name="website" class="individual-page-input-fields" placeholder="Enter website"/>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 col-md-4 mb-4">
+                           <div class="individual-page-input-container">
+                               <label class="individual-page-input-text" for="country_name">Country</label>
+                               <select name="country_name" id="country_name" class="individual-page-input-fields">
+                                   <option>India</option>
+                                  <option>Us</option>
+                               </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4">
+                           <div class="individual-page-input-container">
+                               <label for="state" class="individual-page-input-text">Your state</label>
+                               <select class="individual-page-input-fields" id="state" name="state">
+                                   <option>Andhra Pradesh</option>
+                                   <option>Andaman and Nicobar Islands</option>
+                                  <option>Arunachal Pradesh</option>
+                                  <option>Assam</option>
+                                  <option>Bihar</option>
+                                  <option>Chandigarh</option>
+                                  <option>Chhattisgarh</option>
+                                  <option>Dadra and Nagar Haveli</option>
+                                  <option>Daman and Diu</option>
+                                  <option>Goa</option>
+                                  <option>Gujarat</option>
+                                  <option>Haryana</option>
+                                  <option>Himachal Pradesh</option>
+                                  <option>Jharkhand</option>
+                                  <option>Karnataka</option>
+                                  <option>Keral</option>
+                                  <option>Lakshadweep</option>
+                                  <option>Madhya Pradesh</option>
+                                  <option>Maharashtra</option>
+                                  <option>Meghalayar</option>
+                                  <option>Mizoram</option>
+                                  <option>Nagaland</option>
+                                  <option>Odisha</option>
+                                  <option>Punjab</option>
+                                  <option>Puducherry</option>
+                                  <option>Rajasthan</option>
+                                  <option>Sikkim</option>
+                                  <option>Tamil Nadu</option>
+                                  <option>Telangana</option>
+                                  <option>Tripura</option>
+                                  <option>uttar Pradesh</option>
+                                  <option>Uttarakhand</option>
+                                  <option>West Bangal</option>
+                               </select>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4">
+                           <div class="individual-page-input-container">
+                               <label for="city" class="individual-page-input-text">Your city</label>
+                               <select class="individual-page-input-fields" id="city" name="city">
+                                  <option>Amaravati</option>
+                                  <option>Itanagar</option>
+                                  <option>Dispur</option>
+                                  <option>Patna</option>
+                                  <option>Raipur</option>
+                                  <option>Panaji</option>
+                                  <option>Gandhi Nagar</option>
+                                  <option>Chandigarh</option>
+                                  <option>Shimla</option>
+                                  <option>Ranchi</option>
+                                  <option>Bengaluru</option>
+                                  <option>Thiruvananthapuram</option>
+                                  <option>Bhopal</option>
+                                  <option>Mumbai</option>
+                                  <option>Imphal</option>
+                                  <option>Shilong</option>
+                                  <option>Jaipur</option>
+                                  <option>Gantok</option>
+                                  <option>Chennai</option>
+                                  <option>Hyderabad</option>
+                                  <option>Agarthala</option>
+                                  <option>Lucknow</option>
+                                  <option>Dehradun</option>
+                                  <option>Kolkata</option>
+                               </select>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-12 mb-4">
+                           <div class="individual-page-input-container">
+                              <label for="company_brief" class="individual-page-input-text">About Production House</label>
+                             <textarea type="text" id="company_brief" name="company_brief" rows="6" cols="70" class="individual-page-input-textarea"></textarea>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="col-12">
+                           <div class="individual-page-checkbox-container">
+                               <input type="checkbox" class="individual-page-checkbox"/>
+                               <p class="checkbox-msg">
+                                  I accept the <a href="{% url 'terms' %}">Terms and Conditions</a> of the website
+                               </p>
+                           </div>
+                        </div>
+                        <div class="col-12 individual-page-btn-container">
+                           <button class="individual-page-btn" type="submit" value="submit">Register</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   {% endblock %}
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% extends "corporateBase.html" %}
+<html lang="en">
+{% load  static %}
+
+<body>
+ {% block header %}
+ {% for message in messages  %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+     <strong>Message : </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+    <div class="register-page-bg-main-container" id="register-body">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 col-md-7">
+                    <div class="register-text-container">
+                        <p class="register-text">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                            of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                        </p>
+                        <p class="register-text">
+                            If you want more information about Cinystore. Visit here
+                            <a href="{% url 'corporateHome' %}" target="_blank">Corporate page !</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="register-bg-container">
+                        <h1 class="register-page-main-heading">Registration</h1>
+                        <p class="register-page-main-description">Create your Cinystore account</p>
+                        <form class="content" method="Post" action="{% url 'register_page' %}">
+                            {% csrf_token %}
+                            <div class="register-inputs-container">
+                                <label for="username" class="register-input-texts">User name</label>
+                                <input type="text" id="username" name="username" class="register-input-fields" placeholder=" user name"/>
+                                <p id='availability-message'></p>
+                                <!-- Error message for username validation -->
+                                <span class="error-message" id="usernameError"></span>
+                            </div>
+                            <div class="register-inputs-container">
+                                <label for="email" class="register-input-texts">E-mail</label>
+                                <input type="text" id="email" name="email" class="register-input-fields" placeholder=" e-mail address"/>
+                                <p id='email-availability-message'></p>
+                            </div>
+							 <div class="register-inputs-container">
+                                <label for="password" class="register-input-texts">Password</label>
+                                <input type="password" id="password" name="password" class="register-input-fields" placeholder="password"/>
+                            </div>
+							 <div class="register-inputs-container">
+                                <label for="confirm_password" class="register-input-texts">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password" class="register-input-fields" placeholder="confirm password"/>
+                            </div>
+                            <div>
+                                 <div class="register-inputs-container">
+                                <label for="phone_number" class="register-input-texts">Phone Number</label>
+                                <input type="text" id="phone_number" name="phone_number" class="register-input-fields" placeholder="Enter phone number"/>
+                            </div>
+                            </div>
+                            <!--re-Captcha-->
+                            <div class="g-recaptcha mb-4" data-sitekey="6LdY0-coAAAAAM3CVTnmZytfGpGNQxnApeE1zWvl"></div>
+                            <!--re-Captcha-->
+
+                            <p class="register-alert-text">By click submit, you visit our
+                                <a href="{% url 'Privacy' %}">privacy and terms</a>
+                            </p>
+                            <button type="submit" value="submit"  class="register-btn" style="color: white; text-decoration:auto;" onclick="validateUsername">Submit</button>
+                            <p class="register-login-description">Already have an account
+                                <a href="Business/" target="_blank">Login </a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+<script>
+		 function validateUsername() {
+        var usernameInput = document.getElementById("username");
+        var usernameError = document.getElementById("usernameError");
+
+        // Check if the username contains invalid characters
+        if (/[@\/.+\-_]/.test(usernameInput.value)) {
+            usernameError.textContent = "Username should not contain @, /, ., +, -, or _ characters.";
+            return false;  // Prevent form submission
+        } else {
+            usernameError.textContent = "";  // Clear error message if valid
+            return true;  // Proceed with form submission
+        }
+    }
+    </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$('#username').on('input', function () {
+					var username = $(this).val();
+					$.ajax({
+						url: '{% url "check_username_availability" %}',
+						data: { 'username': username },
+						success: function (response) {
+							if(!username){
+								$('#availability-message').text('');
+							}else{
+
+								if (response.available) {
+								$('#availability-message').text('Username is available!');
+								} else {
+								$('#availability-message').text('Username already in use!');
+								}
+							}
+
+
+						}
+					});
+				});
+			});
+			$(document).ready(function () {
+				$('#email').on('input', function () {
+					var email = $(this).val();
+					$.ajax({
+						url: '{% url "check_email_availability" %}',
+						data: { 'email': email },
+						success: function (response) {
+							if (!email){
+								$('#email-availability-message').text('');
+							}else{
+
+								if (response.available) {
+								$('#email-availability-message').text('Email is available!');
+								} else {
+								$('#email-availability-message').text('Email already registered');
+								}
+							}
+
+						}
+					});
+				});
+			});
+    	</script>
+<script>
+	var username = "username";
+	window.location.href = "{% url 'welcome_page' %}?username=" + username;
+</script>
+</html>

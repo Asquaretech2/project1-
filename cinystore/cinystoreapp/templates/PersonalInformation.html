@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Personal Information</title>
+</head>
+{% extends "head.html" %}
+{% load static %}
+{% block header %}
+	<div class="container">
+		<div class="row">
+			<div class="col col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+				<div class="ui-block">
+					<div class="ui-block-title">
+						<h6 class="title">Personal Information</h6>
+					</div>
+					<div class="ui-block-content">
+						{% for x in PersonalInformation %}
+						<img src="{{ x.profilephoto.url }}" alt="No-Pic" class="rounded-edges mx-auto d-block " style="height: 200px; width: 200px;">
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td class="title">User Name :</td>
+									<td class="title">{{ x.username }}</td>
+								</tr>
+								<tr>
+									<td class="title">Email :</td>
+									<td class="title">{{ x.email }}</td>
+								</tr>
+								<tr>
+									<td class="title">First Name : </td>
+									<td class="title">{{ x.first_name }}</td>
+								</tr>
+								<tr>
+									<td class="title">Last Name :</td>
+									<td class="title">{{ x.last_name }}</td>
+								</tr>
+								<tr>
+									<td class="title">Phone Number :</td>
+									<td class="title">{{ x.phone_number }}</td>
+								</tr>
+								<tr>									
+									<td class="title">Website :</td>
+									<td class="title">{{ x.website }}</td>
+								</tr>	
+								<tr>
+									<td class="title">Gender :</td>
+									<td class="title">{{ x.gender }}</td>									
+								</tr>											
+								<tr>
+									<td class="title">DOB :</td>
+									<td class="title">{{ x.date_of_birth }}</td>									
+								</tr>
+								<tr>
+									<td class="title">Country :</td>
+									<td class="title">{{ x.country_name }}</td>								
+								</tr>
+								<tr>
+									<td class="title">State :</td>
+									<td class="title">{{ x.state }}</td>	
+								</tr>
+								<tr>
+									<td class="title">City :</td>
+									<td class="title">{{ x.city }}</td>
+								</tr>
+								<tr>
+									<td class="title">About :</td>
+									<td class="title">{{ x.company_brief }}</td>
+								</tr>
+								<tr>
+									<td class="title">Facebook acount :</td>
+									<td class="title">{{ x.facebook_accoount }}</td>
+								</tr>
+								<tr>
+									<td class="title">Twitter acount :</td>
+									<td class="title">{{ x.twitter_accoount }}</td>
+								</tr>
+								<tr>
+									<td class="title">Spotify acount :</td>
+									<td class="title">{{ x.Spotify_accoount }}</td>
+								</tr>
+							</tbody>
+						</table>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="col col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12 responsive-display-none">
+				<div class="ui-block">
+					<!-- Your Profile  -->
+					<div class="your-profile">
+						<div class="ui-block-title ui-block-title-small">
+							<h6 class="title">Your PROFILE</h6>
+						</div>
+						<div class="accordion" id="accordionExample1">
+							<div class="accordion-item">
+								<h6 class="accordion-header" id="headingOne1">
+									<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+										Profile Settings
+										<svg class="olymp-dropdown-arrow-icon"><use xlink:href="#olymp-dropdown-arrow-icon"></use></svg>
+									</button>
+								</h6>
+								<div id="collapseOne1" class="accordion-collapse collapse show" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1">
+									<div class="accordion-body">
+										<ul class="your-profile-menu">
+											<li>
+												<a href="/UpdatePersonalInformation/">Update Information</a>
+											</li>
+											<li>
+												<a href="#">Account Settings</a>
+											</li>
+											<li>
+												<a href="change_password/">Change Password</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ... end Your Profile  -->
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+</html>

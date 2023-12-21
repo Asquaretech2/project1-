@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load  static %}
+<head>
+    <link rel="stylesheet" href="{% static 'business/css/assets/style.css' %}"/>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<header>
+    <nav class="business-nav-container fixed-top">
+            <div class="navbar-brand d-flex">
+                <img src="https://www.cinystore.com/static/img/logo.webp" alt="logo" class="business-logo" />
+                <div>
+                    <h1 class="business-logo-name">CinyStore</h1>
+                    <p class="business-logo-name-description">Poora Filmy Hai Boos</p>
+                    <p class="business-logo-sub-description">Beta Version</p>
+                </div>
+            </div>
+        </nav>
+</header>
+<body class="business-body">
+   {% block header %}
+
+
+   {% endblock %}
+</body>
+</html>

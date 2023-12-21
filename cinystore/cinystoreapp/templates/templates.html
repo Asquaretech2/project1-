@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business | Producer Templates</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	<body>
+		{% block header %}
+		<div class="container">
+			{% for x in Label1 %}
+			<div class="row mx-auto">
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'preview' x.Movie_name %}" target="_blank" class="h6 post-title">Template1</a>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'preview1' x.Movie_name %}" target="_blank" class="h6 post-title">Template2</a>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'preview2' x.Movie_name %}" target="_blank" class="h6 post-title">Template3</a>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'preview3' x.Movie_name %}" target="_blank" class="h6 post-title">Template4</a>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'preview4' x.Movie_name %}" target="_blank" class="h6 post-title">Template5</a>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-3 col-lg-4 col-md-4 col-sm-4 col-12">
+					<article class="hentry blog-post">
+						<div class="post-thumb-template">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'ScrollingLabel' x.Movie_name %}" target="_blank" class="h6 post-title">Template6</a>
+						</div>
+					</article>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+		{% endblock %}
+	</body>
+</html>

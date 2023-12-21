@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+
+	<title>CinyStore |Business</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+	<meta property="og:title" content="Cinystore">
+	<meta property="og:type" content="website">
+
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Theme Font -->
+	<link rel="preload" type="text/css" href="{% static 'css/theme-font.min.css' %}" as="style">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'Bootstrap/dist/css/bootstrap.css' %}">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	
+
+	<!-- Main RTL CSS -->
+	<!--<link rel="stylesheet" type="text/css" href="css/rtl.min.css">-->
+
+</head>
+
+<!--<div id="hellopreloader">
+	<div class="preloader">
+		<svg width="45" height="45" stroke="#fff">
+			<g fill="none" fill-rule="evenodd" stroke-width="2" transform="translate(1 1)">
+				<circle cx="22" cy="22" r="6" stroke="none">
+					<animate attributeName="r" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="6;22"/>
+					<animate attributeName="stroke-opacity" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="1;0"/>
+					<animate attributeName="stroke-width" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="2;0"/>
+				</circle>
+				<circle cx="22" cy="22" r="6" stroke="none">
+					<animate attributeName="r" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="6;22"/>
+					<animate attributeName="stroke-opacity" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="1;0"/>
+					<animate attributeName="stroke-width" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="2;0"/>
+				</circle>
+				<circle cx="22" cy="22" r="8">
+					<animate attributeName="r" begin="0s" calcMode="linear" dur="1.5s" repeatCount="indefinite" values="6;1;2;3;4;5;6"/>
+				</circle>
+			</g>
+		</svg>
+		<div class="text">Loading ...</div>
+	</div>
+</div>-->
+
+
+<div class="fixed-sidebar left ">
+	
+	<div class="fixed-sidebar-left sidebar--small" id="sidebar-left">
+		<a href="{% url 'producerdashboard' %}" class="logo">
+			<div class="img-wrap">
+				<img loading="lazy" src="{% static 'img/logo.webp' %}" alt="Cinystore-" width="34" height="34">
+			</div>
+		</a>
+		<div class="mCustomScrollbar" data-mcs-theme="dark">
+			<ul class="left-menu">
+				<li>
+                    <a href="#" class="js-sidebar-open">
+                        <svg class="olymp-menu-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="OPEN MENU"><use xlink:href="#olymp-menu-icon"></use></svg>
+                    </a>
+                </li>
+				<li>
+					<a href="{% url 'producerdashboard' %}">
+						<svg class="olymp--home-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="PRODUCER DASHBOARD"><use xlink:href="#olymp-home-icon"></use></svg>
+					</a>
+				</li>
+				<li>
+					<a href="{% url 'labels' %}">
+						<svg class="olymp-share-post-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="CREATELABEL"><use xlink:href="#olymp-share-post-icon"></use></svg>
+						
+					</a>
+				</li>
+				<li>
+					<a href="{% url 'Managelabel' %}">
+						<svg class="olymp-manage-widgets-icon" data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="MANAGELABEL"><use xlink:href="#olymp-manage-widgets-icon"></use></svg>
+					</a>
+				</li>
+				<li>
+					<a href="{% url 'stats' %}">
+						<svg class="olymp-star-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="STATS"><use xlink:href="#olymp-star-icon"></use></svg>
+						
+					</a>
+				</li>
+                <li>
+					<a href="{% url 'profile' %}">
+						<svg class="olymp-register-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="PROFILE"><use xlink:href="#olymp-register-icon"></use></svg>
+					</a>
+				</li>
+				<li>
+					<a href="{% url 'Producerlogoutpage' %}">
+						<svg class="olymp-logout-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="PROFILE"><use xlink:href="#olymp-logout-icon"></use></svg>
+                       
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="fixed-sidebar-left sidebar--large " id="sidebar-left-1">
+		<a href="" class="logo">
+			<div class="img-wrap">
+				<img loading="lazy" src="{% static 'img/logo.webp' %}" alt="Cinystore" width="34" height="34">
+			</div>
+			<div class="title-block">
+				<h6 class="logo-title">Cinystore</h6>
+			</div>
+		</a>
+		
+		<div class="mCustomScrollbar" data-mcs-theme="dark">
+				<ul class="left-menu">
+					<li>
+						<a href="#" class="js-sidebar-open">
+							<svg class="olymp-close-icon left-menu-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+								<span class="left-menu-title">Collapse Menu</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="{% url 'producerdashboard' %}">
+							<svg class="olymp-home-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="PRODUCER DASHBOARD"><use xlink:href="#olymp-home-icon"></use></svg>
+							<span class="left-menu-title">Dashboard</span>
+						</a>
+					</li>
+					<li>
+
+						<a href="{% url 'labels' %}">
+							<svg class="olymp-share-post-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="CREATELABEL"><use xlink:href="#olymp-share-post-icon"></use></svg>
+							<span class="left-menu-title">Create label</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'Managelabel' %}">
+							<svg class="olymp-manage-widgets-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="MANAGELABEL"><use xlink:href="#olymp-manage-widgets-icon"></use></svg>
+							<span class="left-menu-title">Manage label</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'stats' %}">
+							<svg class="olymp-star-icon left-menu-icon"  data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="STATS"><use xlink:href="#olymp-star-icon"></use></svg>
+							<span class="left-menu-title">Statistics</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'profile' %}">
+							<svg class="olymp-register-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right"   data-bs-original-title="PROFILE"><use xlink:href="#olymp-register-icon"></use></svg>
+							<span class="left-menu-title">Profile</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'Producerlogoutpage' %}">
+							<svg class="olymp-logout-icon left-menu-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="PROFILE"><use xlink:href="#olymp-logout-icon"></use></svg>
+							<span class="left-menu-title">Logout</span>
+						</a>
+					</li>
+				</ul>
+		</div>
+		
+	</div>
+</div>
+
+<!-- ... end Responsive Header-BP -->
+<div class="header-spacer">
+</div>
+{% block jquery %}
+{% endblock %}
+</head>
+
+<body>
+{% block header %}
+{% endblock %}
+</body>
+
+
+<!-- JS Scripts -->
+<script src="{% static 'js/jQuery/jquery-3.5.1.min.js' %}"></script>
+
+<script src="{% static 'js/libs/jquery.mousewheel.min.js' %}"></script>
+<script src="{% static 'js/libs/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'js/libs/imagesloaded.pkgd.min.js"></script>
+<script src="{% static 'js/libs/material.min.js' %}"></script>
+<script src="{% static 'js/libs/selectize.min.js' %}"></script>
+<script src="{% static 'js/libs/swiper.jquery.min.js' %}"></script>
+<script src="{% static 'js/libs/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/libs/ajax-pagination.min.js' %}"></script>
+<script src="{% static 'js/libs/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/libs/sticky-sidebar.min.js' %}"></script>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/libs-init/libs-init.js' %}"></script>
+
+<script src="{% static 'Bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- SVG icons loader -->
+<script src="{% static 'js/svg-loader.js' %}"></script>
+<!-- /SVG icons loader -->
+
+<!-- JS-libs and init for charts -->
+<script src="{% static 'js/libs/moment.min.js' %}"></script>
+<script src="{% static 'js/libs/jquery.appear.min.js' %}"></script>
+<script src="{% static 'js/libs/Chart.min.js' %}"></script>
+<script src="{% static 'js/libs/chartjs-plugin-deferred.min.js' %}"></script>
+<script src="{% static 'js/libs/circle-progress.min.js' %}"></script>
+<script src="{% static 'js/libs/loader.min.js' %}"></script>
+<script src="{% static 'js/libs/run-chart.min.js' %}"></script>
+<!-- ... end JS-libs and init for charts -->
+
+<!--Modal Boostrap-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!--Modal Boostrap-->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const booster1Bars = document.querySelectorAll(".skill-meter-bar");
+
+        booster1Bars.forEach((bar) => {
+            const likeCount = parseInt(bar.dataset.likeCount);
+            bar.style.width = likeCount + "px";
+            bar.style.backgroundColor = getColorBasedOnLikeCount(likeCount);
+        });
+
+        // Function to determine the color based on like_count
+        function getColorBasedOnLikeCount(likeCount) {
+            // Customize this logic based on your requirements
+            // Example: Green for likeCount > 50, Red for likeCount <= 50
+            return likeCount > 50 ? "green" : "red";
+        }
+    });
+</script>
+
+
+</html>

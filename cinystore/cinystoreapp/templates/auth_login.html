@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+        <title>Cinystore| User login</title>
+</head>
+	{% extends "corpbase.html" %}
+	{% load static %}
+
+	<html lang="en">
+		<body>
+		{% block content %}
+		<div class="landing-page">
+		    <div class="content-bg-wrap"></div>
+			<div class="auth-login-main-bg-container">
+                <div class="container">
+				<div class="row display-flex">
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+						<div class="landing-content">
+							<h1>Movie Adda</h1>
+							<p>
+								We are the best and biggest social network for Movie lovers all around the world. Go ahead, register and share your
+								thoughts, write blog posts, show your favourite music, earn badges and much more!
+							</p>
+							<a href="{% url 'Authregister' %}" class="btn btn-md btn-border c-white">Register Now!</a>
+						</div>
+					</div>
+					<div class="col col-xl-5 col-lg-6 col-md-12 col-sm-12 col-12">
+						<!-- Login-Registration Form  -->
+						<div class="registration-login-form">
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs" id="registration-form-tabs" role="tablist"></ul>
+							<!-- Tab panes -->
+							<div class="registration-form-tabs-content">
+								<div class="tab-pade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+									<h6 class="title">Login to your Account</h6>
+									<form method="post" class="content">
+					 					{% csrf_token %}
+										<div class="row">
+											<div class="col col-xl-11 col-lg-11 col-md-11 col-sm-11 col-12">
+												<div class="form-group label-floating">
+													<label for="username">Username</label>
+													<input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" Required>
+												</div>
+											</div>
+											<div class="col col-11 col-xl-11 col-lg-11 col-md-11 col-sm-11 col-12">
+												<div class="form-group label-floating">
+													<label for="password">Password</label>
+													<input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password" Required>
+												</div>
+											</div>
+											{% for message in messages  %}
+												<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+													<strong> {{ message }} </strong>
+												</div>
+											{% endfor %}
+											{% if error %}
+												<p>{{ error }}</p>
+											{% endif %}
+											<div class="col col-xl-11 col-lg-11 col-md-11 col-sm-11 col-12">
+												<div class="remember">
+													<div class="checkbox">
+														<label><input name="optionsCheckboxes" type="checkbox">Remember Me</label>
+													</div>
+													<a href="/reset_password/" class="forgot">Forgot my Password</a>
+													<button class="btn btn-primary btn-lg full-width" type="submit" value="submit">Login</button>
+													<!--
+													<div class="or"></div>
+													<a href="#" class="btn btn-lg bg-purple full-width btn-icon-left"><svg width="16" height="16"><use xlink:href="#olymp-envelope-icon"></use></svg>Login with Gmail</a>
+												-->
+	<p>Don't have an account? <a href="{% url 'Authregister' %}">Register Now!</a> its really simple and you can start enjoying all the benefits!</p>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<!-- ... end Header Standard Landing  -->
+			<!-- Window Popup Main Search -->
+			<div class="modal fade" id="main-popup-search" tabindex="-1" role="dialog" aria-labelledby="main-popup-search" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered window-popup main-popup-search" role="document">
+					<div class="modal-content">
+						<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+							<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+						</a>
+						<div class="modal-body">
+							<form class="form-inline search-form" method="post">
+								<div class="form-group label-floating">
+									<label class="control-label">What are you looking for?</label>
+									<input class="form-control bg-white" placeholder="" type="text" value="">
+								</div>
+
+								<button class="btn btn-purple btn-lg">Search</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+		</body>
+
+	</html>
+
+

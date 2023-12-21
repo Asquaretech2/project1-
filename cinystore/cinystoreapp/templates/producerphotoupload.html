@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+	<title>Movie Name - Photos</title>
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Theme Font -->
+	<link rel="preload" type="text/css" href="{% static 'css/theme-font.min.css' %}" as="style">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'Bootstrap/dist/css/bootstrap.css' %}">
+
+	<!-- Main Styles CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
+
+	<!-- Main RTL CSS -->
+	<!--<link rel="stylesheet" type="text/css" href="css/rtl.min.css">-->
+
+</head>
+
+<body class="page-has-left-panels page-has-right-panels">
+
+
+<!-- Preloader -->
+
+<div id="hellopreloader">
+	<div class="preloader">
+		<svg width="45" height="45" stroke="#fff">
+			<g fill="none" fill-rule="evenodd" stroke-width="2" transform="translate(1 1)">
+				<circle cx="22" cy="22" r="6" stroke="none">
+					<animate attributeName="r" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="6;22"/>
+					<animate attributeName="stroke-opacity" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="1;0"/>
+					<animate attributeName="stroke-width" begin="1.5s" calcMode="linear" dur="3s" repeatCount="indefinite" values="2;0"/>
+				</circle>
+				<circle cx="22" cy="22" r="6" stroke="none">
+					<animate attributeName="r" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="6;22"/>
+					<animate attributeName="stroke-opacity" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="1;0"/>
+					<animate attributeName="stroke-width" begin="3s" calcMode="linear" dur="3s" repeatCount="indefinite" values="2;0"/>
+				</circle>
+				<circle cx="22" cy="22" r="8">
+					<animate attributeName="r" begin="0s" calcMode="linear" dur="1.5s" repeatCount="indefinite" values="6;1;2;3;4;5;6"/>
+				</circle>
+			</g>
+		</svg>
+
+		<div class="text">Loading ...</div>
+	</div>
+</div>
+
+
+
+<header class="header" id="site-header">
+
+	<div class="page-title">
+		<h6></h6>
+	</div>
+
+	<div class="header-content-wrapper">
+		<form class="search-bar w-search notification-list friend-requests">
+			<div class="form-group with-button">
+				<input class="form-control js-user-search" placeholder="Search here people or pages..." type="text">
+				<button>
+					<svg class="olymp-magnifying-glass-icon"><use xlink:href="#olymp-magnifying-glass-icon"></use></svg>
+				</button>
+			</div>
+		</form>
+
+		
+
+		
+
+		</div>
+	</div>
+
+</header>
+
+<!-- ... end Header-BP -->
+
+
+<!-- Responsive Header-BP -->
+
+<header class="header header-responsive" id="site-header-responsive">
+
+	<div class="header-content-wrapper">
+		<ul class="nav nav-tabs mobile-notification-tabs" id="mobile-notification-tabs" role="tablist">
+			<li class="nav-item" role="presentation">
+				<a class="nav-link" id="request-tab" data-bs-toggle="tab" href="#request" role="tab" aria-controls="request" aria-selected="false">
+					<div class="control-icon has-items">
+						<svg class="olymp-happy-face-icon">
+							<use xlink:href="#olymp-happy-face-icon"></use>
+						</svg>
+						<div class="label-avatar bg-blue">6</div>
+					</div>
+				</a>
+			</li>
+
+			<li class="nav-item" role="presentation">
+				<a class="nav-link" id="chat-tab" data-bs-toggle="tab" href="#chat" role="tab" aria-controls="chat" aria-selected="false">
+					<div class="control-icon has-items">
+						<svg class="olymp-chat---messages-icon">
+							<use xlink:href="#olymp-chat---messages-icon"></use>
+						</svg>
+						<div class="label-avatar bg-purple">2</div>
+					</div>
+				</a>
+			</li>
+
+			<li class="nav-item" role="presentation">
+				<a class="nav-link" id="notification-tab" data-bs-toggle="tab" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
+					<div class="control-icon has-items">
+						<svg class="olymp-thunder-icon">
+							<use xlink:href="#olymp-thunder-icon"></use>
+						</svg>
+						<div class="label-avatar bg-primary">8</div>
+					</div>
+				</a>
+			</li>
+
+			<li class="nav-item" role="presentation">
+				<a class="nav-link" id="search-tab" data-bs-toggle="tab" href="#search" role="tab" aria-controls="search" aria-selected="false">
+					<svg class="olymp-magnifying-glass-icon">
+						<use xlink:href="#olymp-magnifying-glass-icon"></use>
+					</svg>
+					<svg class="olymp-close-icon">
+						<use xlink:href="#olymp-close-icon"></use>
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Tab panes -->
+	
+
+</header>
+
+<!-- ... end Responsive Header-BP -->
+<div class="header-spacer"></div>
+
+
+
+<!-- Top Header-Profile -->
+
+
+<!-- ... end Top Header-Profile -->
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<div class="ui-block responsive-flex">
+				<div class="ui-block-title">
+					<div class="h6 title">Movie Name Photos</div>
+
+
+					<ul class="nav nav-tabs photo-gallery" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link" data-bs-toggle="tab" href="#photo-page" role="tab">
+								<svg class="olymp-photos-icon"><use xlink:href="#olymp-photos-icon"></use></svg>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link active" data-bs-toggle="tab" href="#album-page" role="tab">
+								<svg class="olymp-albums-icon"><use xlink:href="#olymp-albums-icon"></use></svg>
+							</a>
+						</li>
+
+					</ul>
+					<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane fade" id="photo-page" role="tabpanel">
+
+					<div class="photo-album-wrapper">
+
+						
+						
+						<div class="photo-item half-width">
+							<img loading="lazy" src="{% static 'img/photo-item1.webp' %}" alt="photo-item" width="577" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item2.webp' %}" alt="photo-item" width="332" height="284">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item3.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item4.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item5.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item6.webp' %}" alt="photo-item" width="332" height="284">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item7.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item8.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item9.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item10.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+
+						
+						<div class="photo-item col-4-width">
+							<img loading="lazy" src="{% static 'img/photo-item11.webp' %}" alt="photo-item" width="283" height="283">
+							<div class="overlay overlay-dark"></div>
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>15</span>
+							</a>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+							<div class="content">
+								<a href="#" class="h6 title">Header Photos</a>
+								<time class="published" datetime="2017-03-24T18:18">1 week ago</time>
+							</div>
+						</div>
+						
+
+						<a href="#" class="btn btn-control btn-more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+
+					</div>
+
+				</div>
+
+				<div class="tab-pane fade active show" id="album-page" role="tabpanel">
+
+					<div class="photo-album-wrapper">
+
+						<div class="photo-album-item-wrap col-4-width" >
+							
+							<div class="photo-album-item create-album">
+							
+								<a href="#" data-bs-toggle="modal" data-bs-target="#create-photo-album" class="  full-block"></a>
+							
+								<div class="content">
+							
+									<a href="#" class="btn btn-control bg-primary" data-bs-toggle="modal" data-bs-target="#create-photo-album">
+										<svg class="olymp-plus-icon"><use xlink:href="#olymp-plus-icon"></use></svg>
+									</a>
+							
+									<a href="#" class="title h5" data-bs-toggle="modal" data-bs-target="#create-photo-album">Create an Album</a>
+									<span class="sub-title">It only takes a few minutes!</span>
+							
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-item2.webp' %}" alt="photo-item" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v2" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">South America Vacations</a>
+									<span class="sub-title">Last Added: 2 hours ago</span>
+							
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="img/photo-album1.webp" alt="photo-album" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">Photoshoot Summer 2016</a>
+									<span class="sub-title">Last Added: 5 weeks ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-album2.webp' %}" alt="photo-album" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">Amazing Street Food</a>
+									<span class="sub-title">Last Added: 6 mins ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-album3.webp' %}" alt="photo-album" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">Graffiti & Street Art</a>
+									<span class="sub-title">Last Added: 16 hours ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+							
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-album4.webp' %}" alt="photo-album" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">Amazing Landscapes</a>
+									<span class="sub-title">Last Added: 13 mins ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/avatar30-sm.webp' %}" alt="author" width="42" height="42">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/avatar29-sm.webp' %}" width="42" height="42" alt="user">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/avatar28-sm.webp' %}" width="42" height="42" alt="user">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/avatar27-sm.webp' %}" width="42" height="42" alt="user">
+														</a>
+													</li>
+													<li>
+														<a href="#" class="all-users">+3</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-item6.webp' %}" alt="photo-item" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">The Majestic Canyon</a>
+									<span class="sub-title">Last Added: 57 mins ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+						<div class="photo-album-item-wrap col-4-width">
+							
+							
+							<div class="photo-album-item">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/photo-album5.webp' %}" alt="photo-album" width="332" height="284">
+									<div class="overlay overlay-dark"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="post-add-icon">
+										<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+										<span>324</span>
+									</a>
+							
+									<a href="#" data-bs-toggle="modal" data-bs-target="#open-photo-popup-v1" class="  full-block"></a>
+								</div>
+							
+								<div class="content">
+									<a href="#" class="title h5">Winter 2015 Portraits</a>
+									<span class="sub-title">Last Added: 1 year ago</span>
+							
+									<div class="swiper-container" data-slide="fade">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="img/avatar30-sm.webp' %}" alt="avatar" width="42" height="42">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/avatar29-sm.webp' %}" width="42" height="42" alt="avatar">
+														</a>
+													</li>
+												</ul>
+											</div>
+							
+											<div class="swiper-slide">
+												<div class="friend-count" data-swiper-parallax="-500">
+													<a href="#" class="friend-count-item">
+														<div class="h6">24</div>
+														<div class="title">Photos</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">86</div>
+														<div class="title">Comments</div>
+													</a>
+													<a href="#" class="friend-count-item">
+														<div class="h6">16</div>
+														<div class="title">Share</div>
+													</a>
+												</div>
+											</div>
+										</div>
+							
+										<!-- If we need pagination -->
+										<div class="swiper-pagination"></div>
+									</div>
+								</div>
+							
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+<!-- Window-popup Open Photo Popup V1 -->
+
+<div class="modal fade modal-has-swiper" id="open-photo-popup-v1" tabindex="-1" role="dialog" aria-labelledby="open-photo-popup-v1" aria-hidden="true">
+	<div class="modal-dialog window-popup open-photo-popup open-photo-popup-v1" role="document">
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+			</a>
+
+			<div class="modal-body">
+				<div class="open-photo-thumb">
+					<div class="swiper-container" data-slide="fade">
+						<div class="swiper-wrapper">
+
+							<div class="swiper-slide">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/open-photo1.webp' %}" alt="open-photo" width="970" height="646">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/open-photo1.webp' %}" alt="open-photo" width="970" height="646">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item">
+									<img loading="lazy" src="{% static 'img/open-photo1.webp' %}" alt="open-photo" width="970" height="646">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<!--Prev Next Arrows-->
+
+						<svg class="btn-next-without olymp-popup-right-arrow"><use xlink:href="#olymp-popup-right-arrow"></use></svg>
+
+						<svg class="btn-prev-without olymp-popup-left-arrow"><use xlink:href="#olymp-popup-left-arrow"></use></svg>
+					</div>
+				</div>
+
+				<div class="open-photo-content">
+
+					<article class="hentry post">
+
+						<div class="post__author author vcard inline-items">
+							<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+							<div class="author-date">
+								<a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+								<div class="post__date">
+									<time class="published" datetime="2017-03-24T18:18">
+										2 hours ago
+									</time>
+								</div>
+							</div>
+
+							<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+								<ul class="more-dropdown">
+									<li>
+										<a href="#">Edit Post</a>
+									</li>
+									<li>
+										<a href="#">Delete Post</a>
+									</li>
+									<li>
+										<a href="#">Turn Off Notifications</a>
+									</li>
+									<li>
+										<a href="#">Select as Featured</a>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+
+						<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a batch of incredible shots for the new catalog.</p>
+
+						<p>With: <a href="#">Jessy Owen</a>, <a href="#">Marina Valentine</a></p>
+
+						<div class="post-additional-info inline-items">
+
+							<a href="#" class="post-add-icon inline-items">
+								<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+								<span>148</span>
+							</a>
+
+							<ul class="friends-harmonic">
+								<li>
+									<a href="#">
+										<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img loading="lazy" src="{% static 'img/friend-harmonic9.webp' %}" alt="friend" width="28" height="28">
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img loading="lazy" src="{% static 'img/friend-harmonic11.webp' %}" alt="friend" width="28" height="28">
+									</a>
+								</li>
+							</ul>
+
+							<div class="names-people-likes">
+								<a href="#">Diana</a>, <a href="#">Nicholas</a> and
+								<br>13 more liked this
+							</div>
+
+
+							<div class="comments-shared">
+								<a href="#" class="post-add-icon inline-items">
+									<svg class="olymp-speech-balloon-icon"><use xlink:href="#olymp-speech-balloon-icon"></use></svg>
+									<span>61</span>
+								</a>
+
+								<a href="#" class="post-add-icon inline-items">
+									<svg class="olymp-share-icon"><use xlink:href="#olymp-share-icon"></use></svg>
+									<span>32</span>
+								</a>
+							</div>
+
+
+						</div>
+
+						<div class="control-block-button post-control-button">
+
+							<a href="#" class="btn btn-control">
+								<svg class="olymp-like-post-icon"><use xlink:href="#olymp-like-post-icon"></use></svg>
+							</a>
+
+							<a href="#" class="btn btn-control">
+								<svg class="olymp-comments-post-icon"><use xlink:href="#olymp-comments-post-icon"></use></svg>
+							</a>
+
+							<a href="#" class="btn btn-control">
+								<svg class="olymp-share-icon"><use xlink:href="#olymp-share-icon"></use></svg>
+							</a>
+
+						</div>
+
+					</article>
+
+					<div class="mCustomScrollbar" data-mcs-theme="dark">
+
+						<ul class="comments-list">
+							<li class="comment-item">
+								<div class="post__author author vcard inline-items">
+									<img loading="lazy" src="img/avatar48-sm.webp" alt="avatar" width="28" height="28">
+
+									<div class="author-date">
+										<a class="h6 post__author-name fn" href="#">Marina Valentine</a>
+										<div class="post__date">
+											<time class="published" datetime="2017-03-24T18:18">
+												46 mins ago
+											</time>
+										</div>
+									</div>
+
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+
+								</div>
+
+								<p>I had a great time too!! We should do it again!</p>
+
+								<a href="#" class="post-add-icon inline-items">
+									<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+									<span>8</span>
+								</a>
+								<a href="#" class="reply">Reply</a>
+							</li>
+
+							<li class="comment-item">
+								<div class="post__author author vcard inline-items">
+									<img loading="lazy" src="{% static 'img/avatar4-sm.webp' %}" alt="avatar" width="42" height="42">
+
+									<div class="author-date">
+										<a class="h6 post__author-name fn" href="#">Chris Greyson</a>
+										<div class="post__date">
+											<time class="published" datetime="2017-03-24T18:18">
+												1 hour ago
+											</time>
+										</div>
+									</div>
+
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+
+								</div>
+
+								<p>Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+
+								<a href="#" class="post-add-icon inline-items">
+									<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+									<span>7</span>
+								</a>
+								<a href="#" class="reply">Reply</a>
+
+							</li>
+						</ul>
+
+					</div>
+
+					<form class="comment-form inline-items">
+
+						<div class="post__author author vcard inline-items">
+							<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+							<div class="form-group with-icon-right ">
+								<textarea class="form-control" placeholder="Press Enter to post..."></textarea>
+								<div class="add-options-message">
+									<a href="#" class="options-message">
+										<svg class="olymp-camera-icon"><use xlink:href="#olymp-camera-icon"></use></svg>
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- ... end Window-popup Open Photo Popup V1 -->
+
+<!-- Window-popup Open Photo Popup V2 -->
+
+<div class="modal fade modal-has-swiper" id="open-photo-popup-v2" tabindex="-1" role="dialog" aria-labelledby="open-photo-popup-v2" aria-hidden="true">
+	<div class="modal-dialog window-popup open-photo-popup open-photo-popup-v2" role="document">
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+			</a>
+
+			<div class="modal-body">
+				<div class="open-photo-thumb">
+
+					<div class="swiper-container" data-effect="fade" data-autoplay="4000">
+
+						<!-- Additional required wrapper -->
+						<div class="swiper-wrapper">
+							<!-- Slides -->
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+							<div class="swiper-slide">
+								<div class="photo-item" data-swiper-parallax="-300" data-swiper-parallax-duration="500">
+									<img loading="lazy" src="{% static 'img/open-photo2.webp' %}" alt="open-photo" width="800" height="532">
+									<div class="overlay"></div>
+									<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+									<a href="#" class="tag-friends" data-bs-toggle="tooltip" data-bs-placement="top"   data-bs-original-title="TAG YOUR FRIENDS">
+										<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+									</a>
+
+									<div class="content">
+										<a href="#" class="h6 title">Photoshoot 2016</a>
+										<time class="published" datetime="2017-03-24T18:18">2 weeks ago</time>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+
+					<!--Pagination tabs-->
+
+					<div class="slider-slides">
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs1.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs2.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs3.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs4.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs5.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs6.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs7.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs8.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<a href="#" class="slides-item ">
+							<img loading="lazy" src="{% static 'img/photo-tabs9.webp' %}" alt="slide" width="100" height="100">
+							<div class="overlay overlay-dark"></div>
+						</a>
+
+						<!--Prev Next Arrows-->
+
+						<svg class="btn-next olymp-popup-right-arrow"><use xlink:href="#olymp-popup-right-arrow"></use></svg>
+
+						<svg class="btn-prev olymp-popup-left-arrow"><use xlink:href="#olymp-popup-left-arrow"></use></svg>
+
+					</div>
+
+				</div>
+
+				<div class="open-photo-content">
+
+			<article class="hentry post">
+
+				<div class="post__author author vcard inline-items">
+					<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+					<div class="author-date">
+						<a class="h6 post__author-name fn" href="02-ProfilePage.html">James Spiegel</a>
+						<div class="post__date">
+							<time class="published" datetime="2017-03-24T18:18">
+								2 hours ago
+							</time>
+						</div>
+					</div>
+
+					<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+						<ul class="more-dropdown">
+							<li>
+								<a href="#">Edit Post</a>
+							</li>
+							<li>
+								<a href="#">Delete Post</a>
+							</li>
+							<li>
+								<a href="#">Turn Off Notifications</a>
+							</li>
+							<li>
+								<a href="#">Select as Featured</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+				<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a batch of incredible shots for the new catalog.</p>
+
+				<p>With: <a href="#">Jessy Owen</a>, <a href="#">Marina Valentine</a></p>
+
+				<div class="post-additional-info inline-items">
+
+					<a href="#" class="post-add-icon inline-items">
+						<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+						<span>148</span>
+					</a>
+
+
+					<div class="comments-shared">
+						<a href="#" class="post-add-icon inline-items">
+							<svg class="olymp-speech-balloon-icon"><use xlink:href="#olymp-speech-balloon-icon"></use></svg>
+							<span>61</span>
+						</a>
+
+						<a href="#" class="post-add-icon inline-items">
+							<svg class="olymp-share-icon"><use xlink:href="#olymp-share-icon"></use></svg>
+							<span>32</span>
+						</a>
+					</div>
+
+
+				</div>
+
+				<div class="control-block-button post-control-button">
+
+					<a href="#" class="btn btn-control">
+						<svg class="olymp-like-post-icon"><use xlink:href="#olymp-like-post-icon"></use></svg>
+					</a>
+
+					<a href="#" class="btn btn-control">
+						<svg class="olymp-comments-post-icon"><use xlink:href="#olymp-comments-post-icon"></use></svg>
+					</a>
+
+					<a href="#" class="btn btn-control">
+						<svg class="olymp-share-icon"><use xlink:href="#olymp-share-icon"></use></svg>
+					</a>
+
+				</div>
+
+			</article>
+
+			<div class="mCustomScrollbar" data-mcs-theme="dark">
+
+				<ul class="comments-list">
+					<li class="comment-item">
+						<div class="post__author author vcard inline-items">
+							<img loading="lazy" src="{% static 'img/avatar48-sm.webp' %}" alt="avatar" width="28" height="28">
+
+							<div class="author-date">
+								<a class="h6 post__author-name fn" href="#">Marina Valentine</a>
+								<div class="post__date">
+									<time class="published" datetime="2017-03-24T18:18">
+										46 mins ago
+									</time>
+								</div>
+							</div>
+
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+
+						</div>
+
+						<p>I had a great time too!! We should do it again!</p>
+
+						<a href="#" class="post-add-icon inline-items">
+							<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+							<span>8</span>
+						</a>
+						<a href="#" class="reply">Reply</a>
+					</li>
+
+					<li class="comment-item">
+						<div class="post__author author vcard inline-items">
+							<img loading="lazy" src="{% static 'img/avatar4-sm.webp' %}" alt="avatar" width="42" height="42">
+
+							<div class="author-date">
+								<a class="h6 post__author-name fn" href="#">Chris Greyson</a>
+								<div class="post__date">
+									<time class="published" datetime="2017-03-24T18:18">
+										1 hour ago
+									</time>
+								</div>
+							</div>
+
+							<a href="#" class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></a>
+
+						</div>
+
+						<p>Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
+
+						<a href="#" class="post-add-icon inline-items">
+							<svg class="olymp-heart-icon"><use xlink:href="#olymp-heart-icon"></use></svg>
+							<span>7</span>
+						</a>
+						<a href="#" class="reply">Reply</a>
+
+					</li>
+				</ul>
+
+			</div>
+
+			<form class="comment-form inline-items">
+
+				<div class="post__author author vcard inline-items">
+					<img loading="lazy" src="{% static 'img/avatar73-sm.webp' %}" alt="avatar" width="28" height="28">
+					<div class="form-group with-icon-right ">
+						<textarea class="form-control" placeholder="Press Enter to post..." ></textarea>
+						<div class="add-options-message">
+							<a href="#" class="options-message">
+								<svg class="olymp-camera-icon"><use xlink:href="#olymp-camera-icon"></use></svg>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Window-popup Open Photo Popup V2 -->
+<!-- Window-popup Create Photo Album -->
+
+<div class="modal fade" id="create-photo-album" tabindex="-1" role="dialog" aria-labelledby="create-photo-album" aria-hidden="true">
+	<div class="modal-dialog window-popup create-photo-album" role="document">
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+			</a>
+
+			<div class="modal-header">
+				<h6 class="title">Create Photo Album</h6>
+			</div>
+
+			<div class="modal-body">
+
+			<form class="form-group label-floating">
+				<label class="control-label">Album Name</label>
+				<input class="form-control" placeholder="" type="text" value="Rock Garden Festival - Day 4">
+			</form>
+
+			<div class="photo-album-wrapper">
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item create-album">
+						<div class="content">
+							<a href="#" class="btn btn-control bg-primary">
+								<svg class="olymp-plus-icon"><use xlink:href="#olymp-plus-icon"></use></svg>
+							</a>
+
+							<a href="#" class="title h5">Add More Photos...</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item">
+						<div class="form-group">
+							<img loading="lazy" src="{% static 'img/photo-album6.webp' %}" alt="photo-album" width="224" height="159">
+							<textarea class="form-control" placeholder="Write something about this photo..."></textarea>
+						</div>
+
+						<form class="form-group">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock" >Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item">
+						<div class="form-group">
+							<img loading="lazy" src="{% static 'img/photo-album7.webp' %}" alt="photo-album" width="224" height="158">
+							<textarea class="form-control" placeholder="Write something about this photo..."></textarea>
+						</div>
+						<form class="form-group">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock" >Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item">
+						<div class="form-group">
+							<img loading="lazy" src="{% static 'img/photo-album8.webp' %}" alt="photo-album" width="224" height="158">
+							<textarea class="form-control" placeholder="Write something about this photo..."></textarea>
+						</div>
+
+						<form class="form-group">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock" >Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item">
+						<div class="form-group">
+							<img loading="lazy" src="{% static 'img/photo-album9.webp' %}" alt="photo-album" width="224" height="158">
+							<textarea class="form-control" placeholder="Write something about this photo..."></textarea>
+						</div>
+
+						<form class="form-group">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock" >Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+					</div>
+				</div>
+
+				<div class="photo-album-item-wrap col-3-width" >
+					<div class="photo-album-item">
+						<div class="form-group">
+							<img loading="lazy" src="{% static 'img/photo-album10.webp' %}" alt="photo-album" width="224" height="158">
+							<textarea class="form-control" placeholder="Write something about this photo..."></textarea>
+						</div>
+
+						<form class="form-group">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock" >Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+			<a href="#" class="btn btn-secondary btn-lg btn--half-width">Discard Everything</a>
+			<a href="#" class="btn btn-primary btn-lg btn--half-width">Post Album</a>
+
+		</div>
+		</div>
+	</div>
+</div>
+
+<!-- ... end Window-popup Create Photo Album -->
+<!-- Window-popup Update Header Photo -->
+
+<div class="modal fade" id="update-header-photo" tabindex="-1" role="dialog" aria-labelledby="update-header-photo" aria-hidden="true">
+	<div class="modal-dialog window-popup update-header-photo" role="document">
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+			</a>
+
+			<div class="modal-header">
+				<h6 class="title">Update Header Photo</h6>
+			</div>
+
+			<div class="modal-body">
+				<a href="#" class="upload-photo-item">
+				<svg class="olymp-computer-icon"><use xlink:href="#olymp-computer-icon"></use></svg>
+
+				<h6>Upload Photo</h6>
+				<span>Browse your computer.</span>
+			</a>
+
+				<a href="#" class="upload-photo-item" data-bs-toggle="modal" data-bs-target="#choose-from-my-photo">
+
+			<svg class="olymp-photos-icon"><use xlink:href="#olymp-photos-icon"></use></svg>
+
+			<h6>Choose from My Photos</h6>
+			<span>Choose from your uploaded photos</span>
+		</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- ... end Window-popup Update Header Photo -->
+
+<!-- Window-popup Choose from my Photo -->
+
+<div class="modal fade" id="choose-from-my-photo" tabindex="-1" role="dialog" aria-labelledby="choose-from-my-photo" aria-hidden="true">
+	<div class="modal-dialog window-popup choose-from-my-photo" role="document">
+
+		<div class="modal-content">
+			<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+				<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+			</a>
+			<div class="modal-header">
+				<h6 class="title">Choose from My Photos</h6>
+
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab" aria-expanded="true">
+							<svg class="olymp-photos-icon"><use xlink:href="#olymp-photos-icon"></use></svg>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab" aria-expanded="false">
+							<svg class="olymp-albums-icon"><use xlink:href="#olymp-albums-icon"></use></svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="modal-body">
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane fade active show" id="home" role="tabpanel" aria-expanded="true">
+
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo1.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo2.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo3.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo4.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo5.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo6.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo7.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo8.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+						<div class="choose-photo-item">
+							<div class="radio">
+								<label class="custom-radio">
+									<img loading="lazy" src="{% static 'img/choose-photo9.webp' %}" alt="choose-photo" width="247" height="166">
+									<input type="radio" name="optionsRadios">
+								</label>
+							</div>
+						</div>
+
+
+						<a href="#" class="btn btn-secondary btn-lg btn--half-width">Cancel</a>
+						<a href="#" class="btn btn-primary btn-lg btn--half-width">Confirm Photo</a>
+
+					</div>
+					<div class="tab-pane fade" id="profile" role="tabpanel" aria-expanded="false">
+
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo10.webp' $}" alt="choose-photo" width="225" height="180">
+								<figcaption>
+									<a href="#">South America Vacations</a>
+									<span>Last Added: 2 hours ago</span>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo11.webp' %}" alt="choose-photo" width="225" height="180">
+								<figcaption>
+									<a href="#">Photoshoot Summer 2016</a>
+									<span>Last Added: 5 weeks ago</span>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo12.webp' %}" alt="choose-photo" width="225" height="180">
+								<figcaption>
+									<a href="#">Amazing Street Food</a>
+									<span>Last Added: 6 mins ago</span>
+								</figcaption>
+							</figure>
+						</div>
+
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo13.webp' %}" alt="choose-photo" width="224" height="179">
+								<figcaption>
+									<a href="#">Graffity & Street Art</a>
+									<span>Last Added: 16 hours ago</span>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo14.webp' %}" alt="choose-photo" width="225" height="180">
+								<figcaption>
+									<a href="#">Amazing Landscapes</a>
+									<span>Last Added: 13 mins ago</span>
+								</figcaption>
+							</figure>
+						</div>
+						<div class="choose-photo-item">
+							<figure>
+								<img loading="lazy" src="{% static 'img/choose-photo15.webp' %}" alt="choose-photo" width="225" height="180">
+								<figcaption>
+									<a href="#">The Majestic Canyon</a>
+									<span>Last Added: 57 mins ago</span>
+								</figcaption>
+							</figure>
+						</div>
+
+
+						<a href="#" class="btn btn-secondary btn-lg btn--half-width">Cancel</a>
+						<a href="#" class="btn btn-primary btn-lg disabled btn--half-width">Confirm Photo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- ... end Window-popup Choose from my Photo -->
+
+
+<a class="back-to-top" href="#">
+	<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+</a>
+
+
+
+
+<!-- Window-popup-CHAT for responsive min-width: 768px -->
+
+<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="popup-chat-responsive" aria-hidden="true">
+
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="icon-status online"></span>
+			<h6 class="title" >Chat</h6>
+			<div class="more">
+				<svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+				<svg class="olymp-little-delete js-chat-open"><use xlink:href="#olymp-little-delete"></use></svg>
+			</div>
+		</div>
+		<div class="modal-body">
+			<div class="mCustomScrollbar">
+				<ul class="notification-list chat-message chat-message-field">
+					<li>
+						<div class="author-thumb">
+							<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+						</div>
+						<div class="notification-event">
+							<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+							<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+						</div>
+					</li>
+
+					<li>
+						<div class="author-thumb">
+							<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page" class="mCS_img_loaded">
+						</div>
+						<div class="notification-event">
+							<span class="chat-message-item">Don’t worry Mathilda!</span>
+							<span class="chat-message-item">I already bought everything</span>
+							<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:29pm</time></span>
+						</div>
+					</li>
+
+					<li>
+						<div class="author-thumb">
+							<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+						</div>
+						<div class="notification-event">
+							<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+							<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<form class="need-validation">
+
+		<div class="form-group">
+			<textarea class="form-control" placeholder="Press enter to post..."></textarea>
+			<div class="add-options-message">
+				<a href="#" class="options-message">
+					<svg class="olymp-computer-icon"><use xlink:href="#olymp-computer-icon"></use></svg>
+				</a>
+				
+			</div>
+		</div>
+
+	</form>
+		</div>
+	</div>
+
+</div>
+
+<!-- ... end Window-popup-CHAT for responsive min-width: 768px -->
+
+
+<!-- JS Scripts -->
+<script src="{% static 'js/jQuery/jquery-3.5.1.min.js' %}"></script>
+
+<script src="{% static 'js/libs/jquery.mousewheel.min.js' %}"></script>
+<script src="{% static 'js/libs/perfect-scrollbar.min.js' %}"></script>
+<script src="{% static 'js/libs/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/libs/material.min.js' %}"></script>
+<script src="{% static 'js/libs/selectize.min.js' %}"></script>
+<script src="{% static 'js/libs/swiper.jquery.min.js' %}"></script>
+<script src="{% static 'js/libs/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/libs/ajax-pagination.min.js' %}"></script>
+<script src="{% static 'js/libs/jquery.magnific-popup.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/libs-init/libs-init.js' %}"></script>
+
+<script src="{% static 'Bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- SVG icons loader -->
+<script src="{% static 'js/svg-loader.js' %}"></script>
+<!-- /SVG icons loader -->
+
+</body>
+</html>

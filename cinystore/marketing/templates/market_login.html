@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "market_base.html" %}
+<body>
+{% block header %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <div class="market-signup-bg-img">
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="market-signup-bg-container p-0 m-0">
+                        <div class="market-login-heading-container">
+                            <h1 class="market-login-heading">Login</h1>
+                            <p class="market-signup-description">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took
+                            a galley of type and scrambled it to make a type specimen book.
+                        </p>
+                        </div>
+                        <form class="market-signup-form p-5 m-0">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-md-12">
+                                    <div class="market-signup-input-container">
+                                        <lable for="username" class="market-signup-input-text">User Name</lable>
+                                        <div class="market-signup-input-fields-container">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                            </svg>
+                                            <input type="text" id="username" name="username" class="market-signup-input-fields" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="market-signup-input-container">
+                                        <lable for="password" class="market-signup-input-text">Password</lable>
+                                        <div class="market-signup-input-fields-container">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-person-fill-lock" viewBox="0 0 16 16">
+                                              <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5v-1a1.9 1.9 0 0 1 .01-.2 4.49 4.49 0 0 1 1.534-3.693C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4m7 0a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1"/>
+                                            </svg>
+                                             <input type="password" id="password" name="password" class="market-signup-input-fields" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="market-signup-checkbox-container mb-0">
+                                        <input type="checkbox" id="checkbox" class="market-signup-checkbox"/>
+                                        <label for="checkbox" class="market-signup-checkbox-text">
+                                            I agree to the
+                                            <a href="#" style="color: blue;">terms</a> and
+                                            <a href="#" style="color: blue;">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="market-signup-btn-container">
+                                        <button type="submit" value="submit" class="market-signup-btn" style="width: 100%;">Login</button>
+                                    </div>
+                                    <p class="market-signup-sub-text">Don't have an account?
+                                        <a href="{% url 'market_signup' %}" style="color: blue;">Signup</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+</body>
+</html>

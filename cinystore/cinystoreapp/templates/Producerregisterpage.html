@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business |Producer Register</title>
+</head>
+{% extends "producerbase.html" %}
+{% load static %}
+
+
+<html lang="en">
+<body>
+{% block content %}
+<div class="profile-settings-responsive">
+	<a href="#" class="js-profile-settings-open profile-settings-open">
+		<svg class="settings-open-arrow" width="14" height="14"><use xlink:href="#olymp-popup-left-arrow"></use></svg>
+	</a>
+	<div class="mCustomScrollbar" data-mcs-theme="dark">
+		<div class="ui-block">
+			<div class="your-profile">
+				<div class="ui-block-title ui-block-title-small">
+				    <h6 class="title">Your PROFILE</h6>
+				</div>					
+			</div>
+		</div>
+	</div>
+</div>
+{% for message in messages  %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+     <strong>Message : </strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12"></div>
+		<div class="col col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 col-12">
+			<div class="ui-block">
+				<div class="ui-block-title">
+					<h6 class="title">Register as a Producer</h6>
+				</div>
+				<div class="ui-block-content">
+					<!-- Form Favorite Page Information -->
+					<form method="post" action="{% url 'Producerregisterpage' %}">
+							{% csrf_token %}
+						<div class="row display-flex">
+							<div class="form-group label-floating">
+								<label for="production_house_image">Production House Logo</label>
+								<input type="file" class="form-control" id="production_house_image" name="production_house_image">
+							</div>
+							
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_first_name" class="control-label">First Name</label>
+									<input class="form-control" type="text" id="producer_first_name" name="producer_first_name">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_last_name" class="control-label">Last Name</label>
+									<input class="form-control" type="text" id="producer_last_name" name="producer_last_name">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_email" class="control-label">Your Email</label>
+									<input class="form-control" type="email" id="producer_email" name="producer_email">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="production_house" class="control-label">Production House Name</label>
+									<input class="form-control" type="text" id="production_house" name="production_house">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_phone_number" class="control-label">Your Phone Number</label>
+									<input class="form-control" type="number" id="producer_phone_number" name="producer_phone_number">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">	
+								<div class="form-group label-floating">
+									<label for="producer_website" class="control-label">Website</label>
+									<input class="form-control" type="text" id="producer_website" name="producer_website">
+								</div>
+							</div>
+
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_password" class="control-label">Create Your Password</label>
+									<input class="form-control" type="password" id="producer_password" name="producer_password">
+								</div>
+							</div>
+						
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="form-group label-floating">
+									<label for="producer_confirm_password" class="control-label"> Confirm Your Password</label>
+									<input class="form-control" type="password" id="producer_confirm_password" name="producer_confirm_password">
+								</div>
+							</div>
+					
+							<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+								<div class="form-group label-floating is-select">
+									<label for="producer_country_name" class="control-label">Your Country</label>
+									<select class="form-select" id="producer_country_name" name="producer_country_name">
+										<option value="{{x.country_name}}">{{x.country_name}}</option>
+										<option value="India">India</option>
+										<option value="USA">USA</option>
+									</select>
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+								<div class="form-group label-floating is-select">
+									<label for="producer_state" class="control-label">Your State / Province</label>
+									<select class="form-select" id="producer_state" name="producer_state">
+										<option value="{{x.state}}">{{x.state}}</option>
+										<option value="Andhra Pradesh">Andhra Pradesh</option>
+										<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+										<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+										<option value="Assam">Assam</option>
+										<option value="Bihar">Bihar</option>
+										<option value="Chandigarh">Chandigarh</option>
+										<option value="Chhattisgarh">Chhattisgarh</option>
+										<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+										<option value="Daman and Diu">Daman and Diu</option>
+										<option value="Goa">Goa</option>
+										<option value="Gujarat">Gujarat</option>
+										<option value="Haryana">Haryana</option>
+										<option value="Himachal Pradesh">Himachal Pradesh</option>
+										<option value="Jharkhand">Jharkhand</option>
+										<option value="Karnataka">Karnataka</option>
+										<option value="Kerala">Kerala</option>
+										<option value="Lakshadweep">Lakshadweep</option>
+										<option value="Madhya Pradesh">Madhya Pradesh</option>
+										<option value="Maharashtra">Maharashtra</option>
+										<option value="Manipur">Manipur</option>
+										<option value="Meghalaya">Meghalaya</option>
+										<option value="Mizoram">Mizoram</option>
+										<option value="Nagaland">Nagaland</option>
+										<option value="Odisha">Odisha</option>
+										<option value="Punjab">Punjab</option>
+										<option value="Puducherry">Puducherry</option>
+										<option value="Rajasthan">Rajasthan</option>
+										<option value="Sikkim">Sikkim</option>
+										<option value="Tamil Nadu">Tamil Nadu</option>
+										<option value="Telangana">Telangana</option>
+										<option value="Tripura">Tripura</option>
+										<option value="Uttar pradesh">Uttar pradesh</option>
+										<option value="Uttarakhand">Uttarakhand</option>
+										<option value="West Bangal">West Bangal</option>
+									</select>
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+								<div class="form-group label-floating is-select">
+									<label for="producer_city" class="control-label">Your City</label>
+									<select class="form-select" id="producer_city" name="producer_city">
+										<option value="{{x.city}}">{{x.city}}</option>
+										<option value="Amaravati">Amaravati</option>
+										<option value="Itanagr">Itanagr</option>
+										<option value="Dispur">Dispur</option>
+										<option value="patna">patna</option>
+										<option value="Raipur">Raipur</option>
+										<option value="Panaji">Panaji</option>
+										<option value="Gandhi Nagar">Gandhi Nagar</option>
+										<option value="Chandigarh">Chandigarh</option>
+										<option value="Shimla">Shimla</option>
+										<option value="Ranchi">Ranchi</option>
+										<option value="Bengaluru">Bengaluru</option>
+										<option value="Thiruvananthapuram">Thiruvananthapuram</option>
+										<option value="Bhopal">Bhopal</option>
+										<option value="Mumbai">Mumbai</option>
+										<option value="Imphal">Imphal</option>
+										<option value="Shilong">Shilong</option>
+										<option value="Aizawl">Aizawl</option>
+										<option value="Bhubaneswar">Bhubaneswar</option>
+										<option value="Jaipur">Jaipur</option>
+										<option value="Gangtok">Gangtok</option>
+										<option value="Chennai">Chennai</option>
+										<option value="Hyderabad">Hyderabad</option>
+										<option value="Agartala">Agartala</option>
+										<option value="Lucknow">Lucknow</option>
+										<option value="Dehradun(winter)&Gairain(summer)">Dehradun(winter)&Gairain(summer)</option>
+										<option value="Kolkata">Kolkata</option>
+									</select>
+								</div>
+							</div>
+							<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<div class="form-group">
+									<textarea id="production_house_brief" name="production_house_brief" class="form-control" cols="5" rows="5" > Briefly About Production House </textarea>
+								</div>
+							</div>
+									
+							<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<div class="form-group with-icon label-floating">
+									<label for="producer_facebook_account" class="control-label">Your Facebook Account</label>
+									<input class="form-control" id="producer_facebook_account" name="producer_facebook_account" type="text" value="www.facebook.com/your page">
+									<svg class="c-facebook" width="20" height="20"><use xlink:href="#olymp-facebook-icon"></use></svg>
+								</div>
+								<div class="form-group with-icon label-floating">
+									<label for="producer_twitter_account" class="control-label">Your Twitter Account</label>
+									<input class="form-control" id="producer_twitter_account" name="producer_twitter_account" type="text" value="www.twitter.com/your page">
+									<svg class="c-twitter" width="20" height="20"><use xlink:href="#olymp-twitter-icon"></use></svg>
+								</div>
+							</div>
+							<!--text captcha-->
+							<div class="text-captcha-container">
+								<div class="text-captcha-input_field captcha_box">
+									<input type="text" value="" disabled style="border: 1px dashed #888da8;background-color:#e6ecf5;"/>
+									<button class="text-captcha-refresh_button">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#fff" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+											<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+										</svg>
+									</button>
+								</div>
+								<div class="text-captcha-input_field captcha_input">
+									<input type="text" name="captcha" placeholder="Enter captcha" />
+								</div>
+							</div>
+							<!--text captcha-->
+							<div class="remember">
+								<div class="checkbox">
+									<label>
+										<input name="optionsCheckboxes" type="checkbox">
+											By Registering your account agree to Sign Up & accept the <a href="#">Terms and Conditions</a> of the website
+									</label>
+								</div>
+							</div>
+							<div class="">
+								<button class="btn btn-primary d-grid gap-2 col-6 mx-auto" type="submit" value="submit">
+									Sign Up
+								</button>
+							</div>
+						</div>
+					</form>	
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+ {% endblock %}
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore |User Review Label</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	{% block header %}
+		<body class="body-bg-white">
+			<div class="row" style="margin: 70px;">
+			{% for x in review_label %}
+				<div class="col col-xl-10 col-lg-10 col-md-10 col-sm-10 col-12">
+					<article class="hentry blog-post">
+						<div class="h5 post">
+							<div class="post-title">
+								<h1 class="post-title">{{ x.Movie_name }}</h1>
+							</div>
+							<p>{{ x.comment | linebreaksbr }}</p>
+							<div class="">
+								<time class="published" datetime="2017-03-24T18:18">
+									<div class="h6">Reveiw by {{ x.author }}</br>{{ x.review_date }}</div>
+								</time>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="col col-xl-2 col-lg-2 col-md-12 col-sm-12 col-12">
+					<h6 class="c-primary">Rating : {{ x.stars }}
+						<ul class="rait-stars">
+							<li>
+								<svg class="{% static 'star-icon c-primary' %}" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+							</li>
+							<li>
+								<svg class="{% static 'star-icon c-primary' %}" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+							</li>
+							<li>
+								<svg class="{% static 'star-icon c-primary' %}" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+							</li>
+							<li>
+								<svg class="{% static 'star-icon c-primary' %}" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+							</li>
+							<li>
+								<svg class="{% static 'star-icon' %}" width="10" height="10"><use xlink:href="#olymp-star-null"></use></svg>
+							</li>
+						</ul>
+					</h6>
+				</div>
+				{% endfor %}
+				{% for x in review_label %}
+				{% if forloop.counter <= 8 %}
+				{% if forloop.first %}
+				<div class="col col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+					{% endif %}	
+					<article class="hentry blog-post blog-post-v3 featured-post-item"></article>
+				</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</body>
+{% endblock %}
+</html>
+
+
+

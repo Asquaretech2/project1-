@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| General Reviews</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	<html lang="en">
+	{% block content %}
+	<body class="body-bg-white">
+		<div class="container mt-5">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="ui-block responsive-flex1200">
+						<div class="ui-block-title">
+							<div class="w-select">
+								<div class="title">Filter By:</div>
+								<fieldset class="form-group">
+									<select class="form-select">
+										<option value="NU">All Categories</option>
+										<option value="NU">Favourite</option>
+										<option value="NU">Likes</option>
+									</select>
+								</fieldset>
+							</div>
+							<div class="w-select">
+								<fieldset class="form-group">
+									<select class="form-select">
+										<option value="NU"></option>
+										<option value="NU">Date (Ascending)</option>
+									</select>
+								</fieldset>
+							</div>
+
+							<a href="#" data-bs-toggle="modal" data-bs-target="#create-photo-album" class="btn btn-primary btn-md-2">Filter</a>
+
+							<form class="w-search">
+								<div class="form-group with-button">
+									<input class="form-control" type="text" placeholder="Search Reviews......">
+									<button>
+										<svg class="olymp-magnifying-glass-icon"><use xlink:href="#olymp-magnifying-glass-icon"></use></svg>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12"></div>
+			<div class="col col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+				<div class="">
+					{% for x in genreviews %}
+						<!-- Single Post -->
+						<article class="hentry blog-post blog-post-v3 featured-post-item">
+							<div class="post">
+								<div class="post-title">
+									<a href="{% url 'review_label' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+								</div>
+								<div class="h6">
+									{{ x.review_date }}
+								</div>
+								<p>{{ x.comment |slice:":250" }}
+										<a href="{% url 'review_label' x.Movie_name %}" target="_blank">...Read Post</a>
+								</p>
+								<div class="h6">
+									<time class="published" datetime="2017-03-24T18:18">
+										by {{ x.author }}
+									</time>
+								</div>
+							</div>
+						</article> 
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+  	{% endblock %}
+</html>
+
+
+

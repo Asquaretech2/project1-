@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Badges</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	<html lang="en">
+	<body>
+	{% block header %}
+	<div class="main-header">
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-8 col-lg-8 m-auto col-md-8 col-sm-12 col-12">
+					<div class="main-header-content">
+						<h1>Collect your Badges!</h1>
+						<p>Welcome to your badge collection! Here you’ll find all the badges you can unlock to show on your profile.
+						Learn how to achive the goal to adquire them and collect them all. Some have leveled tiers and other don’t.
+						You can challenge your friends to see who gets more and let the fun begin!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ... end Main Header Badges -->
+	<!-- Main Content Badges -->
+	<div class="container">
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+			{% for x in badges %}
+			{% if forloop.counter <= 5 %}
+				<div class="ui-block">
+					<div class="birthday-item inline-items badges">
+						<div class="author-thumb">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="movie posters" width="38" height="38">
+							<div class="label-avatar bg-primary"></div>
+						</div>
+						<div class="birthday-author-name">
+							<a href="{% url 'labelof' x.Movie_name %}" target="_blank" class="h6 author-name">{{x.Movie_name}}</a>
+							<div class="birthday-date">Join and Earn badges</div>
+						</div>
+
+						<div class="skills-item">
+							<div class="skills-item-meter">
+								<span class="skills-item-meter-active" style="width: 76%"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% endfor %}
+
+		</div>
+	</div>
+	<!-- ... end Main Content Badges -->
+	<a class="back-to-top" href="#">
+		<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+	</a>
+	</body>
+</html>
+{% endblock %}

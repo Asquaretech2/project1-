@@ -1,0 +1,68 @@
+<!-- 404.html template -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>CinyStore|404 Page Not Found</title>
+	<meta name="description" content="A perfect place for movie buffs!">
+	<meta property="og:title" content="Cinystore">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="A perfect place for movie buffs!">
+	<meta property="og:site_name" content="cinystore">
+	<meta property="og:url" content="https://www.cinystore.com/">
+
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+    <!-- custom css -->
+    <style>
+        body {
+        	color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://res.cloudinary.com/dkbxi5qts/image/upload/v1660153719/movies%20prime%20app/login_backdrop_mwiy7z.svg");
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .emoji {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">😕</div>
+        <h1>Oops! Page Not Found</h1>
+        <p>We couldn't find the page you were looking for.</p>
+        <a href="{% url 'index' %}">Go back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore |User trailer</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+
+	<header class="header" id="site-header">	
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="ui-block">
+						<div class="ui-block-title inline-items">
+							<div class="btn btn-control btn-control-small bg-yellow">
+								<svg class="olymp-trophy-icon"><use xlink:href="#olymp-trophy-icon"></use></svg>
+							</div>
+							<h6 class="title">Trailers</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<body>
+		<div class="container">
+			{% for x in Usertrailer %}
+			{% if forloop.first %}
+			<div class="row mx-auto">
+				{% endif %}
+				<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+					<div class="video-item hentry blog-post">
+						<div class="video-player">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="318" height="212"/>
+							<a href="https://www.youtube.com/watch?v={{ x.trailer }}" class="play-video">
+
+								<svg class="olymp-play-icon"><use xlink:href="#olymp-play-icon"></use></svg>
+							</a>
+							<div class="overlay overlay-dark"></div>
+							<div class="more"><svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg></div>
+						</div><br/>
+                    	<div class="post-title">
+                        	<a href="{% url 'labelof' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+                    	</div>
+					</div>
+				</div>
+				{% if forloop.counter|divisibleby:4 %}
+				{% endif %}
+				{% if forloop.last %}
+			</div>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</body>
+</html>
+{% endblock%}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business |Producer Manage Label</title>
+</head>
+{% extends "producerhead.html" %}
+{% load static %}
+<html lang="en">
+	{% block content %}
+	
+<div class="container">
+	<div class="row ">
+
+		<div class="col col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+			<div class="">
+{% for x in producermanagelabel %}
+{% if forloop.counter <= 6 %}
+
+				<!-- Single Post -->
+
+				<article class="hentry blog-post single-post single-post-v3">
+					<h1 class="h6 post-title">{{ x.Movie_name }}</h1>
+					<div class="post-content-wrap">
+						<div class="post-content">
+							<div class="h6">
+								Releasing in {{ x.Release_date }}
+							</div>
+							
+							<p>{{ x.synopsis | linebreaksbr }}
+							</p>
+							<div class="video-thumb">
+								<img loading="lazy" src="{{ x.Poster.url }}" alt="video" width="368" height="180">
+								<a href="{{ x.trailer|safe }}" class="play-video">
+									<svg class="olymp-play-icon"><use xlink:href="#olymp-play-icon"></use></svg>
+								</a>
+							</div>							
+						</div>
+					</div>
+				</article>
+{% endif %}				<!-- ... end Single Post -->
+{% endfor %}
+			</div>
+		</div>
+
+		<div class="col col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+			<aside>
+				<div class="">
+				  {% for x in producermanagelabel %}
+				  {% if forloop.counter <= 2 %}
+
+					
+				</div>
+
+				<div class="">
+
+					<!-- Post -->
+
+					<article class="hentry blog-post ">
+
+						<div class="post-thumb">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="368" height="180">
+						</div>
+						<br/>
+						<div class="author-date">
+							<a class=" riple-container">{{ x.Language }} <br> <br> {{ x.Genre }} </a>
+						</div>
+						<div class="author-date">
+							<a class=" h6 riple-container" href="#">{{ x.Director }} <br/> {{ x.Music_director }} <br/> {{ x.Producer }}</a>
+							<br/>	
+						</div>
+						<div class="h6">
+							<time class="published" datetime="2017-03-24T18:18">
+								Posted	{{ x.timestamp_field }} 
+							</time>
+						</div>
+						
+						<div class="author-date">
+							<a class="h6 post__author-name fn" href="#">{{ x.Synopsis |slice:":150" }}</a>
+						</div>
+						<br/>
+						<div class="post__date">
+							
+							<time class="published" datetime="2017-03-24T18:18">
+							  {{ x.date_and_time }}
+							</time>
+						</div>
+
+					</article>
+					<!-- ... end Post -->
+	{% endif %}
+			{% endfor %}
+
+				</div>
+
+			</aside>
+		</div>
+	</div>
+</div>
+{% endblock %}
+</body>
+</html>

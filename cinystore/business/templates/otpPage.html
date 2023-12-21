@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% extends "businessBase.html" %}
+<html>
+{% load static %}
+<body>
+    {% block header %}
+        <div class="container">
+            <div class="row d-none d-md-block">
+				<div class="col-12 mt-5">
+					<div class="connecting-bg-container mt-5">
+					  <div class="connecting-container">
+						  <div class="connecting-each-num-bg-container">
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B30">
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">1</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Welcome
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B3D">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card" >
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">2</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   OTP
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card">
+											  <span class="numbers">3</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										  Label
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card">
+											  <span class="numbers">4</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Forms
+									   </div>
+								   </div>
+							   </div>
+						  </div>
+					  </div>
+			        </div>
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <div class="password-page-text-container">
+                        <p class="password-page-text">Dear Producer</p>
+                        <p class="password-page-text">Its fantastic to have you with us !<br/>
+                            Welcome to the Cinystore family. We are thrilled<br/>
+                            that you have chosen us to be part of your family.
+                        </p>
+                        <p class="password-page-text mt-4">Few quick details for you to share before you can create your Label.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="password-page-container">
+                        <div class="password-form-bg-container">
+                            <h1 class="password-page-heading">OTP Verification</h1>
+							<p>Please enter the OTP sent to your mobile number:</p>
+                            <form method="post" action="{% url 'select_page' %}">
+								{% csrf_token %}
+                                <div class="password-page-inputs-container">
+                                    <label for="otp" class="password-page-input-texts">OTP</label>
+                                    <input type="text" id="otp" name="otp" class="password-page-input-fields" placeholder="OTP"/>
+                                </div>
+								{% for message in messages  %}
+        						<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            						<strong> {{ message }} </strong>
+        						</div>
+        						{% endfor %}
+                                <div class="password-page-btn-container">
+                                    <button type="submit" class="password-page-btn" value="submit">
+                                        Submit
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+</body>
+
+</html>

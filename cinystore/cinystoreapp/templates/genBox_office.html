@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| General Box Office</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	{% block content %}
+	<body class="body-bg-white">
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<br/>
+				</div>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12"></div>
+			<div class="col col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+				{% for x in genBox_office %}
+					<!-- Single Post -->
+					<article class="hentry blog-post blog-post-v3 featured-post-item">
+						<div class="post">
+							<div class="control-block-button post-control-button"></div>
+							<div class="post-title">
+								<a href="{% url 'Box_office_label' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+							</div>
+							<div class="heading-text-box-office">
+								<span>Production House : </span>
+								<span>{{ x.production_house }}</span><br/>					
+								<span>Total Collections : </span>
+								<span>{{ x.movie_collections }}</span><br/>
+								<span>Day Collections:</span>
+								<span>{{ x.day_collections }}</span></br>
+								<span>Weekly Collection : </span>
+								<span>{{ x.weekly_collections }}</span></br>
+								<span>Month Collections : </span>
+								<span>{{ x.month_collections }}</span>
+								<br/>   
+								<div class="h6">
+									<time class="published" datetime="2017-03-24T18:18">
+										by {{ x.timestamp_field }}
+									</time>
+								</div>
+							</div>
+						</div>	
+					</article>
+				{% endfor %}
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+  	{% endblock %}
+</html>
+
+
+

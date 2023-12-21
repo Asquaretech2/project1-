@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Episode Upload</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	{% load widget_tweaks %}
+	<html lang="en">
+		<body>
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12"></div>
+				<div class="col col-lg-8 col-md-8 col-sm-8 col-12">
+					<div class="ui-block">
+						<div class="ui-block-content">
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="row">
+								
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Episode No">Episode No.</label>
+											<input type="text" class="form-control" id="Episode No" name="Episode No" Required>
+											
+										</div>
+										<div class="form-group label-floating">
+											<label for="Episode Title">Episode Title</label>
+											<input type="text" class="form-control" id="Episode Title" name="Episode Title" Required>
+										</div>								
+										<div class="form-group label-floating">
+											<label for="Upload Image">Upload Image</label>
+											<input type="file" class="form-control" id="Upload Image" name="Upload Image" Required>
+										</div>
+									</div>
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 w-50 h-100">
+										<div class="form-group label-floating">
+											<label for="Synopsis">Synopsis</label>
+											<input type="text" class="form-control" id="Synopsis" name="Synopsis" style="line-height: 17.75;" Required>
+										</div>
+									</div>
+									<a href="{% url 'episodeupload1' %}" class="btn btn-primary d-grid gap-2 col-6 mx-auto" type="submit" value="submit">
+										Next
+									</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="16" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

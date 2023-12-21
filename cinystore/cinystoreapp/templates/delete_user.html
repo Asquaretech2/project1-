@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>CinyStore| Delete User Account </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/confstyle.css' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body class="confirm-body">
+    <div class="confirm-main-bg-container">
+        <nav class="business-nav-container" id="corporate-business-navbar">
+            <div class="navbar-brand d-flex ml-2 ml-md-5">
+                <img src="https://www.cinystore.com/static/img/logo.webp" alt="logo" class="business-logo" />
+                <div>
+                    <h1 class="business-logo-name">CinyStore</h1>
+                    <p class="business-logo-name-description">Poora Filmy Hai Boos</p>
+                    <p class="business-logo-sub-description">Beta Version</p>
+                </div>
+            </div>
+        </nav>
+        <div class="confirm-bg-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-md-7 pl-0 pl-md-5">
+                        <div class="confirm-text-bg-container">
+                            <p class="confirm-text">
+                                Kindly adhere to the outlined procedure for account deletion.
+                            </p>
+                            <p class="confirm-text">
+                                1. Share the registered email to initiate the deletion of your personal information and confirm.
+                            </p>
+                            <p class="confirm-text">
+                                2. Upon receipt of your request, we will ensure the removal of your account along with
+                                associated details such as login credentials, phone number, email, and any interactions
+                                on the platform, including likes, comments, shares, and follows.
+                            </p>
+                            <p class="confirm-text">
+                                3. Your privacy is our priority, and we are committed to securely handling the deletion process,
+                                which includes eliminating any reviews associated with your account.
+                            </p>
+                            <p class="confirm-text">
+                                4. Feel free to reach out on admin@cinystore.com for any further inquiries or require
+                                additional assistance in managing your account information.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-5 pr-2 pr-md-4">
+                        <div class="confirm-form-bg-container">
+                            <h1 class="confirm-form-heading">Are you sure you would like to delete your account</h1>
+                            <form class="confirm-form" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="confirm-input-container">
+                                <label for="confirm-id" class="confirm-input-text">Your Email or Phone Number</label>
+                                <input type="text" id="confirm-id" name="confirm-id" class="confirm-input-fields" placeholder="Email or Phone number" />
+                            </div>
+                                <button type="submit" value="submit" class="confirm-btn">Confirm</button>
+                                {% for message in messages %}
+                                    <strong> {{ message }} </strong>
+                                {% endfor %}
+                            </form>
+                            <p class="confirm-form-description">
+                                Our service gives you the ability to delete certain information about You from within the Service
+                                by which you may update,amend,or delete your information at any time.
+                            </p>
+                            <p class="confirm-form-description mb-0">
+                                Please note, however, that we may retain certain information when we have a legal obligation or lawful basis
+                                to do so.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+<!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

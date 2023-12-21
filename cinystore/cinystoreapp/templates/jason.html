@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | General Blog</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	{% block content %}
+	<body class="body-bg-white">
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12"></div>
+			<div class="col col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+				{% for x in genblog %}
+					<!-- Single Post -->
+					<article class="hentry blog-post blog-post-v3 featured-post-item">
+						<div class="row">
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="post-content">
+									<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261">
+								</div>
+							</div>
+							<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+								<div class="post-content">	
+									<p>{{ x.content }}
+										<a href="#" target="_blank"></a>
+									</p>
+								</div>
+							</div>
+						</div>	
+						<div class="h6">
+							<time class="published" datetime="2017-03-24T18:18">
+								by {{ x.timestamp_field }}
+							</time>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+  	{% endblock %}
+</html>
+
+
+

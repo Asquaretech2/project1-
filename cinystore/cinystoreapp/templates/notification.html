@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Notifications</title>
+</head>
+{% extends "base.html" %}
+<head>
+	{% load static %}
+</head>
+<body>
+	{% block content %}
+	<!-- ... end Header Standard Landing  -->
+		<div class="header-spacer--standard"></div>
+		<!--<div class="content-bg-wrap bg-landing"></div>-->
+	    <div class="">
+            <div class="" style="margin-left: 100px;">
+                    {% for x in mydata %}
+			        {% if forloop.counter <= 100 %}
+                   <div class="post__author author vcard inline-items">
+					   <div class="post-author-img-container">
+							<img loading="lazy" src="{{ x.Poster.url }}" alt="poster">
+					   </div>
+					   <div class="author-date">
+						   <a class="h6 post__movie-name fn" href="{% url 'labelof' x.Movie_name %}" target="_blank">{{ x.Movie_name}} is a {{ x.Language }} {{ x.Genre }} starring {{ x.cast }} and directed by {{ x.Director }} and Produced by {{ x.Production_house }}</a>
+					   </div>
+				   </div>
+                    {% endif %}
+		   	        {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
+

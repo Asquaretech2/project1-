@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Calender & Events</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	<html lang="en">
+		<body>
+		{% block header %}
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<div class="ui-block responsive-flex">
+							<div class="ui-block-title">
+								<ul class="nav nav-tabs calendar-events-tabs" id="calendar-events-tabs" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link" id="notifications-tab" data-bs-toggle="tab" href="#notifications" role="tab" aria-controls="home" aria-selected="false">
+											Calenadar<span class="items-round-little bg-breez"></span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Tab panes -->
+			<div class="tab-content" id="calendar-events-tabs-content">
+				<div class="tab-pane fade show active" id="events" role="tabpanel" aria-labelledby="events-tab">
+					<div class="container">
+						<div class="row">
+							<div class="col col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+								<div class="ui-block">
+									<!-- Today Events -->
+									<div class="today-events calendar">
+										<div class="today-events-thumb">
+											<div class="date">		
+												{% for x in CalendarAndEvents %}
+												<div class="day-number">{{x.date_and_time}}</div>
+												{% endfor %}
+											</div>
+										</div>
+										<div class="list">
+											<div class="accordion day-event" id="accordionExample" data-month="12" data-day="2">
+												<div class="accordion-item">
+													<div class="accordion-header" id="headingOne">
+														<div class="event-time">
+															<time datetime="2004-07-24T18:18">9:00am</time>
+															<div class="more">
+																<svg class="olymp-three-dots-icon">
+																	<use xlink:href="#olymp-three-dots-icon"></use>
+																</svg>
+																<ul class="more-dropdown">
+																	<li>
+																		<a href="#">Mark as Completed</a>
+																	</li>
+																	<li>
+																		<a href="#">Delete Event</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+															{{ x.synopsis |slice:":150" }}
+															<svg width="8" height="8">
+																<use xlink:href="#olymp-dropdown-arrow-icon"></use>
+															</svg>
+															<span class="event-status-icon" data-bs-toggle="modal" data-bs-target="#public-event">
+																<svg class="olymp-calendar-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="UNCOMPLETED"><use xlink:href="#olymp-calendar-icon"></use></svg>
+															</span>
+														</button>
+													</div>
+													<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+														<div class="accordion-body">
+															{{ x.synopsis |slice:":20" }}
+															<div class="place inline-items">
+																<svg class="olymp-add-a-place-icon">
+																	<use xlink:href="#olymp-add-a-place-icon"></use>
+																</svg>
+																<span>Theater Name</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- ... end Today Events -->
+								</div>
+							</div>
+							<div class="col col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+								<div class="ui-block">
+									<!------------------------------------- Full Calendar ----------------------------------------->
+									<div id="calendar" class="crumina-full-calendar">
+									</div>
+									<!-- JS library for Full Calendar -->
+									<script src="js/libs/fullcalendar.min.js"></script>
+									<!-- ...end JS library for Full Calendar -->
+									<!-- JS-init for Full Calendar -->
+									<script>
+										/* -----------------------------
+											* FullCalendar Init
+											* Script file: fullcalendar.min.js
+											* https://fullcalendar.io/
+										* ---------------------------*/
+										fullCalendar = function () {
+											var calendarEl = document.getElementById('calendar');
+
+											var calendar = new FullCalendar.Calendar(calendarEl, {
+												plugins: ['interaction', 'dayGrid', 'timeGrid'],
+												defaultView: 'dayGridMonth',
+												defaultDate: '2019-05-07',
+												header: {
+													left: 'prev',
+													center: 'title',
+													right: 'next,dayGridMonth,timeGridWeek,timeGridDay'
+												},
+												buttonText: {
+													month: ' ',
+													week: ' ',
+													day: ' '
+												},
+												buttonIcons: {
+													prev: 'far fa-chevron-left',
+													next: 'far fa-chevron-right'
+												},
+
+												eventClick: function (info) {
+													var url = info.event.url;
+													var is_modal = url.match(/^modal\:(#[-\w]+)$/);
+													if (!is_modal) {
+														return;
+													}
+
+													info.jsEvent.preventDefault();
+													var modal = is_modal[1];
+
+													$(modal).modal('show');
+												},
+												events: [
+													{
+														title: 'Chris Greyson’s Bday',
+														start: '2019-05-08',
+														url: 'modal:#public-event'
+													},
+													{
+														title: 'Make Dinner Plans...',
+														start: '2019-05-08',
+														url: 'modal:#private-event'
+													},
+													{
+														title: 'Jenny’s Birthday...',
+														start: '2019-05-30',
+														url: 'modal:#private-event'
+													},
+													{
+														title: 'Videocall to talk...',
+														start: '2019-05-30',
+														url: 'modal:#public-event'
+													},
+													{
+														title: 'Breakfast at the...',
+														start: '2019-05-26',
+														url: 'modal:#public-event'
+													},
+													{
+														title: 'Send the new...',
+														start: '2019-05-26',
+														url: 'modal:#private-event'
+													},
+													{
+														title: 'Take Querty to the...',
+														start: '2019-05-26',
+														url: 'modal:#public-event'
+													}
+												]
+											});
+
+											calendar.render();
+										};
+										document.addEventListener("DOMContentLoaded", function () {
+											fullCalendar();
+										});
+
+									</script>
+									<!-- ... end JS-init for Full Calendar -->
+
+									<!------------------------------------- ... end Full Calendar ----------------------------------------->
+
+
+									<div class="ui-block-title ui-block-title-small">
+										<h6 class="title">{{ x.date_and_time}}</h6>
+									</div>
+
+									<div class="today-events calendar">
+										<div class="list">
+
+											<div class="accordion day-event" id="accordionExample2">
+												<div class="accordion-item">
+													<div class="accordion-header" id="headingOne2">
+														<div class="event-time">
+															<time class="published" datetime="2017-03-24T18:18">10:50am</time>
+															<div class="more">
+																<svg class="olymp-three-dots-icon">
+																	<use xlink:href="#olymp-three-dots-icon"></use>
+																</svg>
+																<ul class="more-dropdown">
+																	<li>
+																		<a href="#">Mark as Completed</a>
+																	</li>
+																	<li>
+																		<a href="#">Delete Event</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+															{{ x.Movie_name}}
+															<svg width="8" height="8">
+																<use xlink:href="#olymp-dropdown-arrow-icon"></use>
+															</svg>
+															<span class="event-status-icon" data-bs-toggle="modal" data-bs-target="#public-event">
+																<svg class="olymp-calendar-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="UNCOMPLETED"><use xlink:href="#olymp-calendar-icon"></use></svg>
+															</span>
+														</button>
+													</div>
+													<div id="collapseOne2" class="accordion-collapse collapse show" aria-labelledby="headingOne2" data-bs-parent="#accordionExample2">
+														<div class="accordion-body">
+															I have to remeber to be a little earlier at the agency to discuss with the guys all the questions we have for our new client and to show them the new logo.
+															<div class="place inline-items">
+																<svg class="olymp-add-a-place-icon">
+																	<use xlink:href="#olymp-add-a-place-icon"></use>
+																</svg>
+																<span>Daydreamz Agency</span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="accordion-item">
+													<div class="accordion-header" id="headingTwo2">
+														<div class="event-time">
+															<time class="published" datetime="2017-03-24T18:18">10:50am</time>
+															<div class="more">
+																<svg class="olymp-three-dots-icon">
+																	<use xlink:href="#olymp-three-dots-icon"></use>
+																</svg>
+																<ul class="more-dropdown">
+																	<li>
+																		<a href="#">Mark as Completed</a>
+																	</li>
+																	<li>
+																		<a href="#">Delete Event</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+															Jenny’s Birthday Party
+															<svg width="8" height="8">
+																<use xlink:href="#olymp-dropdown-arrow-icon"></use>
+															</svg>
+															<span class="event-status-icon" data-bs-toggle="modal" data-bs-target="#private-event">
+																<svg class="olymp-calendar-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="UNCOMPLETED"><use xlink:href="#olymp-calendar-icon"></use></svg>
+															</span>
+														</button>
+													</div>
+													<div id="collapseTwo2" class="accordion-collapse collapse" aria-labelledby="headingTwo2" data-bs-parent="#accordionExample2">
+														<div class="accordion-body">
+															Hi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the new design project we have been working on. Cheers!
+															<div class="place inline-items">
+																<svg class="olymp-add-a-place-icon">
+																	<use xlink:href="#olymp-add-a-place-icon"></use>
+																</svg>
+																<span>Daydreamz Agency</span>
+															</div>
+
+															<ul class="friends-harmonic inline-items">
+																<li>
+																	<a href="#">
+																		<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+																	</a>
+																</li>
+																<li>
+																	<a href="#">
+																		<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+																	</a>
+																</li>
+																<li class="with-text">
+																	Will Assist
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+					<div class="container">
+						<div class="row">
+							<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+								<div class="ui-block">
+
+
+									<table class="event-item-table event-item-table-fixed-width">
+
+										<thead>
+
+										<tr>
+
+											<th class="author">
+												NOTIFICATION
+											</th>
+
+											<th class="location">
+												PLACE
+											</th>
+
+											<th class="upcoming">
+												DATE
+											</th>
+
+											<th class="description">
+												DESCRIPTION
+											</th>
+
+											<th class="users">
+												ASSISTANTS
+											</th>
+
+											<th class="add-event">
+
+											</th>
+										</tr>
+
+										</thead>
+
+										<tbody>
+										<tr class="event-item">
+											<td class="author">
+												<div class="event-author inline-items">
+													<div class="author-thumb">
+														<img loading="lazy" src="{% static 'img/avatar62-sm.webp' %}" width="34" height="34" alt="avatar">
+													</div>
+													<div class="author-date">
+														<a href="#" class="author-name h6">Mathilda Brinker</a> invited you
+														<br> to an event <a href="#">Reunion Dinner.</a>
+													</div>
+												</div>
+											</td>
+											<td class="location">
+												<div class="place inline-items">
+													<svg class="olymp-add-a-place-icon">
+														<use xlink:href="#olymp-add-a-place-icon"></use>
+													</svg>
+													<span>Panucci Restaurant</span>
+												</div>
+											</td>
+											<td class="upcoming">
+												<div class="date-event inline-items align-left">
+													<svg class="olymp-small-calendar-icon">
+														<use xlink:href="#olymp-small-calendar-icon"></use>
+													</svg>
+
+													<span class="month">Aug 14, 2016 at 7:00pm</span>
+
+												</div>
+											</td>
+											<td class="description">
+												<p class="description">Hey! I thought we could all get together and grab something to eat to remember old times!</p>
+											</td>
+											<td class="users">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#" class="all-users bg-breez">+24</a>
+													</li>
+												</ul>
+											</td>
+											<td class="add-event">
+												<a href="20-CalendarAndEvents-MonthlyCalendar.html" class="btn btn-breez btn-sm">Add to Calendar</a>
+												<a href="#" class="btn btn-sm btn-border-think custom-color c-grey">Decline / Delete</a>
+											</td>
+										</tr>
+										<tr class="event-item">
+											<td class="author">
+												<div class="event-author inline-items">
+													<div class="author-thumb">
+														<img loading="lazy" src="{% static 'img/avatar78-sm.webp' %}" alt="avatar" width="34" height="34">
+													</div>
+													<div class="author-date">
+														<a href="#" class="author-name h6">Walter Havock </a>invited you to
+														<br> an event <a href="#"> Daydreamz New <br> Year’s Party.</a>
+													</div>
+												</div>
+											</td>
+											<td class="location">
+												<div class="place inline-items">
+													<svg class="olymp-add-a-place-icon">
+														<use xlink:href="#olymp-add-a-place-icon"></use>
+													</svg>
+													<span>Daydreamz Agency</span>
+												</div>
+											</td>
+											<td class="upcoming">
+												<div class="date-event inline-items align-left">
+													<svg class="olymp-small-calendar-icon">
+														<use xlink:href="#olymp-small-calendar-icon"></use>
+													</svg>
+
+													<span class="month">Dec 29, 2016 at 7:00pm</span>
+
+												</div>
+											</td>
+											<td class="description">
+												<p class="description">Let’s celebrate the new year together! We are organizing a big party for all the agency...</p>
+											</td>
+											<td class="users">
+												<ul class="friends-harmonic">
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+														</a>
+													</li>
+
+												</ul>
+											</td>
+											<td class="add-event">
+												<a href="20-CalendarAndEvents-MonthlyCalendar.html" class="btn btn-breez btn-sm">Add to Calendar</a>
+												<a href="#" class="btn btn-sm btn-border-think custom-color c-grey">Decline / Delete</a>
+											</td>
+										</tr>
+										</tbody>
+									</table>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endblock %}
+
+			<!-- Window-popup Event Public -->
+
+			<div class="modal fade" id="public-event" tabindex="-1" role="dialog" aria-labelledby="public-event" aria-hidden="true">
+				<div class="modal-dialog window-popup event-private-public public-event" role="document">
+					<div class="modal-content">
+						<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+							<svg class="olymp-close-icon">
+								<use xlink:href="#olymp-close-icon"></use>
+							</svg>
+						</a>
+						<div class="modal-body">
+							<article class="hentry post has-post-thumbnail thumb-full-width private-event">
+
+								<div class="private-event-head inline-items">
+									<img loading="lazy" src="img/avatar77-sm.webp" alt="avatar" width="40" height="40">
+
+									<div class="author-date">
+										<a class="h3 event-title" href="#">Green Goo in Gotham</a>
+										<div class="event__date">
+											<time class="published" datetime="2017-03-24T18:18">
+												Saturday at 9:00am
+											</time>
+										</div>
+									</div>
+
+									<div class="more">
+										<svg class="olymp-three-dots-icon">
+											<use xlink:href="#olymp-three-dots-icon"></use>
+										</svg>
+										<ul class="more-dropdown">
+											<li>
+												<a href="#">Edit Event Settings</a>
+											</li>
+											<li>
+												<a href="#">Mark as Completed</a>
+											</li>
+											<li>
+												<a href="#">Delete Event</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="post-thumb">
+									<img loading="lazy" src="{% static 'img/event-public.webp' %}" alt="event-public" width="769" height="380">
+								</div>
+
+								<div class="row">
+									<div class="col col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/avatar5-sm.webp' %}" alt="avatar" width="42" height="42">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="#">Green Goo Rock</a> created the
+												<a href="#">Event</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														March 11 at 9:52pm
+													</time>
+												</div>
+											</div>
+
+										</div>
+
+										<p>
+											We’ll be playing in the Gotham Bar in May. Come and have a great time with us! Entry: $12
+										</p>
+									</div>
+									<div class="col col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+										<div class="event-description">
+											<h6 class="event-description-title">Public Event</h6>
+											<div class="place inline-items">
+												<svg class="olymp-add-a-place-icon">
+													<use xlink:href="#olymp-add-a-place-icon"></use>
+												</svg>
+												<span>Gotham Bar</span>
+											</div>
+
+											<div class="place inline-items">
+												<svg class="olymp-add-a-place-icon">
+													<use xlink:href="#olymp-add-a-place-icon"></use>
+												</svg>
+												<span>Mar 26, 2016 at 9:00am UTC-8</span>
+											</div>
+
+											<ul class="friends-harmonic">
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#" class="all-users bg-breez">+24</a>
+												</li>
+
+												<li class="with-text">
+													Will Assist
+												</li>
+											</ul>
+
+											<a href="#" class="btn btn-blue btn-sm full-width">Invite Friends</a>
+
+											<a href="#" class="btn btn-breez btn-sm full-width">Add to Calendar / Assist</a>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="post-additional-info inline-items">
+
+									<a href="#" class="post-add-icon inline-items">
+										<svg class="olymp-heart-icon">
+											<use xlink:href="#olymp-heart-icon"></use>
+										</svg>
+										<span>8</span>
+									</a>
+
+									<ul class="friends-harmonic">
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic1.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic9.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic4.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+									</ul>
+
+									<div class="names-people-likes">
+										<a href="#">Diana </a>, <a href="#">Nicholas</a> and
+										<br>15 more liked this
+									</div>
+
+
+									<div class="comments-shared">
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-speech-balloon-icon">
+												<use xlink:href="#olymp-speech-balloon-icon"></use>
+											</svg>
+											<span>16 Comments</span>
+										</a>
+									</div>
+
+
+								</div>
+
+								<div class="control-block-button post-control-button">
+
+									<a href="#" class="btn btn-control">
+										<svg class="olymp-like-post-icon">
+											<use xlink:href="#olymp-like-post-icon"></use>
+										</svg>
+									</a>
+
+									<a href="#" class="btn btn-control">
+										<svg class="olymp-comments-post-icon">
+											<use xlink:href="#olymp-comments-post-icon"></use>
+										</svg>
+									</a>
+
+									<a href="#" class="btn btn-control">
+										<svg class="olymp-share-icon">
+											<use xlink:href="#olymp-share-icon"></use>
+										</svg>
+									</a>
+
+								</div>
+
+							</article>
+
+							<div class="mCustomScrollbar" data-mcs-theme="dark">
+
+								<ul class="comments-list">
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="{% url 'index' %}">James Spiegel</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														38 mins ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>3</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/avatar1-sm.webp' %}" alt="avatar" width="42" height="42">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="#">Mathilda Brinker</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														1 hour ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum
+											quia dolor sit amet, consectetur adipisci velit en lorem ipsum duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+										</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>8</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/avatar10-sm.webp' %}" alt="avatar" width="36" height="36">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="#">Elaine Dreyfuss</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														5 mins ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>8</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+								</ul>
+
+							</div>
+
+							<form class="comment-form inline-items">
+
+								<div class="post__author author vcard inline-items">
+									<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author">
+
+									<div class="form-group with-icon-right">
+										<textarea class="form-control" placeholder=""></textarea>
+										<div class="add-options-message">
+											<a href="#" class="options-message">
+												<svg class="olymp-camera-icon">
+													<use xlink:href="#olymp-camera-icon"></use>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ... end Window-popup Event Public -->
+
+			<!-- Window-popup Event Private Public -->
+
+			<div class="modal fade" id="private-event" tabindex="-1" role="dialog" aria-labelledby="private-event" aria-hidden="true">
+				<div class="modal-dialog window-popup event-private-public private-event" role="document">
+					<div class="modal-content">
+						<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+							<svg class="olymp-close-icon">
+								<use xlink:href="#olymp-close-icon"></use>
+							</svg>
+						</a>
+						<div class="modal-body">
+							<article class="hentry post has-post-thumbnail thumb-full-width private-event">
+
+								<div class="private-event-head inline-items">
+									<img loading="lazy" src="{% static 'img/avatar77-sm.webp' %}" alt="avatar" width="40" height="40">
+
+									<div class="author-date">
+										<a class="h3 event-title" href="#">Breakfast at the Agency</a>
+										<div class="event__date">
+											<time class="published" datetime="2017-03-24T18:18">
+												Saturday at 9:00am
+											</time>
+										</div>
+									</div>
+
+									<div class="more">
+										<svg class="olymp-three-dots-icon">
+											<use xlink:href="#olymp-three-dots-icon"></use>
+										</svg>
+										<ul class="more-dropdown">
+											<li>
+												<a href="#">Edit Event Settings</a>
+											</li>
+											<li>
+												<a href="#">Mark as Completed</a>
+											</li>
+											<li>
+												<a href="#">Delete Event</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="post-thumb">
+									<img loading="lazy" src="{% static 'img/event-private.webp' %}" alt="event-private" width="770" height="379">
+								</div>
+
+								<div class="row">
+									<div class="col col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="{% url 'index' %}">James Spiegel</a> created the
+												<a href="#">Event</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														March 11 at 9:52pm
+													</time>
+												</div>
+											</div>
+
+										</div>
+
+										<p>
+											Hi Guys! I propose to go a litle earlier at the agency to have breakfast and talk a little more about the
+											new design project we have been working on. Cheers!
+										</p>
+									</div>
+									<div class="col col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12">
+										<div class="event-description">
+											<h6 class="event-description-title">Private Event</h6>
+											<div class="place inline-items">
+												<svg class="olymp-add-a-place-icon">
+													<use xlink:href="#olymp-add-a-place-icon"></use>
+												</svg>
+												<span>Daydreamz Agency</span>
+											</div>
+
+											<div class="place inline-items">
+												<svg class="olymp-small-calendar-icon">
+													<use xlink:href="#olymp-small-calendar-icon"></use>
+												</svg>
+												<span>Mar 26, 2016 at 9:00am UTC-8</span>
+											</div>
+
+											<ul class="friends-harmonic">
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic5.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic10.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<img loading="lazy" src="{% static 'img/friend-harmonic2.webp' %}" alt="friend" width="28" height="28">
+													</a>
+												</li>
+
+												<li class="with-text">
+													Will Assist
+												</li>
+											</ul>
+
+											<a href="#" class="btn btn-blue btn-sm full-width">Invite Friends</a>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="post-additional-info inline-items">
+
+									<a href="#" class="post-add-icon inline-items">
+										<svg class="olymp-heart-icon">
+											<use xlink:href="#olymp-heart-icon"></use>
+										</svg>
+										<span>8</span>
+									</a>
+
+									<ul class="friends-harmonic">
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic1.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic9.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic7.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic4.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/friend-harmonic8.webp' %}" alt="friend" width="28" height="28">
+											</a>
+										</li>
+									</ul>
+
+									<div class="names-people-likes">
+										<a href="#">Diana </a>, <a href="#">Nicholas</a> and
+										<br>15 more liked this
+									</div>
+
+
+									<div class="comments-shared">
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-speech-balloon-icon">
+												<use xlink:href="#olymp-speech-balloon-icon"></use>
+											</svg>
+											<span>16 Comments</span>
+										</a>
+									</div>
+
+
+								</div>
+
+								<div class="control-block-button post-control-button">
+
+									<a href="#" class="btn btn-control">
+										<svg class="olymp-like-post-icon">
+											<use xlink:href="#olymp-like-post-icon"></use>
+										</svg>
+									</a>
+
+									<a href="#" class="btn btn-control">
+										<svg class="olymp-comments-post-icon">
+											<use xlink:href="#olymp-comments-post-icon"></use>
+										</svg>
+									</a>
+
+								</div>
+
+							</article>
+
+							<div class="mCustomScrollbar" data-mcs-theme="dark">
+
+								<ul class="comments-list">
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="{% url 'index' %}">James Spiegel</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														38 mins ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>3</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/avatar1-sm.webp' %}" alt="avatar" width="42" height="42">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="#">Mathilda Brinker</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														1 hour ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Ratione voluptatem sequi en lod nesciunt. Neque porro quisquam est, quinder dolorem ipsum
+											quia dolor sit amet, consectetur adipisci velit en lorem ipsum duis aute irure dolor in reprehenderit in voluptate velit esse cillum.
+										</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>8</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+									<li class="comment-item">
+										<div class="post__author author vcard inline-items">
+											<img loading="lazy" src="{% static 'img/avatar10-sm.webp' %}" alt="avatar" width="36" height="36">
+
+											<div class="author-date">
+												<a class="h6 post__author-name fn" href="#">Elaine Dreyfuss</a>
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														5 mins ago
+													</time>
+												</div>
+											</div>
+
+											<a href="#" class="more">
+												<svg class="olymp-three-dots-icon">
+													<use xlink:href="#olymp-three-dots-icon"></use>
+												</svg>
+											</a>
+
+										</div>
+
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium der doloremque laudantium.</p>
+
+										<a href="#" class="post-add-icon inline-items">
+											<svg class="olymp-heart-icon">
+												<use xlink:href="#olymp-heart-icon"></use>
+											</svg>
+											<span>8</span>
+										</a>
+										<a href="#" class="reply">Reply</a>
+									</li>
+								</ul>
+
+							</div>
+
+							<form class="comment-form inline-items">
+
+								<div class="post__author author vcard inline-items">
+									<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page">
+
+									<div class="form-group with-icon-right ">
+										<textarea class="form-control" placeholder=""></textarea>
+										<div class="add-options-message">
+											<a href="#" class="options-message">
+												<svg class="olymp-camera-icon">
+													<use xlink:href="#olymp-camera-icon"></use>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ... end Window-popup Event Private Public -->
+
+			<!-- Window-popup Create Event -->
+
+			<div class="modal fade" id="create-event" tabindex="-1" role="dialog" aria-labelledby="create-event" aria-hidden="true">
+				<div class="modal-dialog window-popup create-event" role="document">
+					<div class="modal-content">
+						<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+							<svg class="olymp-close-icon">
+								<use xlink:href="#olymp-close-icon"></use>
+							</svg>
+						</a>
+						<div class="modal-header">
+							<h6 class="title">Create an Event</h6>
+						</div>
+
+						<div class="modal-body">
+							<div class="form-group label-floating is-select">
+								<label class="control-label">Personal Event</label>
+								<select class="form-select">
+									<option value="MA">Private Event</option>
+									<option value="FE">Personal Event</option>
+								</select>
+							</div>
+
+							<div class="form-group label-floating">
+								<label class="control-label">Event Name</label>
+								<input class="form-control" placeholder="" value="Take Querty to the Veterinarian" type="text">
+							</div>
+
+							<div class="form-group label-floating is-empty">
+								<label class="control-label">Event Location</label>
+								<input class="form-control" placeholder="" value="" type="text">
+							</div>
+
+							<div class="form-group date-time-picker label-floating">
+								<label class="control-label">Event Date</label>
+								<input name="datetimepicker" value="26/03/2016">
+								<span class="input-group-addon">
+								<svg class="olymp-calendar-icon icon"><use xlink:href="#olymp-calendar-icon"></use></svg>
+							</span>
+							</div>
+
+							<div class="row">
+								<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+									<div class="form-group label-floating">
+										<label class="control-label">Event Time</label>
+										<input class="form-control" placeholder="" value="09:00" type="text">
+									</div>
+								</div>
+								<div class="col col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+									<div class="form-group label-floating is-select">
+										<label class="control-label">AM-PM</label>
+										<select class="form-select">
+											<option value="MA">AM</option>
+											<option value="FE">PM</option>
+										</select>
+									</div>
+								</div>
+								<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+									<div class="form-group label-floating is-select">
+										<label class="control-label">Timezone</label>
+										<select class="form-select">
+											<option value="MA">US (UTC-8)</option>
+											<option value="FE">UK (UTC-0)</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Event Description">I need to take Querty for a check up and ask the doctor if he needs a new tank.</textarea>
+							</div>
+
+							<form class="form-group">
+								<svg class="olymp-happy-face-icon">
+									<use xlink:href="#olymp-happy-face-icon"></use>
+								</svg>
+
+								<select class="form-select">
+									<option title="Green Goo Rock">Green Goo Rock</option>
+
+									<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+									<option title="Marina Valentine">Marina Valentine</option>
+
+									<option title="Dave Marinara">Dave Marinara</option>
+
+									<option title="Rachel Howlett">Rachel Howlett</option>
+
+								</select>
+							</form>
+
+							<button class="btn btn-breez btn-lg full-width">Create Event</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ... end Window-popup Create Event -->
+
+
+			<!-- Window-popup-CHAT for responsive min-width: 768px -->
+
+			<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="popup-chat-responsive" aria-hidden="true">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="icon-status online"></span>
+						<h6 class="title">Chat</h6>
+						<div class="more">
+							<svg class="olymp-three-dots-icon">
+								<use xlink:href="#olymp-three-dots-icon"></use>
+							</svg>
+							<svg class="olymp-little-delete js-chat-open">
+								<use xlink:href="#olymp-little-delete"></use>
+							</svg>
+						</div>
+					</div>
+					<div class="modal-body">
+						<div class="mCustomScrollbar">
+							<ul class="notification-list chat-message chat-message-field">
+								<li>
+									<div class="author-thumb">
+										<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+									</div>
+									<div class="notification-event">
+										<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+										<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+									</div>
+								</li>
+
+								<li>
+									<div class="author-thumb">
+										<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page" class="mCS_img_loaded">
+									</div>
+									<div class="notification-event">
+										<span class="chat-message-item">Don’t worry Mathilda!</span>
+										<span class="chat-message-item">I already bought everything</span>
+										<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:29pm</time></span>
+									</div>
+								</li>
+
+								<li>
+									<div class="author-thumb">
+										<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+									</div>
+									<div class="notification-event">
+										<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+										<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<form class="need-validation">
+
+							<div class="form-group">
+								<textarea class="form-control" placeholder="Press enter to post..."></textarea>
+								<div class="add-options-message">
+									<a href="#" class="options-message">
+										<svg class="olymp-computer-icon">
+											<use xlink:href="#olymp-computer-icon"></use>
+										</svg>
+									</a>
+									<div class="options-message smile-block">
+
+										<svg class="olymp-happy-sticker-icon">
+											<use xlink:href="#olymp-happy-sticker-icon"></use>
+										</svg>
+
+										<ul class="more-dropdown more-with-triangle triangle-bottom-right">
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat1.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat2.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat3.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat4.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat5.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat6.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat7.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat8.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat9.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat10.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat11.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat12.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat13.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat14.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat15.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat16.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat17.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat18.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat19.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat20.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat21.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat22.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat23.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat24.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat25.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat26.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img loading="lazy" src="{% static 'img/icon-chat27.webp' %}" alt="icon" width="20" height="20">
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- ... end Window-popup-CHAT for responsive min-width: 768px -->
+
+
+			<a class="back-to-top" href="#">
+				<svg class="back-icon" width="14" height="18">
+					<use xlink:href="#olymp-back-to-top"></use>
+				</svg>
+			</a>
+		</body>
+		</html>

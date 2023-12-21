@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load  static %}
+<html lang="en">
+<head>
+    <title>Cinystore||Market</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/market.css' %}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="market-signup-main-bg-container">
+      <nav class="business-nav-container" id="corporate-business-navbar">
+            <div class="navbar-brand d-flex ml-2 ml-md-3">
+                <img src="https://www.cinystore.com/static/img/logo.webp" alt="logo" class="business-logo" />
+                <div>
+                    <h1 class="business-logo-name">CinyStore</h1>
+                    <p class="business-logo-name-description">Poora Filmy Hai Boos</p>
+                    <p class="business-logo-sub-description">Beta Version</p>
+                </div>
+            </div>
+        </nav>
+      {% block header %}
+
+      {% endblock %}
+    </div>
+
+</body>
+</html>

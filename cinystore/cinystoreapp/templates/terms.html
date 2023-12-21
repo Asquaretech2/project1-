@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Terms</title>
+</head>
+{% extends "corpbase.html" %}
+<head>
+	{% load static %}
+</head>
+<body>
+	{% block content %}
+    <div class="privacy-text-page-main-bg-container">
+        <div class="container">
+            <div class="row mx-auto">
+                <h1>Terms</h1>
+                <div class="col-12">
+                    <div class="privacy-text-page-bg-container">
+                        {% for x in terms %}
+			            {% if forloop.counter <= 100 %}
+			            {% if forloop.first %}
+                        <div class="privacy-text-page-container">
+                            {% endif %}
+                            <h2>{{ x.Heading }}</h2>
+                            <p>{{ x.text }}</p>
+                            <hr/>
+                        </div>
+                        {% if forloop.counter|divisibleby:1 %}
+                        <div class="privacy-text-page-container">
+                            {% endif %}
+			                {% if forloop.last %}
+		                </div>
+                        {% endif %}
+	                    {% endif %}
+	                    {% endfor %}
+                    </div>
+                </div>
+		`   </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% extends "businessBase.html" %}
+<html>
+{% load static %}
+<body>
+{% block header %}
+<div class="welcome-page-bg-main-container">
+    <div class="welcome-page-text-bg-container">
+        <div class="container">
+			<div class="row d-none d-md-block">
+				<div class="col-12 ml-5">
+					<div class="connecting-bg-container ml-5">
+					  <div class="connecting-container">
+						  <div class="connecting-each-num-bg-container">
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">1</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Welcome
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card" >
+										   <div class="num-item-status-card">
+											  <span class="numbers">2</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   OTP
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card">
+											  <span class="numbers">3</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										  Label
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card">
+											  <span class="numbers">4</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Forms
+									   </div>
+								   </div>
+							   </div>
+						  </div>
+					  </div>
+			        </div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="welcome-page-text-container">
+						<h1 class="welcome-page-heading">Welcome aboard !</h1>
+						<h1 class="welcome-page-heading">Lets get you started</h1>
+						<hr class="welcome-page-hr-line" />
+						<p class="welcome-page-description">
+							Discover, Connect, and Celebrate the world of Film with Cinystore.
+						</p>
+						<p class="welcome-page-description">
+							Designed for both users and filmmakers, Cinystore offers a seamless and immersive experience that brings
+							the magic of cinema right to your fingertips.
+						</p>
+						<div class="welcome-page-btn-container">
+							<a href="{% url 'otp_page' %}">
+							   <button class="welcome-page-btn">Continue</button>
+							</a>
+						</div>
+                    </div>
+				</div>
+			</div>
+        </div>
+	</div>
+    <div class="welcome-page-right-bg-container d-none d-md-block">
+      <div class="welcome-page-right-container">
+
+      </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+<!--<script>-->
+<!--	var username = "username";-->
+<!--	window.location.href = "{% url 'phonenumber_page' %}?username=" + username;-->
+<!--</script>-->
+</html>

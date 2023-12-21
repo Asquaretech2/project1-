@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Terms Form</title>
+</head>
+{% extends "corpbase.html" %}
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     {% block content %}
+     <div class="privacy-input-page-bg-container">
+        <!--<div class="container">
+          <div class="row">
+            <div class="col-12">-->
+              <div class="privacy-input-page-container">
+                  <h3 class="privacy-input-page-main-heading">Terms</h3>
+                  <hr class="privacy-input-page-line"/>
+                   <form method="POST" action="{% url 'terms_form' %}">
+                      {% csrf_token %}
+                      <div class="privacy-inputs-page-container">
+                          <label for="Heading" class="privacy-input-heading">Heading</label>
+                          <input type="text" id="Heading" name="Heading" class="privacy-input-page-fields"/>
+                      </div>
+                      <div class="privacy-inputs-page-container">
+                          <label for="text" class="privacy-input-heading">Text</label>
+                          <textarea rows="6" cols="100" id="text" name="text" class="privacy-input-page-fields"></textarea>
+                      </div>
+                      <div class="privacy-input-page-btn-container">
+                          <button type="submit" class="privacy-input-page-btn" value="submit">
+                              Submit
+                          </button>
+                      </div>
+                  </form>
+              </div>
+            <!--</div>
+          </div>
+        </div>-->
+     </div>
+    {% endblock %}
+</body>
+</html>

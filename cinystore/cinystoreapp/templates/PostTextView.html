@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business |Post Text view</title>
+</head>
+	{% load static %}
+	<head>
+		<title>CinyStore</title>
+		<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+		<meta name="description" content="A perfect place for movie buffs!">
+		<meta property="og:title" content="Cinystore">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="/static/img/logo.webp">
+		<meta property="og:description" content="A perfect place for movie buffs!">
+		<meta property="og:site_name" content="cinystore">
+		<meta property="og:url" content="https://www.cinystore.com/">
+		<!-- Required meta tags always come first -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- Theme Font -->
+		<link rel="preload" type="text/css" href="{% static 'css/theme-font.min.css' %}" as="style">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'Bootstrap/dist/css/bootstrap.css' %}">
+		<!-- Main Styles CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
+		<!-- Main RTL CSS -->
+		<!--<link rel="stylesheet" type="text/css" href="css/rtl.min.css">-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row ">
+				<div class="col col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+					<div class="">
+					{% for x in PostTextView %}
+					<!-- Single Post -->
+					<article class="hentry blog-post single-post single-post-v3">
+						<h1 class="h6 post-title">{{ x.Movie_name }}</h1>
+						<div class="post-content-wrap">
+							<div class="post-content">
+								<p>{{ x.text | linebreaksbr }}
+								</p>
+								<div class="video-thumb">
+									<img loading="lazy" src="{{ x.Image.url }}" alt="video" width="368" height="180">
+								</div>
+							</div>
+						</div>
+					</article>
+					{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- JS Scripts -->
+	<script src="{% static 'js/jQuery/jquery-3.5.1.min.js' %}"></script>
+	<script src="{% static 'js/libs/jquery.mousewheel.min.js' %}"></script>
+	<script src="{% static 'js/libs/perfect-scrollbar.min.js' %}"></script>
+	<script src="{% static 'js/libs/imagesloaded.pkgd.min.js' %}"></script>
+	<script src="{% static 'js/libs/material.min.js' %}"></script>
+	<script src="{% static 'js/libs/selectize.min.js'%}"></script>
+	<script src="{% static 'js/libs/moment.min.js'%}"></script>
+	<script src="{% static 'js/libs/daterangepicker.min.js'%}"></script>
+	<script src="{% static 'js/libs/isotope.pkgd.min.js'%}"></script>
+	<script src="{% static 'js/libs/ajax-pagination.min.js'%}"></script>
+	<script src="{% static 'js/libs/jquery.magnific-popup.min.js'%}"></script>
+	<script src="{% static 'js/libs/sticky-sidebar.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/libs-init/libs-init.js' %}"></script>
+	<script src="{% static 'Bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+	<!-- SVG icons loader -->
+	<script src="{% static 'js/svg-loader.js' %}"></script>
+	<!-- /SVG icons loader -->
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Groups</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	<body>
+		{% block header %}
+		<!-- ... end Main Header Groups -->
+		<!-- Main Content Groups -->
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+					<!-- Friend Item -->
+					<div class="friend-item friend-groups create-group h-75 mb-3">
+						<a href="#" class="  full-block" data-bs-toggle="modal" data-bs-target="#create-friend-group-1"></a>
+						<div class="content">
+							<a href="#" class="  btn btn-control bg-blue" data-bs-toggle="modal" data-bs-target="#create-friend-group-1">
+								<svg class="olymp-plus-icon"><use xlink:href="#olymp-plus-icon"></use></svg>
+							</a>
+							<div class="author-content">
+								<a href="#" class="h5 author-name">Start a Group</a>
+								<div class="country">Invite Friends</div>
+							</div>
+						</div>
+					</div>
+					<!-- ... end Friend Item -->
+				</div>
+				<div class="col col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+					<div class="ui-block h-100 mb-0">
+						<!-- Friend Item -->
+						<div class="friend-item friend-groups">
+							<div class="friend-item-content">
+								<div class="more">
+									<svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+									<ul class="more-dropdown">
+										<li>
+											<a href="#">Report Profile</a>
+										</li>
+										<li>
+											<a href="#">Block Profile</a>
+										</li>
+										<li>
+											<a href="#">Turn Off Notifications</a>
+										</li>
+									</ul>
+								</div>
+								<div class="friend-avatar">
+									<div class="author-thumb">
+										<img loading="lazy" src="{% static 'img/logo.webp' %}" alt="Cinystore" width="34" height="34">
+									</div>
+									<div class="author-content">
+										<a href="#" class="h5 author-name">
+										</a>
+										<div class="country">Create and Join a Club...Coming Soon</div>
+									</div>
+								</div>
+								
+								<div class="control-block-button">
+									<a href="#" class="  btn btn-control bg-blue" data-bs-toggle="modal" data-bs-target="#create-friend-group-add-friends">
+										<svg class="olymp-happy-faces-icon"><use xlink:href="#olymp-happy-faces-icon"></use></svg>
+									</a>
+						
+									<a href="#" class="btn btn-control btn-grey-lighter">
+										<svg class="olymp-settings-icon"><use xlink:href="#olymp-settings-icon"></use></svg>
+									</a>
+								</div>
+							</div>
+						</div>
+						<!-- ... end Friend Item -->			
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ... end Main Content Groups -->
+		{% endblock %}
+		<!-- Window-popup Create Friends Group -->
+		<div class="modal fade" id="create-friend-group-1" tabindex="-1" role="dialog" aria-labelledby="create-friend-group-1" aria-hidden="true">
+			<div class="modal-dialog window-popup create-friend-group create-friend-group-1" role="document">
+				<div class="modal-content">
+					<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+					</a>
+					<div class="modal-header">
+						<h6 class="title">Create Friend Group</h6>
+					</div>
+
+					<div class="modal-body">
+						<form class="form-group label-floating">
+							<label class="control-label">Group Name</label>
+							<input class="form-control" placeholder="" value="Highschool Friends" type="text">
+						</form>
+
+						<form class="form-group with-button">
+							<input class="form-control" placeholder="" value="Group Avatar (120x120px min)" type="text">
+
+							<button class="bg-grey">
+								<svg class="olymp-computer-icon"><use xlink:href="#olymp-computer-icon"></use></svg>
+							</button>
+						</form>
+						<form class="form-group is-select">
+							<svg class="olymp-happy-face-icon"><use xlink:href="#olymp-happy-face-icon"></use></svg>
+
+							<select class="form-select" >
+								<option title="Green Goo Rock">Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+							</select>
+						</form>
+						<a href="#" class="btn btn-blue btn-lg full-width">Create Group</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ... end Window-popup Create Friends Group -->
+		<!-- Window-popup Create Friends Group Add Friends -->
+
+		<div class="modal fade" id="create-friend-group-add-friends" tabindex="-1" role="dialog" aria-labelledby="create-friend-group-add-friends" aria-hidden="true">
+			<div class="modal-dialog window-popup create-friend-group create-friend-group-add-friends" role="document">
+				<div class="modal-content">
+					<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+					</a>
+
+					<div class="modal-header">
+						<h6 class="title">Add Friends to “Freelance Clients” Group</h6>
+					</div>
+
+					<div class="modal-body">
+						<form class="form-group is-select">
+
+							<select class="form-select">
+								<option title="Green Goo Rock">Green Goo Rock</option>
+
+								<option title="Mathilda Brinker">Mathilda Brinker</option>
+
+								<option title="Marina Valentine">Marina Valentine</option>
+
+								<option title="Dave Marinara">Dave Marinara</option>
+
+								<option title="Rachel Howlett">Rachel Howlett</option>
+
+							</select>
+						</form>
+
+						<a href="#" class="btn btn-blue btn-lg full-width">Save Changes</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ... end Window-popup Create Friends Group Add Friends -->
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+
+		<!-- Window-popup-CHAT for responsive min-width: 768px -->
+
+		<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="popup-chat-responsive" aria-hidden="true">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="icon-status online"></span>
+					<h6 class="title" >Chat</h6>
+					<div class="more">
+						<svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+						<svg class="olymp-little-delete js-chat-open"><use xlink:href="#olymp-little-delete"></use></svg>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="mCustomScrollbar">
+						<ul class="notification-list chat-message chat-message-field">
+							<li>
+								<div class="author-thumb">
+									<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+								</div>
+								<div class="notification-event">
+									<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+									<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+								</div>
+							</li>
+
+							<li>
+								<div class="author-thumb">
+									<img loading="lazy" src="{% static 'img/author-page.webp' %}" width="36" height="36" alt="author-page" class="mCS_img_loaded">
+								</div>
+								<div class="notification-event">
+									<span class="chat-message-item">Don’t worry Mathilda!</span>
+									<span class="chat-message-item">I already bought everything</span>
+									<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:29pm</time></span>
+								</div>
+							</li>
+
+							<li>
+								<div class="author-thumb">
+									<img loading="lazy" src="{% static 'img/avatar14-sm.webp' %}" width="28" height="28" alt="avatar" class="mCS_img_loaded">
+								</div>
+								<div class="notification-event">
+									<span class="chat-message-item">Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks</span>
+									<span class="notification-date"><time class="entry-date updated" datetime="2004-07-24T18:18">Yesterday at 8:10pm</time></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<form class="need-validation">
+						<div class="form-group">
+							<textarea class="form-control" placeholder="Press enter to post..."></textarea>
+							<div class="add-options-message">
+								<a href="#" class="options-message">
+									<svg class="olymp-computer-icon"><use xlink:href="#olymp-computer-icon"></use></svg>
+								</a>
+								<div class="options-message smile-block">
+
+									<svg class="olymp-happy-sticker-icon"><use xlink:href="#olymp-happy-sticker-icon"></use></svg>
+
+									<ul class="more-dropdown more-with-triangle triangle-bottom-right">
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat1.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat2.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat3.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat4.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat5.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat6.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat7.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat8.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat9.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat10.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat11.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat12.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat13.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat14.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat15.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat16.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat17.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat18.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat19.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat20.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat21.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat22.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat23.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat24.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat25.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat26.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img loading="lazy" src="{% static 'img/icon-chat27.webp' %}" alt="icon" width="20" height="20">
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- ... end Window-popup-CHAT for responsive min-width: 768px -->
+	</body>
+</html>

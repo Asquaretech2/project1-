@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% extends "businessBase.html" %}
+<html>
+{% load static %}
+
+<body>
+ {% block header %}
+<div class="container">
+	<div class="row d-none d-md-block">
+				<div class="col-12 mt-5">
+					<div class="connecting-bg-container mt-5">
+					  <div class="connecting-container">
+						  <div class="connecting-each-num-bg-container">
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B30">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">1</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Welcome
+									   </div>
+								   </div>
+							   </div>
+
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container" style="border-color: #E88B3D">
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card" >
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">2</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   OTP
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="dots-line-container">
+
+								   </div>
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card" style="background-color: #E88B3D;">
+											  <span class="numbers">3</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										  Label
+									   </div>
+								   </div>
+							   </div>
+							   <div class="connecting-text-num-card">
+								   <div class="num-item-bg-icon">
+									   <span class="num-item-span-card">
+										   <div class="num-item-status-card">
+											  <span class="numbers">4</span>
+										   </div>
+									   </span>
+								   </div>
+								   <div class="num-content-container">
+									   <div class="num-content">
+										   Forms
+									   </div>
+								   </div>
+							   </div>
+						  </div>
+					  </div>
+			        </div>
+				</div>
+			</div>
+    <div class="row">
+        <!--<div class="col-12 col-md-7">
+            <div class="select-page-left-container d-none d-md-block">
+
+            </div>
+        </div>-->
+        <div class="col-12 col-md-12">
+            <div class="select-page-bg-container">
+                <div class="select-page-container">
+                    <p class="select-page-heanding mb-5">
+                        Welcome Onboard, Break all the Barriers to make your content Visible to the globe.
+                        Please select from below and create your label.
+                    </p>
+                </div>
+				<div class="select-page-options-container">
+					<form method="post" action="{% url 'select_page' %}">
+						{% csrf_token %}
+						<div class="select-page-checkbox-container">
+							<input id="individual" type="radio" name="label" value="individual" class="select-page-checkbox"/>
+							<label for="individual" class="select-page-label-text" >Individual</label>
+						</div>
+						<div class="select-page-checkbox-container">
+							<input id="corporate" type="radio" name="label" value="corporate" class="select-page-checkbox"/>
+							<label for="corporate" class="select-page-label-text" >Corporate</label>
+						</div>
+						<div class="select-page-checkbox-container">
+							<input id="ott" type="radio" name="label" value="ott" class="select-page-checkbox"/>
+							<label for="ott" class="select-page-label-text" >OTT</label>
+						</div>
+						<div class="select-page-checkbox-container">
+							<input id="agency" type="radio" name="label" value="agency" class="select-page-checkbox"/>
+							<label for="agency" class="select-page-label-text" >Agency</label>
+						</div>
+						<button class="select-page-btn" type="submit" value="submit">Submit</button>
+					</form>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+
+</html>

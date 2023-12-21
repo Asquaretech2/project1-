@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+    {% load static %}
+    <head>
+	{% for x in Labeltmdb %}
+	{% if forloop.counter <= 1 %}
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta property="og:title" content="{{ x.movie_title }}" />
+	    <meta property="og:genre" content="{{ x.genre }}" />
+	    <meta property="og:image" content="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" />
+	    <meta property="og:description" content="{{ x.overview }}" />
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="{{ x.movie_title }}" name="description">
+        <meta content="{{ x.overview }}" name="keywords">
+        <title>{{ x.movie_title|capfirst }} </title>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'labelassets/font-awesome/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/tether/tether.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/bootstrap/css/bootstrap-reboot.min.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/dropdown/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/formstyler/jquery.formstyler.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/formstyler/jquery.formstyler.theme.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/socicon/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/theme/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/recaptcha.css' %}">
+        <link rel="preload" as="style" href="{% static 'labelassets/mobirise/css/mbr-additional.css' %}">
+        <link rel="stylesheet" href="{% static 'labelassets/mobirise/css/mbr-additional.css' %}" type="text/css">
+    </head>
+    <body>
+        <header id="header" class="fixed-top    header-transparent">
+            <div class="container-fluid"></div>
+        </header>
+        <section class="carousel slide testimonials-slider cid-rUNQmNln04" data-interval="false" id="header1-n" data-sortbtn="btn-primary">
+            <!--Main Banner Start-->
+            <div class="carousel slide " role="listbox" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
+                <div class="carousel-inner ">
+                    <div class="carousel-item wrap">
+                        <div class="media-container-row">
+                            <div class="col-lg-12 image-element align-self-stretch">
+                                <div class="img-wrap">
+                                    <div class="card-box"></div>
+                                    <img src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-image">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-element">
+                                <div class="container text-content">
+                                    <div class="col-lg-12 block-wrap">
+                                        <h2 class="mbr-title mbr-section-title mbr-fonts-style align-left display-1" >{{ x.movie_title }}</h2>
+                                        <div class="mbr-section-text">
+                                            <p class="mbr-text mbr-light mbr-fonts-style align-left display-7">A Film by {{ x.director|capfirst }}</p>
+                                        </div>
+                                        <div class="mbr-section-btn align-left">
+                                            <a class="btn btn-primary-outline display-4" href="">Releasing On
+                                                <span>{{ x.release_date }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item wrap">
+                        <div class="media-container-row">
+                            <div class="col-lg-12 image-element align-self-stretch">
+                                <div class="img-wrap">
+                                    <div class="card-box"></div>
+                                    <a href="https://www.youtube.com/watch?v={{ x.video }}">                
+                                        <img src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-image">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-element text-element-3">
+                                <div class="container text-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Main Banner End-->
+            <!--Photo Gallery Start-->
+    
+            <div class="carousel-controls">
+                <a class="carousel-control-prev" role="button" data-slide="prev">
+                    <span aria-hidden="true" class="sign fa fa-chevron-left mbr-iconfont icon-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" role="button" data-slide="next">
+                    <span aria-hidden="true" class="fa fa-chevron-right mbr-iconfont sign icon-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!--Photo Gallery End-->
+        </section>
+        <section class="header3 cid-rUNVs9PTfh" id="content6-z" data-sortbtn="btn-primary">
+        <!--Top Synopsis mydata start-->
+   
+            <div class="container">
+                <div class="row content-row">
+                    <div class="col-md-12 col-lg-8 text-block">
+                        <div class="media-content">
+                            <h3 class="mbr-section-subtitle mbr-semibold align-left  mbr-bold mbr-fonts-style mbr-primary display-7">About the Movie</h3><hr>
+                            <div class="mbr-section-text">
+                                <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                    <span class="sliced">{{ x.overview|slice:":200" }}</span>
+                                    <span class="full" style="display:none;">{{ x.overview| linebreaksbr }}</span>
+                                    <button onclick="toggleContent(this)" class="readmore">Read more</button>
+                                </p>
+                            </div>
+                        </div>
+				        <div class="media-content">
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 team-card col-lg-4">
+                                    <div class="card-wrap align-center">
+                                        <div class="image-wrap"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Top Synopsis mydata end-->
+		                    <div class="row justify-content-center">
+                                <div class="col-12 main-heading">
+                                    <br>
+                                    <h3 class="mbr-section-subtitle mbr-primary align-left mbr-fonts-style display-7">Recent Post</h3><hr>
+                                </div>
+                                <div class="mbr-section-text">
+                                    <div class="post-date">
+                                        <span>{{ x.producer }}</span>
+                                    </div>
+                                    <div class="post-date">
+                                        Posted On
+                                        <span>{{ x.release_date }}</span>
+                                    </div>
+                                    <div class="mbr-section-text">
+                                        <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                            <span class="sliced">{{ x.overview|slice:":200" }}</span>
+                                            <span class="full" style="display:none;">{{ x.overview| linebreaksbr }}</span>
+                                            <button onclick="toggleContent(this)" class="readmore">Read more</button>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="Banner">
+                                    <img src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-image">
+                                        <div class="social_sites">
+                                            <div class="likes" >
+                                                <span> </span>
+                                                <a href="{% url 'socialuserlogin' %}" class="likes">Like</a>
+                                            </div>
+                                            <button class="comments" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" >
+                                                <span> </span><a href="{% url 'socialuserlogin' %}" class="comments">Comments</a>
+                                            </button>
+			                                <div class="share" >
+                                                <span > </span>
+                                                <a href="{% url 'socialuserlogin' %}" class="share">Share</a>
+                                            </div>
+			                            </div><br>
+			                        </div>
+                                </div>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body" style="position: relative;top: 46px;">
+                                        <section class="content-item" id="comments">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                    <!-- COMMENT 1 - START -->
+                                                        <div class="media">
+                                                            <a class="pull-left" href="#"><img class="media-object" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-image" style="width: 50px !important"></a>
+                                                            <div class="media-body">
+                                                                <div class="post-date">
+                                                                    <span>{{ x.producer }}</span>
+                                                                </div>
+                                                                <h4 class="media-heading">
+                                                                    Posted on {{ x.timestamp_field }}
+                                                                </h4>
+                                                                <p >{{ x.overview|slice:":50" | linebreaksbr }}</p>
+                                                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                                                    <li><i class="fa fa-calendar"></i></li>
+                                                                </ul>
+                                                                <ul class="list-unstyled list-inline media-detail pull-right" style="display: flex;margin: 4px 0px;">
+                                                                    <li class="Like"><a href="" >Like</a></li>
+                                                                    <li class="Reply"><a href="" >Reply</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <!-- COMMENT 1 - END --><hr><hr>
+                                                        <form>
+                                                            <fieldset>
+                                                                <div class="row">
+                                                                    <div class="form-group col-xs-12 col-sm-12 col-lg-12">
+                                                                        <textarea id="w3review" name="w3review" placeholder="Enter your comment.." rows="2"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                            <button class="btn btn-normal pull-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Cancel</button>
+                                                            <button type="submit" class="btn btn-normal pull-right">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div><br><br><hr>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="sticky">
+                                <div class="col-lg-12" style="background: white;padding: 15px 15px;border: 1px solid #888;border-radius: 8px;">
+                                    <div class="img-wrap">
+                                        <h3 class="mbr-section-subtitle mbr-primary align-left mbr-fonts-style display-7" style="color: black;">Details</h3><hr>
+                                        <div class="card-box">
+                                            <table class="center">
+                                                <tr style="height: 40px;">
+                                                    <td><p>Directed by </p></td>
+                                                    <td><span>{{ x.director|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Produced by </p></td>
+                                                    <td><span>{{ x.producer|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Music  </p></td>
+                                                    <td><span>{{ x.music_director|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Genre </p></td>
+                                                    <td><span>{{ x.genre|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Language </p></td>
+                                                    <td><span>{{ x.language|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Crew </p></td>
+                                                    <td><span>{{ x.crew|capfirst }}</span></td>
+                                                </tr>
+                                                <tr style="height: 40px;">
+                                                    <td><p>Cast </p></td>
+                                                    <td><span>{{ x.cast|capfirst }}</span></td>
+                                                </tr>
+                                            </table>
+                                        </div><br>
+                                        <div class="" style="background: #ed6626;color: white;overflow: hidden;width: fit-content;padding: 6px 14px;border-radius: 15px;font-size: 12px;font-family: sans-serif;">
+                                            Releasing On <span>{{ x.release_date }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script>
+                function toggleContent(button) {
+                    var slicedContent = button.previousElementSibling.previousElementSibling;
+                    var fullContent = button.previousElementSibling;
+
+                    if (slicedContent.style.display === "none" || slicedContent.style.display === "") {
+                      slicedContent.style.display = "inline";
+                      fullContent.style.display = "none";
+                      button.innerHTML = "Read more";
+                    } else {
+                      slicedContent.style.display = "none";
+                      fullContent.style.display = "inline";
+                      button.innerHTML = "Read less";
+                    }
+                }
+            </script>
+            <script src="{% static 'labelassets/web/assets/jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'labelassets/popper/popper.min.js' %}"></script>
+            <script src="{% static 'labelassets/tether/tether.min.js' %}"></script>
+            <script src="{% static 'labelassets/bootstrap/js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'labelassets/smoothscroll/smooth-scroll.js' %}"></script>
+            <script src="{% static 'labelassets/dropdown/js/nav-dropdown.js' %}"></script>
+            <script src="{% static 'labelassets/dropdown/js/navbar-dropdown.js' %}"></script>
+            <script src="{% static 'labelassets/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+            <script src="{% static 'labelassets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+            <script src="{% static 'labelassets/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+            <script src="{% static 'labelassets/playervimeo/vimeo_player.js' %}"></script>
+            <script src="{% static 'labelassets/viewportchecker/jquery.viewportchecker.js' %}"></script>
+            <script src="{% static 'labelassets/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+            <script src="{% static 'labelassets/formstyler/jquery.formstyler.js' %}"></script>
+            <script src="{% static 'labelassets/formstyler/jquery.formstyler.min.js' %}"></script>
+            <script src="{% static 'labelassets/theme/js/script.js' %}"></script>
+            <script src="{% static 'labelassets/formoid.min.js' %}"></script>
+        {% endif %}
+        {% endfor %}
+    </body>
+</html>

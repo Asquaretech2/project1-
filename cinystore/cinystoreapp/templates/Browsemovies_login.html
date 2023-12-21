@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Browsemovies_login</title>
+</head>
+{% extends "head.html" %}
+{% load static %}
+{% block header %}
+<html lang="en">
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+		</div>
+	</div>
+</div>
+<div class="container">
+</div>
+<div class="container">
+	<h5 class="heading-text-name"><a href="{% url 'Indianmovies' %}" class="">Indian Movies</a></h5>
+</div>
+<div class="container">
+	{% for x in mydata %}
+	{% if forloop.counter <= 6 %}
+	{% if forloop.first %}
+		<div class="row mx-auto">
+			{% endif %}
+			<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+				<!--<article class="hentry blog-post">-->
+				<div class="post-thumb">
+					<a href="{% url 'labelof' x.Movie_name %}" target="_blank" class="h6 post-title">
+						<img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261"/>
+					</a>
+				</div>
+                <article class="hentry blog-post">
+					<div class="post-content">
+						<a href="{% url 'labelof' x.Movie_name %}" target="_blank" class="h6 post-title">{{ x.Movie_name }} </a>
+							<div class="main-header.main-landing p Browsemovie">
+								<p>{{ x.synopsis |slice:":40" }}
+									<a href="{% url 'labelof' x.Movie_name %}" target="_blank">...more</a>
+									<span>Like:{{ x.like_count }}</span>
+								</p>
+							</div>
+					</div>
+				</article>
+				<!--</article>-->
+				<!-- ... end Post -->
+			</div>
+			{% if forloop.counter|divisibleby:6 %}
+		</div>
+		<div class="row mx-auto">
+			{% endif %}
+			{% if forloop.last %}
+		</div>
+
+		{% endif %}
+		{% endif %}
+		{% endfor %}
+	</div>
+<div class="container">
+	<h5 class="heading-text-name"><a href="{% url 'Internationalmovies' %}" >International Movies</a></h5>
+</div>
+<div class="container">
+	{% for x in movies %}
+	{% if forloop.counter <= 6 %}
+	{% if forloop.first %}
+	<div class="row mx-auto">
+		{% endif %}
+		<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+			<!--<article class="hentry blog-post">-->
+			<div class="post-thumb">
+				<a href="{% url 'Label2' x.movie_title %}" target="_blank" class="h6 post-title">
+					<img loading="lazy" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb posters" width="370" height="261">
+				</a>
+			</div>
+			<article class="hentry blog-post">
+			<div class="post-content">
+				<a href="{% url 'Label2' x.movie_title %}" target="_blank" class="h6 post-title">{{ x.movie_title }} </a>
+				<div class="main-header.main-landing p Browsemovie">
+					<p>{{ x.overview |slice:":40" }}
+						<a href="{% url 'Label2' x.movie_title %}" target="_blank">...more</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="post-additional-info inline-items">
+				<div class="friends-harmonic-wrap"></div>
+			</div>
+			</article>
+			<!--</article>-->
+				<!-- ... end Post -->
+		</div>
+		{% if forloop.counter|divisibleby:6 %}
+	</div>
+	<div class="row mx-auto">{% endif %}{% if forloop.last %}</div>
+		{% endif %}
+		{% endif %}
+		{% endfor %}
+</div>
+
+<a class="back-to-top" href="#">
+	<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+</a>
+
+</body>
+</html>
+
+   {% endblock %}

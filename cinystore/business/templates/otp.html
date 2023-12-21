@@ -1,0 +1,22 @@
+<!-- FILEPATH: /D:/Code Projects/Projects_Done/Varun/Cinystore Updated/cinystore/cinystoreapp/templates/otp.html -->
+
+{% extends 'corpbase.html' %}
+
+{% block content %}
+    <h1>OTP Verification</h1>
+     
+    <p>Please enter the OTP sent to your mobile number: {{ number }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="otp">OTP:</label>
+            <input type="text" class="form-control" id="otp" name="otp" placeholder="Enter OTP">
+        </div>
+        {% for message in messages  %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong> {{ message }} </strong>
+        </div>
+        {% endfor %}
+        <button type="submit" value="submit" class="btn btn-primary">Verify</button>
+    </form>
+{% endblock %}

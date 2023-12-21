@@ -1,0 +1,52 @@
+<head>
+	<title>Cinystore |search- results</title>
+</head>
+{% extends "head.html" %}
+{% load static %}
+<html lang="en">
+
+<body>
+{% block header %}
+
+<div class="container">
+    <div class="search-bg-container">
+        <div class="row">
+{% for x in combined_data %}
+            <div class="col-12 col-md-8">
+                <div class="search-main-container">
+                    <div class="search-result-bg-container">
+				        {% if x.model_type == 'mydata' %}
+                        <div class="search-result-container">
+                               <h1 class="movie-heading">Label</h1>
+                               <hr class="search-hr-lines">
+                               <p class="movie-description">
+                                   {{ x.synopsis }}
+                               </p>
+                        </div>
+                        {% elif x.model_type == 'mydata1' %}
+                        <div class="search-result-container">
+                               <h1 class="movie-heading">Reviews</h1>
+                               <hr class="search-hr-lines">
+                               <p class="movie-description">
+                                   {{ x.comment }}
+                               </p>
+                        </div>
+                        {% elif x.model_type == 'mydata3' %}
+                        <div class="search-result-container">
+                            <h1 class="movie-heading">Posts</h1>
+                            <hr class="search-hr-lines">
+                            <p class="movie-description">
+                                {{ x.text }}
+                            </p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

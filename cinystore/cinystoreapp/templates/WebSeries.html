@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business | web series</title>
+</head>
+{% extends "producerhead.html" %}
+{% load static %}
+<html lang="en">
+
+<body>
+{% block header %}
+<div class="crumina-module crumina-heading">
+    <div class="producer-dashboaard-bg-container">
+	    <h1 class="producer-dashboard-logo-heading">Cinystore</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="label-bg-container mb-4">
+        <form method="POST" enctype="multipart/form-data" action="{% url 'webseries_label' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="webseries_name" class="label-inputs-text">Webseries Name</label>
+                        <input id="webseries_name" name="webseries_name" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Genre" class="label-inputs-text">Genre</label>
+                        <input id="Genre" name="Genre" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Language" class="label-inputs-text">Language</label>
+                        <input id="Language" name="Language" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Production_house" class="label-inputs-text">Production House</label>
+                        <input id="Production_house" name="Production_house" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Producer" class="label-inputs-text">Producer</label>
+                        <input id="Producer" name="Producer" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="season" class="label-inputs-text">Season</label>
+                        <input id="season" name="season" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Director" class="label-inputs-text">Director</label>
+                        <input id="Director" name="Director" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="cast" class="label-inputs-text">Cast</label>
+                        <input id="cast" name="cast" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="episodes" class="label-inputs-text">No.of Episodes</label>
+                        <input id="episodes" name="episodes" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Release_date" class="label-inputs-text">Release Date</label>
+                        <input id="Release_date" name="Release_date" type="text" class="label-inputs-container placeholder-text" />                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="streaming_on" class="label-inputs-text">Streaming On</label>
+                        <select id="streaming_on" name="streaming_on" class="label-inputs-container" style="color: black;">
+                            <option value="amazon">AMAZON PRIME</option>
+                            <option value="netflix">NETFLIX</option>
+                            <option value="dispney">DISNEY HOTSTAR</option>
+                            <option value="aha">AHA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="trailer" class="label-inputs-text">Trailer Link</label>
+                        <input id="trailer" name="trailer" type="text" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="label-inputs-bg-container">
+                        <label for="Poster" class="label-inputs-text">Posters</label>
+                        <input id="Poster" name="Poster" type="file" class="label-inputs-container placeholder-text"/>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="label-inputs-bg-container">
+                        <label for="synopsis" class="label-inputs-text">Synopsis</label>
+                        <textarea id="synopsis" name="synopsis" rows="6" cols="100" class="label-inputs-container placeholder-text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <div class="upload-label-btn-container">
+                        <button class="upload-label-btn" type="submit" value="submit">Upload</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>

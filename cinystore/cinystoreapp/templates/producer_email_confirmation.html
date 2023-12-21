@@ -1,0 +1,6 @@
+{% autoescape off %}
+    Welcome to Cinystore Producer Login!!
+    Hello {{ name }} !!
+    Please confirm your email by clicking on the following link.
+    Confirmation Link: http://{{ domain }}{% url 'activate1' uid64=uid token=token %}
+ {% endautoescape %}

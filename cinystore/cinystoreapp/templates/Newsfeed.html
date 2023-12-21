@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Newsfeed</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	{% block header %}
+	<body>
+	<div class="container">
+		<div class="row">
+			<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="ui-block responsive-flex1200">
+					<div class="ui-block-title">
+						<div class="w-select">
+							<div class="title">Filter By:</div>
+							<fieldset class="form-group">
+								<select class="form-select">
+									<option value="NU">Trending</option>
+									<option value="NU">Language</option>
+									<option value="NU">Genre</option>
+								</select>
+							</fieldset>
+						</div>
+						<div class="w-select">
+							<fieldset class="form-group">
+								<select class="form-select">
+									<option value="NU">Confirmed Releasing</option>
+									<option value="NU">Up Coming</option>
+								</select>
+							</fieldset>
+						</div>
+						<a href="#" data-bs-toggle="modal" data-bs-target="#create-photo-album" class="btn btn-primary btn-md-2">Filter</a>
+
+						<form class="w-search">
+							<div class="form-group with-button">
+								<input class="form-control" type="text" placeholder="Search ......">
+								<button>
+									<svg class="olymp-magnifying-glass-icon"><use xlink:href="#olymp-magnifying-glass-icon"></use></svg>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		{% for x in Newsfeed %}
+		{% if forloop.first %}
+		<div class="row mx-auto">
+			{% endif %}
+		    	<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+					<div class="hentry blog-post">
+						<div class="post-thumb">
+							<img loading="lazy" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-poster" width="370" height="261">
+						</div>
+						<div class="post-content">
+							<a href="{% url 'Labeltmdb' x.movie_title %}" target="_blank" class="h4 post-title">{{ x.movie_title }} </a>
+							<p>{{ x.overview |slice:":40" }}</p>
+						</div>	
+		    		</div>	<!-- ... end Post -->
+				</div>
+			{% if forloop.counter|divisibleby:6 %}
+		</div>
+		<div class="row mx-auto">{% endif %}{% if forloop.last %}</div>{% endif %}
+		{% endfor %}
+	</div>
+	<!-- Pagination -->
+		<nav aria-label="Page navigation">
+			<ul class="pagination justify-content-center">
+				<li class="page-item">
+					<a class="page-link" href="#">Next</a>
+				</li>
+			</ul>
+		</nav>
+	<!-- ... end Pagination -->
+	<!-- Window-popup-CHAT for responsive min-width: 768px -->
+
+		<div class="ui-block popup-chat popup-chat-responsive" tabindex="-1" role="dialog" aria-labelledby="popup-chat-responsive" aria-hidden="true">
+			<div class="modal-content">
+				<div class="modal-header">
+					<span class="icon-status online"></span>
+					<h6 class="title" >Chat</h6>
+					<div class="more">
+						<svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+						<svg class="olymp-little-delete js-chat-open"><use xlink:href="#olymp-little-delete"></use></svg>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	<!-- ... end Window-popup-CHAT for responsive min-width: 768px -->
+
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

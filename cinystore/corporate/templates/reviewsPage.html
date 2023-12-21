@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+    <title>Cinystore| Company | review</title>
+    </head>
+{% extends "corporateBase.html" %}
+{% load static %}
+<html lang="en">
+
+<body>
+{% block header %}
+<div class="reviews-page-main-bg-container">
+   <div class="container">
+       <div class="row">
+           <div class="col-12">
+               <div class="reviews-page-bg-container">
+                   <form>
+                       <div class="row">
+
+                           <div class="col-12 col-md-6">
+                                <div class="reviews-page-inputs-containers">
+                                    <label for="review-page-movie-name" class="review-text-inputs">Movie Name</label>
+                                    <input type="text" id="review-page-movie-name" class="review-page-input-fields" />
+                                </div>
+                           </div>
+                           <div class="col-12 col-md-6">
+                                <div class="reviews-page-inputs-containers">
+                                    <label for="review-page-movie-rating" class="review-text-inputs">Rating</label>
+                                    <!--<input type="text" id="review-page-movie-rating" class="review-page-input-fields" />-->
+                                    <select id="review-page-movie-rating" class="review-page-input-fields">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                           </div>
+                           <div class="col-12">
+                                <div class="reviews-page-inputs-containers">
+                                    <label for="review-page-description" class="review-text-inputs">Review</label>
+                                    <textarea id="review-page-description" rows="6" cols="80" class="review-page-input-fields"></textarea>
+                                </div>
+                           </div>
+                           <div class="col-12">
+                               <div class="review-page-btn-container">
+                                   <button type="submit" class="review-page-btn">Submit</button>
+                               </div>
+                           </div>
+
+                        </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+{% endblock %}
+</body>
+</html>

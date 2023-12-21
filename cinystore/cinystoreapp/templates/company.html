@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% extends "corpbase.html" %}
+{% load static %}
+{% block content %}      
+<html lang="en">
+	<body class="landing-page">
+		<section class="medium-padding120">
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+						<img loading="lazy" src="{% static 'img/icon-fly.webp' %}" alt="screen" width="538" height="289">
+					</div>
+					<div class="col col-xl-4 col-lg-4 m-auto col-md-12 col-sm-12 col-12">
+						<div class="crumina-module crumina-heading">
+							<h2 class="c-primary">Cinystore<span class="c-primary"> All About Cinema</span></h2>
+							<p class="heading-text">
+								Cinystore is a platform to connect filmmakers of all formats of films with their audience worldwide,as a user you can find films that you might not have discovered otherwise,
+								and follow pages dedicated to specific genres or directors, and you may come across movies that pique your interest.
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="medium-padding120">
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-4 col-lg-4 m-auto col-md-12 col-sm-12 col-12">
+						<div class="crumina-module crumina-heading">
+							<h2 class="c-primary">Meet New People <span class="c-primary">all over the World</span></h2>
+							<p class="heading-text">An opportunity to connect
+								with other fans who share your interests to find new movie recommendations,
+								discuss your favourite films, and meet new people who are passionate about cinema.
+							</p>
+						</div>
+					</div>
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+						<img loading="lazy" src="{% static 'img/image1.webp'%}" alt="screen" width="579" height="334">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="medium-padding120">
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+						<img loading="lazy" src="{% static 'img/image2.webp'%}" alt="screen" width="588" height="262">
+					</div>
+
+					<div class="col col-xl-4 col-lg-4 m-auto col-md-12 col-sm-12 col-12">
+						<div class="crumina-module crumina-heading">
+							<h2 class="c-primary">Share your own reviews <span class="c-primary">and opinions</span></h2>
+							<p class="heading-text"> You can get to share your own reviews and opinions with others.
+								You can also engage in discussions with other fans about different aspects of movies,
+								such as cinematography, plot, and characters...
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="medium-padding120">
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-4 col-lg-4 m-auto col-md-12 col-sm-12 col-12">
+						<div class="crumina-module crumina-heading">
+							<h2 class="c-primary">Stay up to date <span class="c-primary">on movie news</span></h2>
+							<p class="heading-text">You can read through everything happening in the film business worldwide feature news, trailers, and updates about upcoming films...
+							</p>
+						</div>
+					</div>
+
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+						<img loading="lazy" src="{% static 'img/image3.webp' %}" alt="screen" width="548" height="351">
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Planer Animation -->
+		<section class="medium-padding120 bg-section3 background-cover planer-animation">
+			<div class="container">
+				<div class="row">
+					<div class="swiper-container pagination-bottom" data-show-items="3">
+						<div class="swiper-wrapper">
+							<div class="ui-block swiper-slide">
+								{% for x in mydata1  %}	
+								<!-- Testimonial Item -->
+								<div class="crumina-module crumina-testimonial-item">
+									<div class="testimonial-header-thumb"></div>
+									<div class="testimonial-item-content">
+										<div class="author-thumb">
+											<img loading="lazy" src="{% static 'img/avatar3.webp'%}" alt="author" width="92" height="92">
+										</div>
+										<h3 class="testimonial-title">Latest Movie Reviews</h3>
+										<ul class="rait-stars">
+											<li>
+												<svg class="star-icon" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+											</li>
+											<li>
+												<svg class="star-icon" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+											</li>
+								
+											<li>
+												<svg class="star-icon" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+											</li>
+											<li>
+												<svg class="star-icon" width="10" height="10"><use xlink:href="#olymp-star-full"></use></svg>
+											</li>
+											<li>
+												<svg class="star-icon" width="10" height="10"><use xlink:href="#olymp-star-null"></use></svg>
+											</li>
+										</ul>
+										<p class="testimonial-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco.
+										</p>
+										<div class="author-content">
+											<a href="#" class="h6 author-name">{{ x.author }}</a>
+											<div class="country">{{ x.comment |slice:":150" }}</div>
+										</div>
+									</div>
+								</div>
+								<!-- ... end Testimonial Item -->
+							</div>
+						</div>
+						<div class="swiper-pagination">
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<img loading="lazy" src="{% static 'img/planer.webp'%}" alt="planer" class="planer" data-aos="fade-right" data-aos-delay="200" data-aos-duration="500" width="356" height="140">
+		</section>
+		<!-- ... end Section Planer Animation -->
+		<!-- Footer Full Width -->
+		<div class="footer footer-full-width" id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+						<!-- Widget About -->
+						<div class="widget w-about">
+							<a href="" class="logo">
+								<div class="img-wrap">
+									<img loading="lazy" src="{% static 'img/logo.webp' %}" alt="Cinystore" width="60" height="60">
+								</div>
+								<div class="title-block">
+									<h6 class="logo-title">Cinystore</h6>
+									<div class="sub-title">SOCIAL NETWORK</div>
+								</div>
+							</a>
+							<p>Join the ultimate destination for movie lovers! Connect with like-minded cinephiles and discover new favorites.!.</p>
+						</div>
+					</div>
+					<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">	
+						<!-- SUB Footer -->
+						<div class="sub-footer-copyright">
+							<span>
+								Copyright <a href="{% url 'index' % }">Cinystore Inc</a> All Rights Reserved Asquare Enterprises
+							</span>
+						</div>
+						<!-- ... end SUB Footer -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ... end Footer Full Width -->
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+
+	</body>
+</html>
+
+{% endblock %}

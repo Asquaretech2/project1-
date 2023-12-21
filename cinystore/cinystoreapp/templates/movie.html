@@ -1,0 +1,17 @@
+<!-- movies.html -->
+<head>
+	<title>Cinystore | Tmdb Movies</title>
+</head>
+<h1>Popular Movies</h1>
+<ul>
+    {% for movie_data in data %}
+    <li>
+        <h3>id: {{ movie_data.id }}</h3>
+        <h3>title: {{ movie_data.title }}</h3>
+        <p>overview: {{ movie_data.overview }}</p>
+        <p>Release Date: {{ movie_data.release_date }}</p>
+        <img src="https://image.tmdb.org/t/p/w500{{ movie_data.poster_path }}" alt="Tmdb-image">
+        <!-- Add more fields as needed -->
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Box Office Label</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	{% block content %}
+	<body class="body-bg-white">
+		<div class="row" style="margin: 70px;" >
+			{% for x in Box_office_label %}
+			<div class="col col-xl-7 col-lg-7 col-md-12 col-sm-12 col-12">
+				<article class="hentry blog-post blog-post-v3 featured-post-item">
+					<div class="post">
+						<div class="post-title">
+							<h6 class="post-title">{{ x.Movie_name }} </h6>
+						</div>
+						<p> {{ x.movie_collections }}</p>
+						<div class="">
+							<time class="published" datetime="2017-03-24T18:18">
+								<h6>By {{ x.production_house }}</h6></br>
+								<div class="heading-text-box-office">
+									<span>Production House : </span>
+									<span>{{ x.production_house }}</span><br/>					
+									<span>Total Collections : </span>
+									<span>{{ x.movie_collections }}</span><br/>
+									<span>Day Collections:</span>
+									<span>{{ x.day_collections }}</span></br>
+									<span>Weekly Collection : </span>
+									<span>{{ x.weekly_collections }}</span></br>
+									<span>Month Collections : </span>
+									<span>{{ x.month_collections }}</span>
+									<br/>   
+									<div class="h6">
+										<time class="published" datetime="2017-03-24T18:18">
+											as on {{ x.timestamp_field }}
+										</time>
+									</div>
+								</div>
+							</time>
+						</div>
+					</div>
+				</article>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+  	{% endblock %}
+</html>
+
+
+

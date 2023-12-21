@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business |Producer Dashboard</title>
+</head>
+{% extends "producerhead.html" %}
+{% load static %}
+<html lang="en">
+<body>
+{% block header %}
+<div class="crumina-heading">
+    		<div class="producer-dashboaard-bg-container">
+	    		<h1 class="producer-dashboard-logo-heading">Cinystore</h1>
+				<p class="producer-dashboard-logo-description">
+					Cinystore is a platform to connect filmmakers of all formats of films with their audience worldwide,as a user you can find films that you might not have discovered otherwise,
+					and follow pages dedicated to specific genres or directors, and you may come across movies that pique your interest.
+				</p>
+    		</div>
+		</div>
+	{% for x in producerdashboard %}
+        {% if forloop.counter <= 200 %}
+	{% if forloop.first %}
+	<div class="row mx-auto">
+		<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12"></div>
+		{% endif %}
+		<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+            		<div class="movie-bg-container">
+                		<div class="images-container">
+                   		 	<a href="{% url 'moviestats' x.Movie_name %}" target="_self" class="images-container">
+						<img loading="lazy" class="images" src="{{ x.Poster.url }}" alt="poster"/>
+					</a>
+				</div>
+               			 	<a href="{% url 'moviestats' x.Movie_name %}" target="_self" class="movie-title">
+                    				<h1 class="movie-title">{{ x.Movie_name }}</h1>
+               			 	</a>
+           		</div>
+		</div>
+                {% if forloop.counter|divisibleby:4 %}
+</div>
+		<div class="row mx-auto">
+			<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12"></div>
+			{% endif %}
+			{% if forloop.last %}
+		</div>
+	{% endif %}
+	{% endif %}
+	{% endfor %}
+
+    <div class="post-btn-container col-12 pr-4 pb-4 fixed-bottom">
+		<div type="button" class="post-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			<img src="https://ps.w.org/bloglentor-for-elementor/assets/icon-256x256.png?rev=2352572" class="post-icon"/>
+		</div>
+	</div>
+	<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <!--<h1 class="modal-title fs-5" id="exampleModalLabel">title</h1>-->
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body">
+		  <div class="popup-container">
+			  <p class="popup-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+				  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+				  scrambled it to make a type specimen book.
+			  </p>
+			  <div>
+				  <button class="upload-buttons">
+					  <a href="{% url 'PostText' %}" style="color:#fff;text-decoration:none;">Posts</a>
+				  </button>
+				  <button class="upload-buttons">
+					  <a href="{% url 'Clip' %}" style="color:#fff;text-decoration:none;">Clips</a>
+				  </button>
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+</body>
+</html>
+{% endblock %}

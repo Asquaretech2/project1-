@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| User Register</title>
+</head>
+	{% extends "corpbase.html" %}
+	{% load static %}
+	{% block jquery %}
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				$('#username').on('input', function () {
+					var username = $(this).val();
+					$.ajax({
+						url: '{% url "check_username_availability" %}',
+						data: { 'username': username },
+						success: function (response) {
+							if(!username){
+								$('#availability-message').text('');
+							}else{
+								
+								if (response.available) {
+								$('#availability-message').text('Username is available!');
+								} else {
+								$('#availability-message').text('Username already in use!');
+								}
+							}
+							
+							
+						}
+					});
+				});
+			});
+			$(document).ready(function () {
+				$('#email').on('input', function () {
+					var email = $(this).val();
+					$.ajax({
+						url: '{% url "check_email_availability" %}',
+						data: { 'email': email },
+						success: function (response) {
+							if (!email){
+								$('#email-availability-message').text('');
+							}else{
+						
+								if (response.available) {
+								$('#email-availability-message').text('Email is available!');
+								} else {
+								$('#email-availability-message').text('Email already registered');
+								} 
+							}
+							
+						}
+					});
+				});
+			});
+    	</script>
+		<script>
+		 function validateUsername() {
+        var usernameInput = document.getElementById("username");
+        var usernameError = document.getElementById("usernameError");
+
+        // Check if the username contains invalid characters
+        if (/[@\/.+\-_]/.test(usernameInput.value)) {
+            usernameError.textContent = "Username should not contain @, /, ., +, -, or _ characters.";
+            return false;  // Prevent form submission
+        } else {
+            usernameError.textContent = "";  // Clear error message if valid
+            return true;  // Proceed with form submission
+        }
+    }
+        function validateCheckbox() {
+            var checkbox = document.querySelector('input[name="optionsCheckboxes"]');
+
+            if (!checkbox.checked) {
+                // Display error message if the checkbox is not checked
+                var errorParagraph = document.getElementById("checkboxError");
+                errorParagraph.textContent = "Please accept the Terms and Conditions and Privacy Policy before submitting the form.";
+                return false; // Prevent form submission
+            }
+
+            // Proceed with form submission if the checkbox is checked
+            return true;
+        }
+    </script>
+		<style>
+			.main-header.main-landing p {
+				margin-bottom: 10px;
+				font-size: 16px;
+				color: #38a94b;
+				font-family: "Pensum","Times New Roman",times,serif;
+				font-weight: 400;
+			}
+			.error-message {
+            color: red;
+            font-size: 14px;
+        }
+		</style>
+	{% endblock %}
+	{% block content %}
+	<html lang="en">
+		<body class="landing-page">
+		<!-- ... end Preloader -->
+			<div class="content-bg-wrap"></div>
+			{% for message in messages  %}
+			<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      			<strong>Message : </strong> {{ message }}
+      			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    		</div>
+			{% endfor %}
+			<div class="container">
+				<div class="row display-flex">
+					<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12"></div>
+					<div class="col col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
+					<!-- Login-Registration Form  -->
+						<div class="registration-login-form">
+							<div class="tab-content" id="registration-form-tabs-content">
+								<div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+									<h5 class="title"> Register </h5>
+									<form class="content" method="Post" action="{% url 'Authregister' %}">
+										{% csrf_token %}
+										<div class="row">
+											<div class="col-12">
+												 <div class="form-group label-floating">
+													<label for="username">Username</label>
+													<input type="text" class="form-control" id="username" name="username" placeholder="Create A Username (use Alphanumeric)" required>
+													<p id='availability-message'></p>
+													<!-- Error message for username validation -->
+													<span class="error-message" id="usernameError"></span>
+												 </div>
+											</div>
+											<div class="col-12">
+												<div class="form-group label-floating">
+													<label for="email">Email</label>
+													<input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" Required>
+													<p id='email-availability-message'></p>
+        										</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group date-time-picker label-floating">
+													<label for="password">Password</label>
+													<input type="password" class="form-control" id="password" name="password" placeholder="Create Your Password" Required>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group label-floating is-select">
+													<label for="confirm_password">Confirm Password</label>
+													<input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Your Password" Required>
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="checkbox-container">
+													<input type="checkbox" name="optionsCheckboxes" class="checkbox-input" required />
+													<label style="margin-top: -3px;">I accept the <a href="{% url 'terms' %}">Terms and Conditions</a> and <a href="{% url 'Privacy' %}">Privacy</a> of the website</label>
+												</div>
+                                    			<p class="error-message" id="checkboxError"></p>
+                                			</div>
+											<!--text captcha-->
+							<div class="text-captcha-container">
+								<div class="text-captcha-input_field captcha_box">
+									<input type="text" value="" disabled style="border: 1px dashed #888da8;background-color:#e6ecf5;"/>
+									<button class="text-captcha-refresh_button">
+										<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#fff" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+											<path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+											<path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+										</svg>
+									</button>
+								</div>
+								<div class="text-captcha-input_field captcha_input">
+									<input type="text" name="captcha" placeholder="Enter captcha" />
+								</div>
+							</div>
+							<!--text captcha-->
+
+
+											<div class="col col-xl-11 col-lg-11 col-md-11 col-sm-12 mt-3">
+												<button class="btn btn-purple btn-lg full-width" type="submit" value="submit" onclick="return validateUsername() && validateCheckbox()">
+													Complete Registration!
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- ... end Login-Registration Form  -->	
+					</div>
+				</div>
+			</div>
+			<!-- Window-popup Restore Password -->
+			<div class="modal fade" id="restore-password" tabindex="-1" role="dialog" aria-labelledby="restore-password" aria-hidden="true">
+				<div class="modal-dialog window-popup restore-password-popup" role="document">
+					<div class="modal-content">
+						<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+							<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+						</a>
+					<div class="modal-header">
+						<h6 class="title">Restore your Password</h6>
+					</div>
+					<div class="modal-body">
+						<form  method="get">
+							<p>Enter your email and click the send code button. You’ll receive a code in your email. Please use that
+								code below to change the old password for a new one.
+							</p>
+							<div class="form-group label-floating">
+								<label class="control-label">Your Email</label>
+								<input class="form-control" placeholder="" type="email" value="james-spiegel@yourmail.com">
+							</div>
+							<button class="btn btn-purple btn-lg full-width">Send me the Code</button>
+							<div class="form-group label-floating">
+								<label class="control-label">Enter the Code</label>
+								<input class="form-control" placeholder="" type="text" value="">
+							</div>
+							<div class="form-group label-floating">
+								<label class="control-label">Your New Password</label>
+								<input class="form-control" placeholder="" type="password" value="Cinystore">
+							</div>
+							<button class="btn btn-primary btn-lg full-width">Change your Password!</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ... end Window-popup Restore Password -->
+		<!-- Window Popup Main Search -->
+		<div class="modal fade" id="main-popup-search" tabindex="-1" role="dialog" aria-labelledby="main-popup-search" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered window-popup main-popup-search" role="document">
+				<div class="modal-content">
+					<a href="#" class="close icon-close" data-bs-dismiss="modal" aria-label="Close">
+						<svg class="olymp-close-icon"><use xlink:href="#olymp-close-icon"></use></svg>
+					</a>
+					<div class="modal-body">
+						<form class="form-inline search-form" method="post">
+							<div class="form-group label-floating">
+								<label class="control-label">What are you looking for?</label>
+								<input class="form-control bg-white" placeholder="" type="text" value="">
+							</div>
+							<button class="btn btn-purple btn-lg">Search</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{% endblock %}
+</html>
+
+

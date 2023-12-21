@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | International Movies</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	{% block content %}
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"></div>
+			</div>
+		</div>
+		<div class="container"></div>
+		<div class="container">
+			{% for x in movies %}
+			{% if forloop.counter <= 100 %}
+			{% if forloop.first %}
+				<div class="row mx-auto">
+					{% endif %}
+					<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+						<article class="hentry blog-post">
+							<div class="post-thumb">
+								<a href="{% url 'Label2' x.movie_title %}" target="_blank" class="h6 post-title">
+									<img loading="lazy" src="https://image.tmdb.org/t/p/w500{{ x.poster_path }}" alt="tmdb-poster" width="370" height="261">
+								</a>
+							</div>
+							<div class="post-content">
+								<a href="{% url 'Label2' x.movie_title %}" target="_blank" class="h6 post-title">{{ x.movie_title }} </a>
+							</div>
+							<div class="post-additional-info inline-items">
+								<div class="friends-harmonic-wrap"></div>
+							</div>
+						</article>
+					<!-- ... end Post -->
+					</div>
+            		{% if forloop.counter|divisibleby:6 %}
+				</div>
+        		<div class="row mx-auto">
+           			{% endif %}
+           			{% if forloop.last %}
+        		</div>
+        	{% endif %}
+        	{% endif %}
+       		{% endfor %}
+		</div>
+		<!-- Pagination -->
+		<!-- ... end Pagination -->
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

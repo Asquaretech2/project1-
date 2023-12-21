@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Personal Information form</title>
+</head>
+	{% extends "head.html" %}
+	{% load static %}
+	<body>
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xxl-9 col-xl-9 order-xl-2 col-lg-9 order-lg-2 col-md-12 order-md-1 col-sm-12 col-12">
+					<div class="ui-block">
+						<div class="ui-block-title">
+							<h6 class="title">Personal Information</h6>
+						</div>
+						<div class="ui-block-content">
+							<!-- Personal Information Form  -->
+							{% for x in PersonalInformation %}
+							<form method="post" action="{% url 'PersonalInformation_update' %}" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="row">
+									<div class="form-group label-floating">
+										<label for="profile_photo">Profile Photo</label>
+										<input type="file" class="form-control" id="profile_photo" name="profile_photo" Required>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating">
+											<label for="username" class="control-label">Username</label>
+											<input class="form-control" type="text" value="{{ x.username }}" name = username id="username" readonly>
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating">
+											<label for="email" class="control-label">Email</label>
+											<input class="form-control" type="text" value="{{ x.email }}" name="email" id="email" readonly>
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating">
+											<label for="first_name" class="control-label">First Name</label>
+											<input class="form-control" type="text" value= "{{ x.first_name }}" name="first_name" id="first_name" required>
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating">
+											<label for="last_name" class="control-label">Last Name</label>
+											<input class="form-control" type="text" value= "{{ x.last_name }}" id="last_name" name="last_name" required>
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating is-empty">
+											<label for="phone_number" class="control-label">Your Phone Number</label>
+											<input class="form-control" type="tel" value= "{{ x.phone_number }}" id="phone_number" name="phone_number" required>
+										</div>
+									</div>
+									
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">						
+										<div class="form-group label-floating">
+											<label for="website" class="control-label">Your Website email</label>
+											<input class="form-control" type="text" value= "{{ x.website }}"id="website" name="website">
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group label-floating">
+											<label for="date_of_birth" class="control-label">Your Birthday</label>
+											<input type="date" id="date_of_birth"  name="date_of_birth" value="{{ x.date_of_birth|date:'Y-m-d' }}">
+										</div>
+									</div>
+									<div class="col col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating is-select">
+											<label for="gender" class="control-label">Your Gender</label>
+											<select class="form-select" type="text" name="gender" id="gender">
+												<option value="{{x.gender}}">{{x.gender}}</option>
+												<option value="Male">Male</option>
+												<option value="Female">Female</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+										<div class="form-group label-floating is-select">
+											<label for="country_name" class="control-label">Your Country</label>
+											<select class="form-select" type="text" name="country_name" id="country_name">
+												<option value="{{x.country_name}}">{{x.country_name}}</option>
+												<option value="India">India</option>
+												<option value="USA">USA</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+										<div class="form-group label-floating is-select">
+											<label for="state" class="control-label">Your State / Province</label>
+											<select class="form-select" type="text" name="state" id="state">
+												<option value="{{x.state}}">{{x.state}}</option>
+												<option value="Andhra Pradesh">Andhra Pradesh</option>
+												<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+												<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+												<option value="Assam">Assam</option>
+												<option value="Bihar">Bihar</option>
+												<option value="Chandigarh">Chandigarh</option>
+												<option value="Chhattisgarh">Chhattisgarh</option>
+												<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+												<option value="Daman and Diu">Daman and Diu</option>
+												<option value="Goa">Goa</option>
+												<option value="Gujarat">Gujarat</option>
+												<option value="Haryana">Haryana</option>
+												<option value="Himachal Pradesh">Himachal Pradesh</option>
+												<option value="Jharkhand">Jharkhand</option>
+												<option value="Karnataka">Karnataka</option>
+												<option value="Kerala">Kerala</option>
+												<option value="Lakshadweep">Lakshadweep</option>
+												<option value="Madhya Pradesh">Madhya Pradesh</option>
+												<option value="Maharashtra">Maharashtra</option>
+												<option value="Manipur">Manipur</option>
+												<option value="Meghalaya">Meghalaya</option>
+												<option value="Mizoram">Mizoram</option>
+												<option value="Nagaland">Nagaland</option>
+												<option value="Odisha">Odisha</option>
+												<option value="Punjab">Punjab</option>
+												<option value="Puducherry">Puducherry</option>
+												<option value="Rajasthan">Rajasthan</option>
+												<option value="Sikkim">Sikkim</option>
+												<option value="Tamil Nadu">Tamil Nadu</option>
+												<option value="Telangana">Telangana</option>
+												<option value="Tripura">Tripura</option>
+												<option value="Uttar pradesh">Uttar pradesh</option>
+												<option value="Uttarakhand">Uttarakhand</option>
+												<option value="West Bangal">West Bangal</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+										<div class="form-group label-floating is-select">
+											<label for="city" class="control-label">Your City</label>
+											<select class="form-select" type="text" name="city" id="city">
+												<option value="{{x.city}}">{{x.city}}</option>
+												<option value="Amaravati">Amaravati</option>
+												<option value="Itanagr">Itanagr</option>
+												<option value="Dispur">Dispur</option>
+												<option value="patna">patna</option>
+												<option value="Raipur">Raipur</option>
+												<option value="Panaji">Panaji</option>
+												<option value="Gandhi Nagar">Gandhi Nagar</option>
+												<option value="Chandigarh">Chandigarh</option>
+												<option value="Shimla">Shimla</option>
+												<option value="Ranchi">Ranchi</option>
+												<option value="Bengaluru">Bengaluru</option>
+												<option value="Thiruvananthapuram">Thiruvananthapuram</option>
+												<option value="Bhopal">Bhopal</option>
+												<option value="Mumbai">Mumbai</option>
+												<option value="Imphal">Imphal</option>
+												<option value="Shilong">Shilong</option>
+												<option value="Aizawl">Aizawl</option>
+												<option value="Bhubaneswar">Bhubaneswar</option>
+												<option value="Jaipur">Jaipur</option>
+												<option value="Gangtok">Gangtok</option>
+												<option value="Chennai">Chennai</option>
+												<option value="Hyderabad">Hyderabad</option>
+												<option value="Agartala">Agartala</option>
+												<option value="Lucknow">Lucknow</option>
+												<option value="Dehradun(winter)&Gairain(summer)">Dehradun(winter)&Gairain(summer)</option>
+												<option value="Kolkata">Kolkata</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Write a little description about you" id="company_brief" name="company_brief" cols="5" rows="5">
+												{{ x.company_brief }}
+											</textarea>
+										</div>
+									</div>
+									<div class="col col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										<div class="form-group with-icon label-floating">
+											<label for="facebook_account" class="control-label">Your Facebook Account</label>
+											<input class="form-control" type="text" id="facebook_account" name="facebook_account">
+											<svg class="c-facebook" width="20" height="20"><use xlink:href="#olymp-facebook-icon"></use></svg>
+										</div>
+										<div class="form-group with-icon label-floating">
+											<label for="twitter_account" class="control-label">Your Twitter Account</label>
+											<input class="form-control" type="text" id="twitter_account" name="twitter_account">
+											<svg class="c-twitter" width="20" height="20"><use xlink:href="#olymp-twitter-icon"></use></svg>
+										</div>
+										<div class="form-group with-icon label-floating is-empty">
+											<label for="spotify_account" class="control-label">Your Spotify Account</label>
+											<input class="form-control" type="text" name="spotify_account" id="spotify_account">
+											<svg class="c-spotify" width="20" height="20"><use xlink:href="#olymp-spotify-icon"></use></svg>
+										</div>
+									</div>
+									<div class="">
+										<button class="btn btn-primary d-grid gap-2 col-6 mx-auto" type="submit" value="submit">
+											Save all Changes
+										</button>
+									</div>
+								</div>
+							</form>
+						{% endfor %}
+						<!-- ... end Personal Information Form  -->
+						</div>
+					</div>
+				</div>
+				<div class="col col-xxl-3 col-xl-3 order-xl-1 col-lg-3 order-lg-1 col-md-12 order-md-2 col-sm-12 col-12 responsive-display-none">
+					<div class="ui-block">
+						<!-- Your Profile  -->
+						<div class="your-profile">
+							<div class="ui-block-title ui-block-title-small">
+								<h6 class="title">Your PROFILE</h6>
+							</div>
+							<div class="accordion" id="accordionExample1">
+								<div class="accordion-item">
+									<h6 class="accordion-header" id="headingOne1">
+										<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
+											Profile Settings
+											<svg class="olymp-dropdown-arrow-icon"><use xlink:href="#olymp-dropdown-arrow-icon"></use></svg>
+										</button>
+									</h6>
+									<div id="collapseOne1" class="accordion-collapse collapse show" aria-labelledby="headingOne1" data-bs-parent="#accordionExample1">
+										<div class="accordion-body">
+											<ul class="your-profile-menu">
+												<li>
+													<a href="/PersonalInformation/">Personal Information</a>
+												</li>
+												<li>
+													<a href="#">Account Settings</a>
+												</li> 
+												<li>
+													<a href="/PersonalInformation/change_password/">Change Password</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ... end Your Profile  -->
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endblock %}
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+		<!-- JS Scripts -->
+		<script src="js/jQuery/jquery-3.5.1.min.js"></script>
+		<script src="js/libs/jquery.mousewheel.min.js"></script>
+		<script src="js/libs/perfect-scrollbar.min.js"></script>
+		<script src="js/libs/imagesloaded.pkgd.min.js"></script>
+		<script src="js/libs/material.min.js"></script>
+		<script src="js/libs/selectize.min.js"></script>
+		<script src="js/libs/moment.min.js"></script>
+		<script src="js/libs/daterangepicker.min.js"></script>
+		<script src="js/libs/isotope.pkgd.min.js"></script>
+		<script src="js/libs/ajax-pagination.min.js"></script>
+		<script src="js/libs/jquery.magnific-popup.min.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/libs-init/libs-init.js"></script>
+		<script src="Bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- SVG icons loader -->
+		<script src="js/svg-loader.js"></script>
+		<!-- /SVG icons loader -->
+	</body>
+</html>

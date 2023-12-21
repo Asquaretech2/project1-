@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>Cinystore| Company | creator</title>
+    </head>
+{% extends "corporateBase.html" %}
+<html>
+{% load static %}
+<body>
+{% block header %}
+    <div class="creator-page-main-bg-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7">
+                     <div class="creator-page-content-container">
+                         <h1 class="creator-page-heading">
+                             CREATORS
+                         </h1>
+                         <p class="creator-page-description">
+                             If you are in the early stages of filmmaking, you should concentrate on the creative aspect of it.
+                             If you are in the advanced stages of filmmaking, then you should focus on the marketing and
+                             distribution side of it. Now, there are two ways of doing so - offline and online. If you
+                             are venturing into online movie promotions, then we have all the necessary tools and
+                             sophisticated infrastructure to support your film journey properly. Based on the traction,
+                             you can decide on your offering.
+                         </p>
+                         <p class="creator-page-description">
+                             What Orson Welles, American actor, and filmmaker once famously said, still holds today - “It's
+                             about 2% moviemaking and 98% hustling.” The truth is that once your film is complete, you need
+                             to become a businessperson. Think in the lines of distribution, revenues, and profit.
+                         </p>
+                         <a href="https://cinystore.com/Business/" target="_blank">
+                             <button class="creator-page-btn">Get Started</button>
+                         </a>
+                     </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="creator-page-image-container">
+                         <img src="{% static 'img/createPageImage-removebg-preview.png' %}" alt="creator-page-image" class="creator-page-image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+
+</html>

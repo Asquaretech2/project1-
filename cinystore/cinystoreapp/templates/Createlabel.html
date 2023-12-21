@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Cinystore| CreateLabel</title>
+</head>
+{% extends "producerhead.html" %}
+{% load static %}
+{% block jquery %}
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#Movie_name').on('input', function () {
+                var Movie_name = $(this).val();
+                $.ajax({
+                    url: '{% url "check_movie_exists" %}',
+                    data: { 'Movie_name': Movie_name },
+                    success: function (response) {
+                        if(!Movie_name){
+							$('#availability-message').text('');
+						}else{
+
+							if (response.available) {
+                            $('#availability-message').text('');
+                        	} else {
+                            $('#availability-message').text('Movie already Exists, Please go add a Post!');
+                        	}
+						}
+                    }
+                });
+            });
+        });
+	</script>
+	<style>
+	.main-header.main-landing p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #38a94b;
+    font-family: "Pensum","Times New Roman",times,serif;
+    font-weight: 400;}
+	</style>
+	{% endblock %}
+<html lang="en">
+<body>
+{% block header %}
+<div class="crumina-module crumina-heading">
+    <div class="producer-dashboaard-bg-container">
+	    <h1 class="producer-dashboard-logo-heading">Cinystore</h1>
+        <div class="label-inputs-bg-container">
+            <div class="disclaimer-text">Please read the following <a href="{% url 'terms' %}">Terms and Conditions</a>  very carefully as your use of service on our website Cinystore.com is subject to 
+                your acceptance of and compliance with the following terms and conditions <br>By Creating a label, accessing or using any of the  services you agree that you have read, understood and are bound by the Terms of Use, regardless of how you use the services.
+                If you do not want to be bound by the Terms of Use, you must not Create a Label  or use our services.</div>
+        </div>
+    </div>
+</div>
+<div class="container label-bg-container mb-4">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'Createlabel' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Movie_name" class="label-inputs-text">* Movie Name</label>
+                    <input id="Movie_name" name="Movie_name" type="text" class="label-inputs-container placeholder-text" required/>
+                    <p id='availability-message'></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Genre" class="label-inputs-text">* Genre</label>
+                    <input id="Genre" name="Genre"  type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Language" class="label-inputs-text">* Language</label>
+                    <input id="Language" name="Language"  type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Other_Languages" class="label-inputs-text">Other Languages</label>
+                    <input id="Other_Languages" name="Other_Languages"  type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Production_house" class="label-inputs-text">* Production House</label>
+                    <input id="Production_house" name="Production_house" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Producer" class="label-inputs-text">* Producer</label>
+                    <input id="Producer" name="Producer" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Director" class="label-inputs-text">* Director</label>
+                    <input id="Director" name="Director" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Music_director" class="label-inputs-text">* Music Director</label>
+                    <input id="Music_director" name="Music_director" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="lyricist" class="label-inputs-text">Lyricist</label>
+                    <input id="lyricist" name="lyricist" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Singers" class="label-inputs-text">Singers</label>
+                    <input id="Singers" name="Singers" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="cast" class="label-inputs-text">* Cast</label>
+                    <input id="cast" type="text" name="cast" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="choreographer" class="label-inputs-text">Choreographers</label>
+                    <input id="choreographer" name="choreographer" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Script_writer" class="label-inputs-text">Script Writer</label>
+                    <input id="Script_writer" name="Script_writer" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Editor" class="label-inputs-text">Editor</label>
+                    <input id="Editor" name="Editor" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Cinematographer" class="label-inputs-text">Cinematographer</label>
+                    <input id="Cinematographer" name="Cinematographer" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Running_Time" class="label-inputs-text">Runtime</label>
+                    <input id="Running_Time" name="Running_Time" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Maturity" class="label-inputs-text">Film Certification</label>
+                    <select name="Maturity" id="Maturity" class="label-inputs-container placeholder-text">
+                        <option value="U">U</option>
+                        <option value="U/A">U/A</option>
+                        <option value="A">A</option>
+                        <option value="Not Certified Yet">Not Certified Yet</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Distribution" class="label-inputs-text">Distributor</label>
+                    <input id="Distribution" name="Distribution" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Recording_studio" class="label-inputs-text">Recording Studio</label>
+                    <input id="Recording_studio" name="Recording_studio" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Budget" class="label-inputs-text">Budget</label>
+                    <input id="Budget" name="Budget" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Release_date" class="label-inputs-text">* Release Date</label>
+                    <input id="Release_date" name="Release_date" type="text" title="Date Format yyyy-mm-dd" placeholder="example:Release Date/ Coming soon/ To be Announced (TBA)" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="trailer" class="label-inputs-text">* Trailer Link</label>
+                    <input id="trailer" name="trailer" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Poster" class="label-inputs-text">* Posters</label>
+                    <input id="Poster" name="Poster" type="file" title="Upload Image Size of 400/600 for better display"class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Banner" class="label-inputs-text">* Banners</label>
+                    <input id="Banner" name="Banner" type="file" title="Upload Image Size of 2000/600 for better display" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Graphic_designer" class="label-inputs-text">CG Team</label>
+                    <input id="Graphic_designer" name="Graphic_designer" type="text" class="label-inputs-container placeholder-text"/>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="label-inputs-bg-container">
+                    <label for="Url_name" class="label-inputs-text">* Url Name</label>
+                    <input id="Url_name" name="Url_name" type="text" class="label-inputs-container placeholder-text" required/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="label-inputs-bg-container">
+                    <label for="synopsis" class="label-inputs-text">* Synopsis/ Plotline</label>
+                    <textarea id="synopsis" name="synopsis" rows="6" cols="100" class="label-inputs-container placeholder-text" required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-4">
+            <div class="upload-label-btn-container">
+                <button class="upload-label-btn" type="submit" value="submit">Upload</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+</body>
+</html>

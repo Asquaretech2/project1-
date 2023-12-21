@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Pricing</title>
+</head>
+	{% extends "corpbase.html" %}
+	{% load static %}
+	<body>
+        {% block content %}
+        <header class="bg-gradient" id="home">
+			<div class="container mt-5"></div>
+        	<div class="img-holder mt-3"><img src="{% static 'corporatecss/images/watsonanalytics.png' %}" alt="phone" class="img-fluid"></div>
+    	</header>
+		<div class="client-logos my-5">
+			<div class="container text-center">
+				<img src="{% static 'corporatecss/images/client-logos.png' %}" alt="client logos" class="img-fluid">
+			</div>
+		</div>
+		<div class="section" id="pricing">
+			<div class="container">
+				<div class="section-title">
+					<small>PRICING</small>
+					<h2>Our dynamic pricing options will enable you to chose the right option 
+					based on duration and market penetration and recognition of your product.</h2>
+				</div>
+				<div class="pricingdiv">
+					<ul class="theplan">
+						<li class="title"><b>Basic</b></li>
+						<li><b>Microsite</b> </li>
+						<li><b>Cast and Crew</b> </li>
+						<li><b>Trailer</b>(1) </li>
+						<li><b>Posters</b> (5)</li>
+						<li><b>News</b> Unlimited Updates</li>
+						<li><b>Trivia</b> Unlimited Updates</li>
+						<li><b>Synopsis</b> </li>
+						<li><b>Template Choice</b> </li>
+						<li><b>Share with Contacts</b> Unlimited </li>
+						<li><b>Manage Project</b> Unlimited</li>
+						<li><a class="pricebutton" href="" target="_blank" rel="nofollow"><span class="icon-tag"></span> INR 12,500/mo</a></li>
+					</ul>
+					<ul class="theplan">
+						<li class="title"><span class="icon-trophy" style="color:yellow"></span> <b>Premium</b></li>
+						<li><b>Basic + </b> </li>
+						<li><b>Unlimited Trailer Uploads:</b> </li>
+						<li><b>Unlimited Poster Uploads</b> </li>
+						<li><b>Search Engine Optimization</b> </li>
+						<li><b>SMM integration</b> Yes</li>
+						<li><b>Email Campaign</b> <span class="icon-check"></span></li>
+						<li><b>Collaboration</b> <span class="icon-check"></span></li>
+						<li><a class="pricebutton" href="" target="_blank" rel="nofollow"><span class="icon-tag"></span> INR 20,000/mo</a></li>
+					</ul>
+					<ul class="theplan">
+						<li class="title"><b>Ultra</b></li>
+						<li class="ethighlight"><b>Premium+</b> </li>
+						<li><b>Analytics </b> </li>
+						<li><b>Campaign Measurement:</b> </li>
+						<li><b>Traffic Conversions </b> </li>
+						<li><b>User activity</b> </li>
+						<li><b>Audience reports</b> <span class="icon-close"></span></li>
+						<li><b>Flow visualization</b> <span class="icon-check"></span></li>			
+						<li><a class="pricebutton" href="" target="_blank" rel="nofollow"><span class="icon-tag"></span> INR 40,000/mo</a></li>
+					</ul>
+				</div>
+            	<!-- end pricing -->
+        		</div>
+    		</div>
+    		<!-- end section -->
+    		<!-- end section -->
+    	{% endblock %}
+	</body>
+</html>

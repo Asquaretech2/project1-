@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| Home </title>
+</head>
+    {% extends "base.html" %}
+    {% load static %}
+    {% block content %}
+    <body>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                </div>
+            </div>
+        </div>
+        <!--Browse-->
+        <div class="container">
+            <h5 class="heading-text-name"><a href="{% url 'Browsemovies' %}" class="">Browse Cinyma </a></h5>
+        </div>
+        <div class="container">
+            {% for x in mydata %}
+            {% if forloop.counter <= 6 %}
+            {% if forloop.first %}
+            <div class="row mx-auto">
+                {% endif %}
+                    <div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12">
+                        <div class="post-thumb">
+                            <img loading="lazy" src="{{ x.Poster.url }}" alt="poster" width="370" height="261"/>
+                        </div>
+                        <article class="hentry blog-post">
+                            <div class="post-content">
+                                <a href="{% url 'publiclabel' x.Movie_name %}" target="_blank" class="h6 post-title">{{ x.Movie_name }} </a>
+                            </div>
+                        </article>
+                        <!-- ... end Post -->
+                    </div>
+			    {% if forloop.counter|divisibleby:6 %}
+            </div>
+		    <div class="row mx-auto">
+			    {% endif %}
+			    {% if forloop.last %}
+		    </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+	    </div>
+        {% for x in mydata3 %}
+        <div class="container">
+            <h5 class="heading-text-name"><a href="{% url 'genblog' %}" class="">Ciny Blogs </a></h5>
+        </div>
+        <div class="heading-text">
+            <p>{{ x.content |slice:":250" }}
+                <a href="{% url 'genblog'  %}" target="_blank">...Read more</a>
+            </p>
+        </div>
+        {% endfor %}
+        <!--Review-->
+        <div class="container">
+            <h5 class="heading-text-name"><a href="{% url 'genreviews' %}" class="">Reviews </a></h5>
+        </div>
+        <div class="container">
+            {% for x in mydata1 %}
+            {% if forloop.counter <= 3 %}
+            {% if forloop.first %}
+            <div class="row mx-auto">
+                {% endif %}
+                <div class="col col-xl-4 col-lg-4 col-12">
+                    <div class="">
+                            <!-- Single Post -->
+                        <article class="hentry blog-post">
+                            <div class="">
+                                <div class="control-block-button post-control-button"></div>
+                                <div class="post-content">
+                                    <a href="{% url 'review_label' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+                                </div>
+                                <div class="timestamp">
+                                    {{ x.review_date }}
+                                </div>
+                                <p>{{ x.comment |slice:":150" }}
+                                    <a href="{% url 'review_label' x.Movie_name %}" target="_blank">...Read more</a>
+                                </p>       
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row mx-auto">
+                {% endif %}
+                {% if forloop.last %}
+            </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+	    </div><br/>
+        <div class="friend-item friend-groups">
+            <div class="friend-item-content">
+                <div class="more">
+                    <svg class="olymp-three-dots-icon"><use xlink:href="#olymp-three-dots-icon"></use></svg>
+                    <ul class="more-dropdown">
+                        <li>
+                            <a href="#">Report Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Block Profile</a>
+                        </li>
+                        <li>
+                            <a href="#">Turn Off Notifications</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="friend-avatar">
+                    <div class="author-thumb">
+                        <img loading="lazy" src="{% static 'img/logo.webp' %}" alt="Cinystore" width="34" height="34">
+                    </div>
+                    <div class="author-content">
+                        <a href="#" class="h5 author-name"></a>
+                        <div class="country">Create and Join a Club...Coming Soon</div>
+                    </div>
+                </div>
+                <div class="control-block-button">
+                    <a href="#" class="  btn btn-control bg-blue" data-bs-toggle="modal" data-bs-target="#create-friend-group-add-friends">
+                        <svg class="olymp-happy-faces-icon"><use xlink:href="#olymp-happy-faces-icon"></use></svg>
+                    </a>
+
+                    <a href="#" class="btn btn-control btn-grey-lighter">
+                        <svg class="olymp-settings-icon"><use xlink:href="#olymp-settings-icon"></use></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--Box-Office-->
+        <div class="container">
+            <h5 class="heading-text-name"><a href="{% url 'genBox_office' %}" class="">Box-Office</a></h5>
+        </div>
+        <div class="container">
+            {% for x in genBox_office %}
+            {% if forloop.counter <= 4 %}
+            {% if forloop.first %}
+            <div class="row mx-auto">
+                {% endif %}
+                <div class="col col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                        <!-- Single Post -->
+                    <article class="hentry blog-post ">
+                        <div class="post-content">
+                            <a href="{% url 'Box_office_label' x.Movie_name %}" target="_blank" class="h5 post-title">{{ x.Movie_name }} </a>
+                        </div>
+                        <div class="heading-text-box-office">
+                            <span>Production House:</span>
+                            <span>{{ x.production_house }}</span><br/>
+                            <span>Total Collections:</span>
+                            <span>{{ x.movie_collections }} Cr</span><br/>
+                            <span>Daily Collections:</span>
+                            <span>{{ x.day_collections }} Cr</span></br>
+                            <span>Weekly Collections:</span>
+                            <span>{{ x.weekly_collections }} Cr</span></br>
+                            <span>Month collections:</span>
+                            <span>{{ x.month_collections }} Cr</span>
+                        </div>
+			        </article>
+                </div>
+                {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class="row mx-auto">{% endif %}{% if forloop.last %}</div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <a class="back-to-top" href="#">
+            <svg class="back-icon" width="14" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+        </a>
+    </body>
+</html>
+{% endblock %}
+

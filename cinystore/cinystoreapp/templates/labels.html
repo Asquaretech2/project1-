@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Labels</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	{% load widget_tweaks %}
+	<body>
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+					<div class="landing-content">
+						<h1>Select the Label You would Like to Create </h1>
+						<p>Create a Whitelabel website, by selecting from our range of templates that are tailor-made to showcase your unique brand identity. Our team of skilled designers and developers work continuosly to support you to create a visually stunning and highly functional Label that reflects your vision and values. From sleek and minimalistic designs to bold and vibrant aesthetics, we support your ideas to be brought to life, ensuring that your online presence stands out from the crowd..
+						</p>
+						
+					</div>
+				</div>
+				<hr style="width:1px; border-left: 2px solid white;padding:unset; height: 500px"/>
+				<div class="col col-lg-4 col-md-4 col-sm-4 col-12">
+					<div class="">
+						<div class="">
+							<ul>
+								<li class="heading-text produer ">
+									<a href="{% url 'Createlabel' %}">
+										<h3 class="producer" >Movies</h3>
+									</a>
+								</li>
+								<li class="heading-text produer ">
+									<a href="{% url 'webseries_label' %}">
+										<h3 class="producer">Webseries</h3>
+									</a>
+									
+								</li>
+                    		</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="16" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

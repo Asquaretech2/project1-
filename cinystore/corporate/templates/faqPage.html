@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<head>
+    <title>Cinystore| Company | FAQ</title>
+    </head>
+{% extends "corporateBase.html" %}
+<html>
+{% load static %}
+<body>
+   {% block header %}
+    <div class="faq-main-bg-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <div class="faq-text-container">
+                        <h1 class="faq-main-heading">FAQ's</h1>
+                        <p class="faq-description">
+                            We have shared answers to as many questions as possible, any further doubts please feel free to connect with us
+                            <a href="{% url 'contact' %}" style="text-decoration:auto;">here.</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-7">
+                    <div class="faq-questions-bg-container">
+                        <div class="faq-main-topic-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#preExample" aria-expanded="false" aria-controls="preExample">
+                                Overview
+                            </button>
+                        </div>
+
+                        <div class="accordion collapse" id="preExample">
+                           <div class="accordion-item" >
+                            <h2 class="accordion-header" id="preHeadingOne">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseOne" aria-expanded="false" aria-controls="preCollapseOne">
+                                What is Cinystore- An Overview of the  Business?
+                              </button>
+                            </h2>
+                            <div id="preCollapseOne" class="accordion-collapse collapse" aria-labelledby="preHeadingOne" data-bs-parent="#preExample">
+                              <p class="accordion-body faq-answers">
+                                Cinystore is AI and ML powered Movie Promotion and Monetization platform for Independent filmmakers.
+                              </p>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseTwo" aria-expanded="false" aria-controls="preCollapseTwo">
+                                    What do you do?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseTwo" class="accordion-collapse collapse" aria-labelledby="preHeadingTwo" data-bs-parent="#preExample">
+                                  <p class="accordion-body faq-answers">
+                                      Emerging applications of Artificial Intelligence and machine learning will be applied to multiple areas of
+                                      importance for filmmakers including marketing, advertising and content promotion with more efficiency.
+                                  </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseThree" aria-expanded="false" aria-controls="preCollapseThree">
+                                    Why are you building the Platform?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseThree" class="accordion-collapse collapse" aria-labelledby="preHeadingThree" data-bs-parent="#preExample">
+                                  <p class="accordion-body faq-answers">
+                                      Being in the Media & Entertainment Industry for more than 2 decades, we have seen and
+                                      experienced how hard it is for any filmmaker to reach out to a wider audience with their
+                                      movie. Out of the thousands of movies churned out every year, only handfuls become
+                                      blockbusters. And only a select few make real profits. We also know for a fact that you
+                                      don’t need big names for a movie to sell, as long as the content is good.
+                                  </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingFour">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseFour" aria-expanded="false" aria-controls="preCollapseFour">
+                                    What more Problems do Filmmakers face in film promotion and distribution?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseFour" class="accordion-collapse collapse" aria-labelledby="preHeadingFour" data-bs-parent="#preExample">
+                                  <p class="accordion-body faq-answers">
+                                        1. Film business is becoming Global and Movie Promotion and distribution is getting more complex.<br class="mb-2"/>
+                                        2. Film companies and individual independent filmmakers spend huge dollar amounts to reach their audience. <br class="mb-2"/>
+                                        3. Knowing the right price of their movie is a major concern of filmmakers.<br class="mb-2"/>
+                                        4. Avoiding middle layers in film industry is difficult.
+                                  </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingFive">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseFive" aria-expanded="false" aria-controls="preCollapseFive">
+                                    Aren’t there solutions now?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseFive" class="accordion-collapse collapse" aria-labelledby="preHeadingFive" data-bs-parent="#preExample">
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        Yes all the social media platforms provide analytics and metrics of Likes and shares
+                                        with demographic information along with the audience reach, but they do not provide any
+                                        tools or Insights to read these numbers.
+                                    </p>
+                                    <p class="accordion-body faq-answers">
+                                        Most of the Big time film studios have the infrastructure and Bandwidth for a structured
+                                        promotion, but the Independent filmmakers with a market share of 80% movies produced,
+                                        have to rely on an assortment of Vendors.
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingSix">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseSix" aria-expanded="false" aria-controls="preCollapseSix">
+                                    How are you doing it?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseSix" class="accordion-collapse collapse" aria-labelledby="preHeadingSix" data-bs-parent="#preExample">
+                                  <p class="accordion-body faq-answers">
+                                      A platform that, shall empower filmmakers to connect more deeply with prospective
+                                      Buyers by combining data, analytics, marketing activation and data management platform
+                                      capabilities on a single platform. The data synergies facilitate a deeper understanding
+                                      of consumers and audiences, more effective one-to-one messaging, and superior ROI
+                                      analysis and campaign optimization.
+                                  </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="preHeadingSeven">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#preCollapseSeven" aria-expanded="false" aria-controls="preCollapseSeven">
+                                    How will it help the filmmakers?
+                                  </button>
+                                </h2>
+                                <div id="preCollapseSeven" class="accordion-collapse collapse" aria-labelledby="preHeadingSeven" data-bs-parent="#preExample">
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        Reduce cost of promotion
+                                    </p>
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        Increase Reach
+                                    </p>
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        Better Monetization
+                                    </p>
+                                    <p class="accordion-body faq-answers">
+                                        Increase Producers Profits
+                                    </p>
+
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="faq-questions-bg-container">
+                        <div class="faq-main-topic-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutExample" aria-expanded="false" aria-controls="aboutExample">
+                                Product
+                            </button>
+                        </div>
+
+                        <div class="accordion collapse" id="aboutExample">
+                           <div class="accordion-item" >
+                            <h2 class="accordion-header" id="aboutHeadingOne">
+                              <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#aboutCollapseOne" aria-expanded="false" aria-controls="aboutCollapseOne">
+                                What is the Sign-up process for Cinystore?
+                              </button>
+                            </h2>
+                            <div id="aboutCollapseOne" class="accordion-collapse collapse" aria-labelledby="aboutHeadingOne" data-bs-parent="#aboutExample">
+                                <p class="accordion-body faq-answers">
+                                    Steps to sign into your Producer Account<br/>
+                                    Go to www.cinystore.com/Business/<br/>
+                                    Click Register Now<br/>
+                                    Fill the form with appropriate details<br/>
+                                    Accept the Terms and Conditions of the website & click on Producer Register Account<br/>
+                                </p>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="aboutHeadingTwo">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#aboutCollapseTwo" aria-expanded="false" aria-controls="aboutCollapseTwo">
+                                    How do I Create a Label
+                                  </button>
+                                </h2>
+                                <div id="aboutCollapseTwo" class="accordion-collapse collapse" aria-labelledby="aboutHeadingTwo" data-bs-parent="#aboutExample">
+                                    <p class="accordion-body faq-answers">
+                                        Creating Label is a simple 5 minutes activity, you open the Create Label Page from
+                                        the left sidebar in the Producer Dashboard and Upload Details as asked in the form
+                                        of your project and click on Publish. Your Label is Created
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="aboutHeadingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#aboutCollapseThree" aria-expanded="false" aria-controls="aboutCollapseThree">
+                                    What details Can I Upload?
+                                  </button>
+                                </h2>
+                                <div id="aboutCollapseThree" class="accordion-collapse collapse" aria-labelledby="aboutHeadingThree" data-bs-parent="#aboutExample">
+                                    <p class="accordion-body faq-answers">
+                                        The Form in the create label will guide you the details you have to fill, which
+                                        include the Movie Name, Cast & Crew, Posters, banners, Trailers and all the other
+                                        details you think you would like to share with your audience
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="aboutHeadingFour">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#aboutCollapseFour" aria-expanded="false" aria-controls="aboutCollapseFour">
+                                    How many times can I upload?
+                                  </button>
+                                </h2>
+                                <div id="aboutCollapseFour" class="accordion-collapse collapse" aria-labelledby="aboutHeadingFour" data-bs-parent="#aboutExample">
+                                    <p class="accordion-body faq-answers">
+                                        For one movie you can create only one label, but for all other information and
+                                        details, you can update them any number of times
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="aboutHeadingFive">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#aboutCollapseFive" aria-expanded="false" aria-controls="aboutCollapseFive">
+                                    Is there a Limitation on the number of posts?
+                                  </button>
+                                </h2>
+                                <div id="aboutCollapseFive" class="accordion-collapse collapse" aria-labelledby="aboutHeadingFive" data-bs-parent="#aboutExample">
+                                    <p class="accordion-body faq-answers">
+                                        There is no limitation on the number of posts you would like to post. Feel free and
+                                        share everything you would like to share with your audience, keep entertaining and
+                                        engaging them with your movie details.
+                                    </p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="faq-questions-bg-container">
+                        <div class="faq-main-topic-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useExample" aria-expanded="false" aria-controls="useExample">
+                                Use Case
+                            </button>
+                        </div>
+
+                        <div class="accordion collapse" id="useExample">
+                            <div class="accordion-item" >
+                            <h2 class="accordion-header" id="useHeadingOne">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseOne" aria-expanded="false" aria-controls="useCollapseOne">
+                                    I have just completed my film. When should I focus on distribution and promotional activities?
+                                </button>
+                            </h2>
+                            <div id="useCollapseOne" class="accordion-collapse collapse" aria-labelledby="useHeadingOne" data-bs-parent="#useExample">
+                                <p class="accordion-body faq-answers mb-0 pb-0">
+                                    Great!
+                                </p>
+                                <p class="accordion-body faq-answers">
+                                    Typically for a large scale movie, the promotions should start at least 4-5 months before
+                                    the movie release. If it is a small to medium scale movie, the movie promotions should
+                                    begin at least two months prior to its release. So, we suggest that depending on the scale
+                                    and size of your movie, you plan its release date and accordingly the movie promotions
+                                </p>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="useHeadingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseTwo" aria-expanded="false" aria-controls="useCollapseTwo">
+                                        I am a filmmaker, a creative person and not into the business or the marketing
+                                        side of movie-making which is equally or more important. Please share your expert
+                                        suggestions.
+                                    </button>
+                                </h2>
+                                <div id="useCollapseTwo" class="accordion-collapse collapse" aria-labelledby="useHeadingTwo" data-bs-parent="#useExample">
+                                    <p class="accordion-body faq-answers">
+                                        You are 100% right when you say that the business and marketing side of movie-making
+                                        is critical. Some people do get lucky and have a fluke hit or has a producing partner
+                                        who takes care of all the business and marketing or has all the money to hire the right
+                                        person for the job. But typically for someone whose film career is in the early stages,
+                                        it’s tough getting into distribution and promotion. It’s difficult getting access and
+                                        being able to afford sophisticated technological infrastructure which big production
+                                        houses offer to veteran filmmakers. Cinystore offers precisely the same technological
+                                        infrastructure and business tools of big production houses at an affordable deal for
+                                        passionate filmmakers.
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="useHeadingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseThree" aria-expanded="false" aria-controls="useCollapseThree">
+                                        I am receiving inquiries from many distributors regarding my film.
+                                        They are excited to see it. Should I send them a copy of the movie so
+                                        that can they can acquire it?
+                                    </button>
+                                </h2>
+                                <div id="useCollapseThree" class="accordion-collapse collapse" aria-labelledby="useHeadingThree" data-bs-parent="#useExample">
+                                    <p class="accordion-body faq-answers">
+                                        It is a business decision that you need to make. We have no say in it.
+                                        However, this is our take - If you are listed in the trade, the chances are that
+                                        major distributors will request a copy of your movie. As a filmmaker in the early
+                                        stage, you may be tempted to show them your work even if it is a rough cut hoping
+                                        to get a distribution deal. Don’t fall for any of their requests. Avoid sending
+                                        them any copy of your movie - rough or final cut. Just don’t send them the movie.
+                                        Instead, You must showcase your movie at the right place (like Cinystore, film
+                                        festival, etc), at the right time to make the buyers interested in buying your
+                                        film. Even here, a small portion or teaser of the movie will be shown to the
+                                        audience. So when you receive a call from any distributor requesting a copy of
+                                        your movie, thank them for their interest but tell them that it’s not ready.
+                                        Tell them to check with you in a month or so.
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="useHeadingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseFour" aria-expanded="false" aria-controls="useCollapseFour">
+                                        My film is selected in a highly reputed film festival. So, I don’t need to
+                                        bother about distribution, marketing and promotions anymore. Am I correct?
+                                    </button>
+                                </h2>
+                                <div id="useCollapseFour" class="accordion-collapse collapse" aria-labelledby="useHeadingFour" data-bs-parent="#useExample">
+                                    <p class="accordion-body faq-answers">
+                                        Congratulations on the honorable selection! Film festivals are a great platform
+                                        to showcase your movie to the world at large. But, they last for a day or two.
+                                        Also, they are an expensive proposition. When you go to any film festival, your
+                                        work has just begun. When you are out promoting your movie at any reputed film
+                                        festival, you need to have a strong marketing plan and strategy in place. There
+                                        will be press coverage, interviews, awards, critic quotes and so much marketing
+                                        material that you can capitalize upon to it achieve your movie success. You have
+                                        one big chance to bag a distribution deal and marketing is your key to achieving
+                                        that goal. But most filmmakers miss this crucial aspect of the film business and
+                                        come back from the festival without a deal. Worse still, they are clueless about
+                                        what their next step should be. Have a strong marketing strategy and plan in place
+                                        and it could just make your film career.
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="useHeadingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseFive" aria-expanded="false" aria-controls="useCollapseFive">
+                                        Do I still need to invest in traditional marketing when I plan to sell my
+                                        movie via social media and the internet?
+                                    </button>
+                                </h2>
+                                <div id="useCollapseFive" class="accordion-collapse collapse" aria-labelledby="useHeadingFive" data-bs-parent="#useExample">
+                                    <p class="accordion-body faq-answers">
+                                        It is advisable depending on your audience demographics, budget and overall
+                                        business goal. Even if you want to get into traditional marketing and
+                                        distribution, Cinystore’s intelligent business tools will help you gain insights
+                                        on which market to focus on and where to direct your marketing spend. Out of the
+                                        thousands of movies made each year, a handful of them make serious money. Because
+                                        making money is hard work. It takes specific strategies and plans to succeed.
+                                        Very few filmmakers invest that much of time, effort and money into the marketing
+                                        side of movie-business. And even if they do, they lack the knowledge or
+                                        infrastructure on how to use traditional and non-traditional marketing and
+                                        distribution. The truth is that anyone with a decent film can achieve business
+                                        success with the right knowledge and dedicated support. You don’t need big names,
+                                        or your movie doesn’t even have to be phenomenal to become a success. If your
+                                        film is decent enough, you stand a real chance.
+                                    </p>
+                                </div>
+                              </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="useHeadingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#useCollapseSix" aria-expanded="false" aria-controls="useCollapseSix">
+                                        Why should I buy a business tool when I can hire an experienced marketing
+                                        professional, to promote my film?
+                                    </button>
+                                </h2>
+                                <div id="useCollapseSix" class="accordion-collapse collapse" aria-labelledby="useHeadingSix" data-bs-parent="#useExample">
+                                    <p class="accordion-body faq-answers">
+                                        Only big production houses can afford a proper marketing team. Even you hire an
+                                        experienced marketing professional, they lack the intelligent insights that can
+                                        only be captured by a sophisticated tool like Cinystore, which limits their
+                                        capacity to market and promote a movie effectively.
+                                    </p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="faq-questions-bg-container">
+                        <div class="faq-main-topic-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#techExample" aria-expanded="false" aria-controls="techExample">
+                                Technologies
+                            </button>
+                        </div>
+
+                        <div class="accordion collapse" id="techExample">
+                           <div class="accordion-item" >
+                            <h2 class="accordion-header" id="techHeadingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#techCollapseOne" aria-expanded="false" aria-controls="techCollapseOne">
+                                    How different are you?
+                                </button>
+                            </h2>
+                            <div id="techCollapseOne" class="accordion-collapse collapse" aria-labelledby="techHeadingOne" data-bs-parent="#techExample">
+                                <p class="accordion-body faq-answers">
+                                    We provide all the analytics, consolidated, on a single dashboard along with deep
+                                    insights which help the filmmaker to take a more informed business decision. Along
+                                    with a PPV based OTT platform for selling their movie directly to their Consumers
+                                </p>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="techHeadingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#techCollapseTwo" aria-expanded="false" aria-controls="techCollapseTwo">
+                                        What kind of Analytics do you provide?
+                                    </button>
+                                </h2>
+                                <div id="techCollapseTwo" class="accordion-collapse collapse" aria-labelledby="techHeadingTwo" data-bs-parent="#techExample">
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        i.	First Impression Analysis for Creative designing and Marketing Communication:
+                                        With our AI software Content owners can generate a highlight communication of
+                                        their content by analyzing user reactions in real time from multiple angles
+                                        and improve the speed and efficiency to organize promotional.
+                                    </p>
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        ii.	Behavior Analysis for User Interest and asset engagement:
+                                        Personalization of the user experience has shifted from a luxury to
+                                        a user expectation. Cinystore, through our proprietary data mining
+                                        system, will extract ideas and themes that would suit a particular
+                                        movie’s ad campaign, support content owners to recommend personalized content
+                                        based on data from user activity and behavior.
+                                    </p>
+                                    <p class="accordion-body faq-answers mb-0 pb-0">
+                                        iii.  Sentimental Analysis to access positive, negative or neutral trend.
+                                    </p>
+                                    <p class="accordion-body faq-answers">
+                                        iv.	Market Analysis to access the release date and possible revenue Generation
+                                        geographically
+                                    </p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="faq-questions-bg-container">
+                        <div class="faq-main-topic-container">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacyExample" aria-expanded="false" aria-controls="privacyExample">
+                                Privacy Policy
+                            </button>
+                        </div>
+
+                        <div class="accordion collapse" id="privacyExample">
+                           <div class="accordion-item" >
+                            <h2 class="accordion-header" id="privacyHeadingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacyCollapseOne" aria-expanded="false" aria-controls="privacyCollapseOne">
+                                    What are the terms and conditions of use at Cinystore?
+                                </button>
+                            </h2>
+                            <div id="privacyCollapseOne" class="accordion-collapse collapse" aria-labelledby="privacyHeadingOne" data-bs-parent="#privacyExample">
+                                <p class="accordion-body faq-answers">
+                                    Cinystore.com is an Internet-based e-commerce portal operated by
+                                    M/s Asquare Enterprises., a company incorporated under the laws of India.
+                                    Please refer to the Terms and Conditions Page.
+                               </p>
+                            </div>
+                          </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="privacyHeadingTwo">
+                                  <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#privacyCollapseTwo" aria-expanded="false" aria-controls="privacyCollapseTwo">
+                                    What are the Legal or Privacy requirements of Cinystore?
+                                  </button>
+                                </h2>
+                                <div id="privacyCollapseTwo" class="accordion-collapse collapse" aria-labelledby="privacyHeadingTwo" data-bs-parent="#privacyExample">
+                                    <p class="accordion-body faq-answers">
+                                        As a Cinystore user, you are strongly advised to read the Privacy Document.
+                                        Cinystore.com is a venture of Nokpage Technologies, and its privacy policy tells
+                                        you how we use personal information collected at this site.
+                                    </p>
+                                </div>
+                              </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+   {% endblock %}
+</body>
+
+</html>

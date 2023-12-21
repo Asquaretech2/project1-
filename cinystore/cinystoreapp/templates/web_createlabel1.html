@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Business | web create label</title>
+</head>
+	{% extends "producerhead.html" %}
+	{% load static %}
+	{% load widget_tweaks %}
+	<body>
+		{% block header %}
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-2 col-lg-2 col-md-2 col-sm-2 col-12"></div>
+				<div class="col col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10">
+					<div class="ui-block">
+						<div class="ui-block-content">
+							<form method="post" enctype="multipart/form-data">
+								{% csrf_token %}
+								<div class="row">
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Season">Season</label>
+											<input type="text" class="form-control" id="Season" name="Season" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Director">Director</label>
+											<input type="text" class="form-control" id="Director" name="Director" Required>
+										</div>
+									</div>
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="No. of Episodes">No. of Episodes </label>
+											<input type="text" class="form-control" id="No. of Episodes" name="No. of Episodes" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Cast">Cast</label>
+											<input type="text" class="form-control" id="Cast" name="Cast" Required>
+										</div>
+									</div>
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Poster">Posters</label>
+											<input type="file" class="form-control" id="Poster" name="Poster" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Release_date">Release date</label>
+											<input type="text" class="form-control" id="Release_date" name="Release_date" Required>
+										</div>
+									</div>
+									<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="form-group label-floating">
+											<label for="Season Synopsis">Season Synopsis</label>
+											<input type="text" class="form-control" id="Season Synopsis" name="Season Synopsis" Required>
+										</div>
+										<div class="form-group label-floating">
+											<label for="Streaming_on">Streaming on</label>
+											<input type="text" class="form-control" id="Streaming_on" name="Streaming_on" Required>
+										</div>
+									</div>
+									<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+										
+										<div class="form-group label-floating">
+											<label for="Trailer">Trailer</label>
+											<input type="text" class="form-control" id="Trailer" name="Trailer" Required>
+											
+										</div>
+									</div>
+										<a href="{% url 'web_createlabel' %}" class="btn btn-primary d-grid gap-3 col-3 mx-auto" type="submit" value="submit">
+											Back
+										</a>
+									
+										<a href="{% url 'episodeupload' %}" class="btn btn-primary d-grid gap-3 col-3 mx-auto" type="submit" value="submit">
+										Create Episodes
+										</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a class="back-to-top" href="#">
+			<svg class="back-icon" width="16" height="18"><use xlink:href="#olymp-back-to-top"></use></svg>
+		</a>
+	</body>
+</html>
+{% endblock %}

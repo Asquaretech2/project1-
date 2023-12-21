@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends "corpbase.html" %}
+<head>
+	{% load static %}
+</head>
+<body>
+	{% block content %}
+
+
+        <div class="index-container">
+                <div class="index-wrapper">
+                   {% for x in mydata %}
+			        {% if forloop.counter <= 100 %}
+                    <div class="index-img-container">
+                         <img src="{{ x.Poster.url }}" alt="poster">
+                    </div>
+                    {% endif %}
+		   	        {% endfor %}
+                </div>
+            </div>
+
+		<div class="index-main-bg-container">
+            <div class="container" style="background-color: #00000026;box-shadow: 4px 5px 28px 39px #00002675;padding: 20px;border-radius:10px;">
+			<div class="row">
+				<div class="col-12 col-md-6">
+					<div class="main-header-content">
+						<h1>Cinystore, a perfect place for movie buffs! With a huge selection of movies to know about, you're sure to find something you love</h1>
+						<p>Join the ultimate destination for movie lovers!
+						Connect with like-minded cinephiles and discover new favorites.!</p>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<div class="playstore-main-bg-container">
+						<h2 class="playstore-heading">Get the app</h2>
+						<div class="playstore-img-container">
+                        <a href="https://play.google.com/store/apps/details?id=com.cinystore&pcampaignid=web_share">
+                            <img src="{% static 'img/google_icon.jpg' %}" class="google-playstore-img" alt="google-icon"/>
+						</a>
+						<!--<a href="https://play.google.com/store/apps/details?id=com.cinystore&pcampaignid=web_share">-->
+                            <img src="{% static 'img/apple_icon.jpg' %}" class="apple-playstore-img" alt="apple-icon"/>
+						</a>
+				    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+        </div>
+    {% endblock %}
+</body>
+</html>
+

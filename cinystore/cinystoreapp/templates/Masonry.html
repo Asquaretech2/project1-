@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore | Masonry</title>
+</head>
+	{% extends "base.html" %}
+	{% load static %}
+	{% block content %}
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="clients-grid">
+						<div class="ui-block" id="registration-form-tabs-content">
+							<div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+								<div class="title h6">Share Your Review</div>
+								<form class="content" method="Post" >{% csrf_token %}
+									<div class="row">
+										<div class="col col-xl-3 col-lg-3 col-md-6 col-sm-12">
+											<div class="form-group label-floating">
+												<label class="control-label" for="First_name">Author Name</label>
+												<input class="form-control" id="First_name" name="First_name" placeholder=""type="text">
+											</div>
+										</div>
+										<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group label-floating is-select">
+												<label class="control-label" for="Gender">Movie</label>
+												<select class="form-select" id="Gender" name="Gender">
+													<option value="Male">Movies List </option>
+												</select>
+											</div>
+										</div>
+										<div class="col-12">
+											<div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group label-floating">
+												<label class="control-label" for="Last_name">Write Review</label>
+												<input class="form-control" id="Last_name" name="Last_name" placeholder="" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="remember">
+										<div class="checkbox">
+											<label>
+												<input name="optionsCheckboxes" type="checkbox">
+												I accept the <a href="#">Terms and Conditions</a> of the website
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<ul class="cat-list-bg-style align-center sorting-menu">
+							<li class="cat-list__item active" data-filter="*"> <a href="#" class="">Publish</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{% endblock %}
+</html>

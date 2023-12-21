@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+{% extends "producerhead.html" %}
+{% load static %}
+<html lang="en">
+
+<body>
+   {% block header %}
+   <div class="crumina-module crumina-heading">
+        <div class="producer-dashboaard-bg-container">
+            <h1 class="producer-dashboard-logo-heading">Cinystore</h1>
+        </div>
+   </div>
+
+
+   <div class="container">
+       <div class="label-bg-container mb-4">
+           <form class="serial-form-form-container">
+               <div class="row">
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="serial_name" class="serial-form-input-text">Serial Name</label>
+                           <input type="text" id="serial_name" name="serial_name" class="serial-form-input-fields" placeholder="Enter serial name"/>
+                       </div>
+                   </div>
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="Release_date" class="serial-form-input-text">Release date</label>
+                           <input type="date" id="Release_date" name="Release_date" class="serial-form-input-fields" placeholder="Enter release date"/>
+                       </div>
+                   </div>
+               </div>
+               <div class="row">
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="Genre" class="serial-form-input-text">Genre</label>
+                           <input type="text" id="Genre" name="Genre" class="serial-form-input-fields" placeholder="Enter Genre"/>
+                       </div>
+                   </div>
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="Production_house" class="serial-form-input-text">Production House</label>
+                           <input type="text" id="Production_house" name="Production_house" class="serial-form-input-fields" placeholder="Enter Production House"/>
+                       </div>
+                   </div>
+               </div>
+               <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="serial-form-input-container">
+                            <label for="Producer" class="serial-form-input-text">Producer</label>
+                            <input id="Producer" name="Producer" type="text" class="serial-form-input-fields" placeholder="Enter Producer"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="serial-form-input-container">
+                            <label for="season" class="serial-form-input-text">Season</label>
+                            <input id="season" name="season" type="text" class="serial-form-input-fields" placeholder="Enter Season"/>
+                        </div>
+                    </div>
+                </div>
+               <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="serial-form-input-container">
+                            <label for="Director" class="serial-form-input-text">Director</label>
+                            <input id="Director" name="Director" type="text" class="serial-form-input-fields" placeholder="Enter Director"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="serial-form-input-container">
+                            <label for="cast" class="serial-form-input-text">Cast</label>
+                            <input id="cast" name="cast" type="text" class="serial-form-input-fields" placeholder="Enter Cast"/>
+                        </div>
+                    </div>
+               </div>
+               <div class="row">
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="Language" class="serial-form-input-text">Language</label>
+                                 <!--<input type="text" id="language" class="serial-form-input-fields" placeholder="Enter language"/>-->
+                           <select id="language" name="Language" class="serial-form-input-fields" placeholder="Enter language">
+                                <option class="serial-form-select-nums">Telugu</option>
+                                <option class="serial-form-select-nums">Tamil</option>
+                                <option class="serial-form-select-nums">Malayalam</option>
+                                <option class="serial-form-select-nums">Kannada</option>
+                                <option class="serial-form-select-nums">Hindi</option>
+                           </select>
+                       </div>
+                   </div>
+                   <div class="col-12 col-md-6 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="sensor" class="serial-form-input-text">Sensor</label>
+                           <input type="text" id="sensor" class="serial-form-input-fields" placeholder="Enter Sensor"/>
+                       </div>
+                   </div>
+               </div>
+               <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="serial-form-input-container">
+                        <label for="streaming_on" class="serial-form-input-text">Streaming On</label>
+                        <select id="streaming_on" name="streaming_on" class="serial-form-input-fields" style="color: black;">
+                            <option value="amazon">AMAZON PRIME</option>
+                            <option value="netflix">NETFLIX</option>
+                            <option value="dispney">DISNEY HOTSTAR</option>
+                            <option value="aha">AHA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="serial-form-input-container">
+                        <label for="episode_trailer" class="serial-form-input-text">Episode Trailer</label>
+                        <input id="episode_trailer" name="episode_trailer" type="file" class="serial-form-input-fields"/>
+                    </div>
+                </div>
+            </div>
+               <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="serial-form-input-container">
+                            <label for="Poster" class="serial-form-input-text">Posters</label>
+                            <input id="Poster" name="Poster" type="file" class="serial-form-input-fields"/>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4">
+                        <div class="serial-form-input-container">
+                            <label for="episodes" class="serial-form-input-text">No. of Episodes</label>
+                            <select id="episodes" name="episodes" class="serial-form-input-fields">
+                                <option class="serial-form-select-nums">1</option>
+                                <option class="serial-form-select-nums">2</option>
+                                <option class="serial-form-select-nums">3</option>
+                                <option class="serial-form-select-nums">4</option>
+                                <option class="serial-form-select-nums">5</option>
+                                <option class="serial-form-select-nums">6</option>
+                                <option class="serial-form-select-nums">7</option>
+                                <option class="serial-form-select-nums">8</option>
+                                <option class="serial-form-select-nums">9</option>
+                                <option class="serial-form-select-nums">10</option>
+                            </select>
+                        </div>
+                    </div>
+               </div>
+
+               <div class="row">
+                   <div class="col-12 mb-4">
+                       <div class="serial-form-input-container">
+                           <label for="synopsis" class="serial-form-input-text">Synopsis</label>
+                           <textarea id="synopsis" rows="6" cols="100" class="serial-form-input-textarea serial-form-input-fields"></textarea>
+                       </div>
+                   </div>
+               </div>
+                <div class="col-12 mt-4">
+                    <div class="serial-form-btn-container">
+                        <button class="serial-form-btn" type="submit" value="submit">Upload</button>
+                    </div>
+                </div>
+           </form>
+       </div>
+   </div>
+   {% endblock %}
+</body>
+</html>

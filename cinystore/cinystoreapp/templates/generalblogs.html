@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<head>
+	<title>Cinystore| General Blogs</title>
+</head>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en">
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="clients-grid">
+						<ul class="cat-list-bg-style align-center sorting-menu">
+							<li class="cat-list__item active" data-filter="*"><a href="#" class="">ALL CATEGORIES</a></li>
+							<li class="cat-list__item" data-filter=".community"><a href="#" class="">THE COMMUNITY</a></li>
+							<li class="cat-list__item" data-filter=".news"><a href="#" class="">Cinystore NEWS</a></li>
+							<li class="cat-list__item" data-filter=".inspiration"><a href="#" class="">INSPIRATION</a></li>
+						</ul>
+						<div class="row sorting-container" id="clients-grid-1" data-layout="masonry">
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item community">
+								<div class="ui-block">	
+									<!-- Post -->	
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post1.webp' %}" alt="post" width="370" height="261">
+										</div>
+										<div class="post-content">
+											<a href="Indblog.html" class="post-category bg-transparent">THE COMMUNITY</a>
+											<a href="Indblog.html" class="h4 post-title">Here’s the Featured Urban photo of August! </a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														7 hours ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item news">
+								<div class="ui-block">
+									<!-- end Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post2.webp' %}" alt="post" width="368" height="260">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">NEWS</a>
+											<a href="#" class="h4 post-title">Cinystore Network added new photo filters!</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														12 hours ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Jack Scorpio</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item inspiration">
+								<div class="ui-block">
+									<!-- Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post3.webp' %}" alt="post" width="370" height="261">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">INSPIRATION</a>
+											<a href="#" class="h4 post-title">Take a look at these truly awesome worspaces</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														2 days ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item news">
+								<div class="ui-block">
+									<!-- Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post4.webp' %}" alt="post" width="368" height="259">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">Cinystore NEWS</a>
+											<a href="#" class="h4 post-title">Here’s the Featured Urban photo of July!</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														20 days ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Jack Scorpio</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item community">
+								<div class="ui-block">
+									<!-- Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post5.webp' %}" alt="post" width="369" height="259">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">THE COMMUNITY</a>
+											<a href="#" class="h4 post-title">Cinystore’s family picnic was a success!</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														1 MONTH ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item community">
+								<div class="ui-block">	
+									<!-- Post -->	
+									<article class="hentry blog-post">	
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post6.webp' %}" alt="post" width="369" height="261">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">THE COMMUNITY</a>
+											<a href="#" class="h4 post-title">Olympians: Journal of my backpacking days</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														1 MONTH ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">James Spiegel</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item community">
+								<div class="ui-block">
+									<!-- Post -->	
+									<article class="hentry blog-post">	
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post7.webp' %}" alt="post" width="367" height="261">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">THE COMMUNITY</a>
+											<a href="#" class="h4 post-title">Here are the best tattoos of our community</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+									
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														2 MONTHS ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Jack Scorpio</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item inspiration">
+								<div class="ui-block">	
+									<!-- Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post8.webp' %}" alt="post" width="368" height="260">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">INSPIRATION</a>
+											<a href="#" class="h4 post-title">Take a look to the coolest beaches of the world</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														2 months ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+							<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 sorting-item inspiration">
+								<div class="ui-block">
+									<!-- Post -->
+									<article class="hentry blog-post">
+										<div class="post-thumb">
+											<img loading="lazy" src="{% static 'img/post9.webp' %}" alt="post" width="366" height="260">
+										</div>
+										<div class="post-content">
+											<a href="#" class="post-category bg-transparent">INSPIRATION</a>
+											<a href="#" class="h4 post-title">Check out this 10 yummy breakfast recipes</a>
+											<p>Here’s a photo from last month’s photoshoot. We really had a great time and got a
+												batch of really awesome shots for the new catalog.
+											</p>
+											<div class="author-date not-uppercase">
+												<div class="post__date">
+													<time class="published" datetime="2017-03-24T18:18">
+														3 months ago by
+													</time>
+												</div>
+												<a class="h6 post__author-name fn" href="#">Maddy Simmons</a>
+											</div>
+										</div>
+									</article>
+									<!-- ... end Post -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Pagination -->
+			<nav aria-label="Page navigation">
+				<ul class="pagination justify-content-center">
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">Previous</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1<div class="ripple-container"><div class="ripple ripple-on ripple-out" style="left: -10.3833px; top: -16.8333px; background-color: rgb(255, 255, 255); transform: scale(16.7857);"></div></div></a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">...</a></li>
+					<li class="page-item"><a class="page-link" href="#">12</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- ... end Pagination -->
+		</div>
+	</body>
+</html>
+{% endblock %}
