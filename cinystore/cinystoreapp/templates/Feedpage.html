@@ -270,6 +270,66 @@
 					</a>
 				</article>
 
+				{% elif x.model_type == 'mydata2' %}
+				<!-- VideoCLip -->
+				
+				<article class="hentry post has-post-thumbnail">
+					<div class="post__author author vcard inline-items">
+						<img loading="lazy" src="https://cinystorepage.s3.amazonaws.com/{{ x.logo }}" width="36" height="36" alt="logo">
+						<div class="author-date">
+							<p class="h6 post__movie-name fn" style="margin-bottom:0px; color: aqua; font-family: montserrat;">{{ x.source}}</p>
+
+							<a class="h6 post__movie-name fn" href="{% url 'labelof' x.Movie_name %}" target="_blank">{{ x.Movie_name}}</a>
+							<div class="h6">
+								<time class="published" datetime="2017-03-24T18:18">
+									Posted on {{ x.timestamp_field }}
+								</time>
+							</div>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col-12 col-md-7">
+							<span class="sliced">{{ x.text|slice:":200" }}</span>
+                            <span class="full" style="display:none;">{{ x.text|linebreaksbr }}</span>
+                            <button onclick="toggleContent(this)" class="readmore">Read more</button>			
+						</div>
+						<div class="col-12 col-md-5">
+							<div class="post-thumb-publicfeed">
+								<div style="width: 100%; height: 250px;">
+								<video id="my-video" class="video-js my-video" controls preload="auto" style="width: 100%; height: 100%;" poster="{{ x.Image.url }}" data-setup="{}" video>
+								<!------------------------------------------------- GIF player ------------------------------------------------>
+								<source src="{{ x.Video.url }}" type="video/mp4"/>
+								</video>
+								</div>
+								<!-- JS library for GIF player -->
+								
+								<script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+								<!-- ...end JS library for GIF player -->
+				
+								<!-- JS-init for GIF player is in the file \js\libs-init\libs-init.js -->
+				
+								<!------------------------------------------- ... end GIF player ---------------------------------------------->
+				
+							</div>
+						</div>
+					</div>
+					<a href="" class=""> 
+						<svg class="olymp-like-post-icon"><use xlink:href=""></use></svg> Like<span>{{ x.like_count }}</span>
+					</a>
+				
+					<a href="" class=""> 
+						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
+					</a>
+				
+					<a href="{% url 'clip_promo' x.Movie_name %}" class=""> 
+						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
+					</a>
+				
+					<a href="" class=""> 
+						<svg class="olymp-follow-icon"><use xlink:href=""></use></svg> Follow<span>{{ x.follow_count }}</span>
+					</a>
+				</article>
+
 				{% elif x.model_type == 'mydata3' %}
 				<article class="hentry post has-post-thumbnail">
 					<div class="post__author author vcard inline-items">
@@ -316,7 +376,7 @@
 						<svg class="olymp-comments-post-icon"><use xlink:href=""></use></svg>Comment
 					</a>
 				
-					<a href="" class=""> 
+					<a href="{% url 'post_promo' x.slug %}" class=""> 
 						<svg class="olymp-share-icon"><use xlink:href=""></use></svg>Share
 					</a>
 				

@@ -740,3 +740,49 @@ class RecentMovies(models.Model):
         return f"{self.movie_title}'s model"
     
 
+
+class LikeClip(models.Model):
+    id = models.BigAutoField(auto_created=True,primary_key=True, serialize=False, verbose_name='ID')
+    like = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_id = models.ForeignKey('Clips', default=True, verbose_name="clips", on_delete=models.CASCADE, db_column='post_id')
+    movie_title = models.CharField(max_length=255, default=None)
+    username = models.CharField(max_length=255, default=None)
+    timestamp_field = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        db_table = 'like_clip'
+        ordering = ['timestamp_field']
+
+    def __str__(self):
+        return '%s - %s' % (self.username, self.movie_title)
+
+
+class FollowClip(models.Model):
+    id = models.BigAutoField(auto_created=True,primary_key=True, serialize=False, verbose_name='ID')
+    follower = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_id = models.ForeignKey('Clips', default=True, verbose_name="clips", on_delete=models.CASCADE, db_column='post_id')
+    movie_title = models.CharField(max_length=255, default=None)
+    username = models.CharField(max_length=255, default=None)
+    timestamp_field = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        db_table = 'follow_clip'
+        ordering = ['timestamp_field']
+    def __str__(self):
+        return '%s - %s' % (self.username, self.movie_title)
+
+class CommentClip(models.Model):
+    id = models.BigAutoField(auto_created=True,primary_key=True, serialize=False, verbose_name='ID')
+    commenter = models.ForeignKey(User, on_delete=models.CASCADE)
+    comments = models.TextField(max_length=5000)
+    post_id = models.ForeignKey('Clips', default=True, verbose_name="clips", on_delete=models.CASCADE, db_column='post_id')
+    movie_title = models.CharField(max_length=255, default=None)
+    username = models.CharField(max_length=255, default=None)
+    timestamp_field = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        db_table = 'comment_clip'
+        ordering = ['timestamp_field']
+
+    def __str__(self):
+        return '%s - %s' % (self.username, self.movie_title)
+    
+
+

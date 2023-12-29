@@ -12,16 +12,16 @@ from django.template.loader import render_to_string
 from cinystoreapp.models import *
 from .models import *
 from django.contrib.auth import authenticate, login, logout
-from django.views import View
+from django.conf import settings
 import random
 import http.client
-from django.conf import settings
 
 
-def index(request):
-    template = loader.get_template('index.html')
+
+def marketing_dashboard(request):
+    template = loader.get_template('marketing_dashboard.html')
     context = {
-        'index': index,
+        'marketing_dashboard': marketing_dashboard,
     }
     return HttpResponse(template.render(context, request))
 
@@ -72,7 +72,7 @@ def market_signup(request):
                 return redirect('market_signup')
 
         myuser = User.objects.create_user(username=username, email=email, password=password, first_name=first_name, last_name=last_name)
-        phone_number = PhoneNumber.objects.create(number=number)
+        phone_number = PhoneNumber.objects.create(number=number, email=email)
         myuser.phone_numbers.add(phone_number)
         myuser.is_marketing = True
         myuser.is_active = False
@@ -130,10 +130,48 @@ def market_signup(request):
         )
         email.fail_silently = True
         email.send()
-
-        return redirect('market_login')
+        otp = str(random.randint(1000, 9999))
+        phone_number.otp = otp
+        phone_number.save()
+        send_otp(number, otp)
+        request.session['number'] = number
+        return redirect('otp')
     return render(request, "market_signup.html")
 
+
+
+def send_otp(number, otp):
+    print("FUNCTION CALLED")
+    conn = http.client.HTTPSConnection("api.msg91.com")
+    authkey = settings.AUTH_KEY
+    headers = { 'content-type': "application/json" }
+    senderid = 'cinystore'
+    templateid = '6583eebdd6fc0518e471ba43'
+    
+    url = "https://control.msg91.com/api/v5/otp?template_id="+templateid+"&mobile="+number+"&otp="+otp+"&sender="+senderid+"&authkey="+authkey+"&country=91"
+    # url = "http://api.msg91.com/api/sendotp.php?otp="+otp+"&message="+"Your%20otp%20is%20"+otp +"&sender="+senderid+"&mobile="+number+"&authkey="+authkey+"&country=91"
+    conn.request("GET", url, headers=headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data)
+    return None
+
+
+
+def otp(request):
+    number = request.session['number']
+    context = {'number': number}
+    if request.method == 'POST':
+        otp = request.POST.get('otp')
+        profile = PhoneNumber.objects.filter(number=number).first()
+        if otp == profile.otp:
+            return redirect('marketing_dashboard')
+        else:
+            print('Wrong')
+            context = {'message': 'Wrong OTP', 'class': 'danger', 'number': number}
+            return render(request, 'market_otp.html', context)
+
+    return render(request, 'market_otp.html', context)
 
 def activate2(request, uid64, token):
     try:
@@ -154,8 +192,6 @@ def activate2(request, uid64, token):
 def marketing_account_activation_success(request):
     return render(request, 'marketing_account_activation_success.html')
 
-
-
      
 # Create your views here.
 def market_Logout(request):
@@ -171,7 +207,7 @@ def market_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('Feedpage')  # Redirect to the home page after successful login
+            return redirect('marketing_dashboard')  # Redirect to the home page after successful login
         else:
             messages.error(request, "Invalid username or password!")
             return redirect('market_login')

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "market_base.html" %}
+<html>
+{% load static %}
+<body>
+    {% block header %}
+            <div class="row">
+                <div class="col-12 col-md-7">
+                    <div class="password-page-text-container">
+                        <p class="password-page-text">Dear Marketing</p>
+                        <p class="password-page-text">Its fantastic to have you with us !<br/>
+                            Welcome to the Cinystore family. We are thrilled<br/>
+                            that you have chosen us to be part of your family.
+                        </p>
+                        <p class="password-page-text mt-4">Few quick details for you to share before you can create your Label.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="password-page-container">
+                        <div class="password-form-bg-container">
+                            <h1 class="password-page-heading">OTP Verification</h1>
+							<p>Please enter the OTP sent to your mobile number:{{ mobile }}</p>
+                            <form method="post" action="{% url 'marketing_dashboard' %}">
+								{% csrf_token %}
+                                <div class="password-page-inputs-container">
+                                    <label for="otp" class="password-page-input-texts">OTP</label>
+                                    <input type="text" id="otp" name="otp" class="password-page-input-fields" placeholder="OTP"/>
+                                </div>
+								{% for message in messages  %}
+        						<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            						<strong> {{ message }} </strong>
+        						</div>
+        						{% endfor %}
+                                <div class="password-page-btn-container">
+                                    <button type="submit" class="password-page-btn" value="submit">
+                                        Submit
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+</body>
+
+</html>

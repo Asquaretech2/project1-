@@ -501,7 +501,7 @@ def Feedpage(request):
     movies = Movie.objects.all().order_by('-timestamp_field')
     recent_movies = RecentMovies.objects.all().order_by('-timestamp_field')
     top_rated_movies = TopRatedMovies.objects.all().order_by('-timestamp_field')
-   
+    mydata2 = Clips.objects.all().order_by('-timestamp_field')
     
     try:
         movies = Movie.objects.all().order_by('-timestamp_field')
@@ -523,11 +523,15 @@ def Feedpage(request):
         top_rated_movies = TopRatedMovies.objects.all().order_by('-timestamp_field')
     except TopRatedMovies.DoesNotExist:
         top_rated_movies = []
+    try:
+        mydata2 = Clips.objects.all().order_by('-timestamp_field')
+    except Clips.DoesNotExist:
+        mydata2 = []
 
     
     producerDetails = ProducerRegister.objects.all()
 
-    combined_data = sorted(list(mydata) +list(movies) +list(mydata1) +list(mydata3) +list(recent_movies) +list(top_rated_movies), 
+    combined_data = sorted(list(mydata) +list(movies) +list(mydata1) +list(mydata2) +list(mydata3) +list(recent_movies) +list(top_rated_movies), 
     key=lambda x: x.timestamp_field, reverse=True
     )
 
@@ -1549,7 +1553,9 @@ def PersonalInformation_update(request):
 def labelof(request, Movie_name):
     mydata = CreateLabel.objects.filter(Movie_name=Movie_name)
     mydata2 = PostText1.objects.filter(Movie_name=Movie_name).order_by('-timestamp_field')
+    mydata1 = Clips.objects.filter(Movie_name=Movie_name).order_by('-timestamp_field')
     mydata3 = CommentPostText1.objects.filter(movie_title=Movie_name).order_by('-timestamp_field')
+    mydata4 = CommentClip.objects.filter(movie_title=Movie_name).order_by('-timestamp_field')
     # id = request.GET.get('id')
     # # Retrieve a queryset of records with the desired 'id'
     # matching_records = PostText1.objects.filter(id=id)
@@ -1559,7 +1565,7 @@ def labelof(request, Movie_name):
     #     mydata3 = CommentPostText1.objects.filter(Movie_name=matching_records[0]).order_by('-timestamp_field')
     # else:
     #     mydata3 = CommentPostText1.objects.none()
-    all_data = list(chain(mydata, mydata2, mydata3))
+    all_data = list(chain(mydata, mydata2, mydata3, mydata1, mydata4))
     all_data.sort(key=attrgetter('timestamp_field'), reverse=True)
     template = loader.get_template('labelof.html')
     context = {
@@ -1567,6 +1573,8 @@ def labelof(request, Movie_name):
         'mydata':mydata,
         'PostTextView':mydata2,
         'CommentPostText':mydata3,
+        'CommentClip': mydata4,
+        'ClipsView': mydata1,
     }
     return HttpResponse(template.render(context, request))
 
@@ -2061,4 +2069,80 @@ def Clip(request):
     else:
         form = VideoClipsForm()
     return render(request, 'Clips.html', {'form': form})
+
+
+def clip_promo(request, Movie_name):
+    mydata = CreateLabel.objects.filter(Movie_name=Movie_name).order_by('-timestamp_field')
+    mydata2 = Clips.objects.filter(Movie_name=Movie_name).order_by('-timestamp_field')
+    template = loader.get_template('clip_promo.html')
+    context = {
+        'clip_promo':mydata2,
+        'mydata': mydata,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+
+
+@login_required(login_url='/auth_login/')
+@user_required
+def like_clip(request, id):
+    user = request.user.username
+    clip = get_object_or_404(Clips, id=id)
+
+    # Check if the user has already liked the post
+    if LikeClip.objects.filter(like_id=request.user, post_id=clip).exists():
+        return JsonResponse({'success': False, 'message': 'You have already liked this post.'})
+    else:
+        # Create a like for the post
+        LikeClip.objects.create(
+            like=request.user,
+            post_id=clip,
+            movie_title=clip.Movie_name,
+            username=user
+        )
+        # Update like count for the post
+        like_count = LikeClip.objects.filter(post_id=clip).count()
+        Clips.objects.filter(id=id).update(like_count=like_count)
+        return JsonResponse({'success': True, 'like_count': like_count})
+
+@login_required(login_url='/auth_login/')
+@user_required
+def follow_clip(request, id):
+    user = request.user.username
+    clip = get_object_or_404(Clips, id=id)
+    follower_id = User.objects.get(username=user)
+    Movie_name = get_object_or_404(Clips, id=id)
+    Movie_title = clip.Movie_name
+
+    # Check if the user has already liked the post
+    if FollowClip.objects.filter(follower=follower_id, post_id=clip).exists():
+        return JsonResponse({'success': False, 'message': 'You have already followed this post.'})
+    else:
+        # Create a follow for the post
+        FollowClip.objects.create(follower=request.user,
+                                 post_id=clip,
+                                 movie_title=clip_promo.Movie_name,
+                                 username=user)
+        # Update like count for the post
+        follow_count = FollowClip.objects.filter(post_id=clip).count()
+        Clips.objects.filter(id=id).update(follow_count=follow_count)
+        return JsonResponse({'success': True, 'follow_count': follow_count})
+
+
+@login_required(login_url='/auth_login/')
+@user_required
+def comment_clip(request, id):
+    user = request.user.username
+    clip = get_object_or_404(Clips, id=id)
+    commenter = User.objects.get(username=user)
+    post_id = get_object_or_404(Clips, id=id)
+    Movie_title = clip.post_id
+    if request.method == 'POST':
+        comments = request.POST['comments']
+        CommentPostText1.objects.create(commenter=request.user, post_id=clip, comments=comments, movie_title=Movie_title, username=user)
+        return JsonResponse({'success': True, 'comment_id': post_id})
+    else:
+        return JsonResponse({'success': False, 'message': 'Comment text is required.'})
 

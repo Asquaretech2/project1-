@@ -174,7 +174,7 @@
                             </a>
                                 </div>
                             <div class="share" >
-                                <a href="{% url 'socialuserlogin' %}" class="share">Share</a>
+                                <a href="{% url 'post_promo' x.slug %}" class="share">Share</a>
                             </div>
                             </div><br><hr>
                         </div>
@@ -189,6 +189,78 @@
                                                   <a class="pull-left" href="#"><img class="media-object" src="{{ x.Banner.url }}" alt="Banner" style="width: 50px !important"></a>
                                                   <div class="media-body">
                                                       {% for x in CommentPostText %}
+                                                      <h4 class="media-heading">Posted on {{ x.timestamp_field }}</h4>
+                                                      <p>{{ x.comments|slice:":50" | linebreaksbr }}</p>
+                                                      {% endfor %}
+                                                  </div>
+                                              </div>
+                                              <form id="comment-form" data-post-id="{{ x.id }}">
+                                                  {% csrf_token %}
+                                                  <fieldset>
+                                                      <div class="row">
+                                                          <div class="form-group col-xs-12 col-sm-12 col-lg-12">
+                                                              <label for="comments"></label>
+                                                              <textarea id="comments" name="comments" maxlength="255" rows="4" cols="50"></textarea><br>
+                                                          </div>
+                                                      </div>
+                                                  </fieldset>
+                                                  <button class="btn btn-normal pull-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Cancel</button>
+                                                  <button type="button" class="btn btn-normal pull-right" id="comment-submit">Comment</button>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </section>
+                          </div>
+                      </div><br><br><hr>
+                        {% endfor %}
+                        {% for x in ClipsView %}
+                        <div class="mbr-section-text">
+                          <div class="post-heading"><span>{{ x.Heading }}</span></div>
+                            <div class="mbr-section-text">
+                                <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                    <span class="sliced">{{ x.text|slice:":200" }}</span>
+                                    <span class="full" style="display:none;">{{ x.text|linebreaksbr }}</span>
+                                    <button onclick="toggleContent(this)" class="readmore">Read more</button>
+                                </p>
+                            </div>
+                            <p class="mbr-text mbr-text-1 align-left mbr-fonts-style mbr-white display-7">
+                                <a href="{{ x.video|safe }}" target="_blank" ></a>
+                            </p>
+                        </div>
+                        <div class="Banner">
+                            <img src="{{ x.Image.url }}" alt="post-image">
+                        
+                            <div class="social_sites">
+                              <div class="likes" >
+                                <a href="{% url 'like_clip' x.id %}" class="like-button likes" data-post-id="{{ x.id }}">
+                                  Like: <span>{{ x.like_count }}</span>
+                              </a>
+                            </div>
+                            <button class="comments-button comments" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                              Comments
+                          </button>
+                            <div class="follow">
+                              <a href="{% url 'follow_clip' x.id %}" class="follow-button follow" data-post-id="{{ x.id }}">Follow:
+                                <span>{{ x.follow_count }}</span>
+                            </a>
+                                </div>
+                            <div class="share" >
+                                <a href="{% url 'socialuserlogin' %}" class="share">Share</a>
+                            </div>
+                            </div><br><hr>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                          <div class="card card-body" style="position: relative;top: 46px;">
+                              <section class="content-item" id="comment">
+                                  <div class="container" id="comments-container">
+                                      <div class="row">
+                                          <div class="col-sm-12">
+                                              <!-- COMMENT 1 - START -->
+                                              <div class="media"  data-comment-id="{{ comment.id }}">
+                                                  <a class="pull-left" href="#"><img class="media-object" src="{{ x.Banner.url }}" alt="Banner" style="width: 50px !important"></a>
+                                                  <div class="media-body">
+                                                      {% for x in CommentClip %}
                                                       <h4 class="media-heading">Posted on {{ x.timestamp_field }}</h4>
                                                       <p>{{ x.comments|slice:":50" | linebreaksbr }}</p>
                                                       {% endfor %}
